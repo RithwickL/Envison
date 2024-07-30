@@ -1,5 +1,6 @@
 var threads = [
     {
+        id: 1,
         title: "Thread 1",
         Author: "Aaron",
         date: date.now(),
@@ -18,6 +19,7 @@ var threads = [
         ]
     },
     {
+        id: 2,
         title: "Thread 2",
         Author: "Aaron",
         date: date.now(),
