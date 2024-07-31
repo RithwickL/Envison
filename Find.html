@@ -125,7 +125,8 @@
 
     <!-- Main Content -->
     <div class="main-content">
-        <h1>Find STEM Activities</h1>
+        <h1>Find Colleges/Universities in your Country</h1>
+        <p>Click on the Marker to Naviagte to the Institution's Website</p>
         <div class="dropdown-container">
             <select id="countryDropdown">
                 <option value="">Select a country</option>
@@ -177,159 +178,166 @@
 
         // Define STEM activity locations for different countries
         var locations = {
-            'USA': [
-                { coords: [37.7749, -122.4194], popup: 'STEM activity in San Francisco, USA' },
-                { coords: [40.7128, -74.0060], popup: 'STEM activity in New York City, USA' },
-                { coords: [34.0522, -118.2437], popup: 'STEM activity in Los Angeles, USA' },
-                { coords: [41.8781, -87.6298], popup: 'STEM activity in Chicago, USA' },
-                { coords: [47.6062, -122.3321], popup: 'STEM activity in Seattle, USA' }
-            ],
-            'UK': [
-                { coords: [51.5074, -0.1278], popup: 'STEM activity in London, UK' },
-                { coords: [55.9533, -3.1883], popup: 'STEM activity in Edinburgh, UK' },
-                { coords: [51.4545, -2.5879], popup: 'STEM activity in Bristol, UK' },
-                { coords: [53.4839, -2.2446], popup: 'STEM activity in Manchester, UK' },
-                { coords: [52.4862, -1.8904], popup: 'STEM activity in Birmingham, UK' }
-            ],
-            'Canada': [
-                { coords: [45.4215, -75.6972], popup: 'STEM activity in Ottawa, Canada' },
-                { coords: [49.2827, -123.1207], popup: 'STEM activity in Vancouver, Canada' },
-                { coords: [43.6510, -79.3470], popup: 'STEM activity in Toronto, Canada' },
-                { coords: [46.8139, -71.2082], popup: 'STEM activity in Quebec City, Canada' },
-                { coords: [52.5200, -113.4928], popup: 'STEM activity in Edmonton, Canada' }
-            ],
-            'Germany': [
-                { coords: [52.5200, 13.4050], popup: 'STEM activity in Berlin, Germany' },
-                { coords: [48.1351, 11.5820], popup: 'STEM activity in Munich, Germany' },
-                { coords: [50.1109, 8.6821], popup: 'STEM activity in Frankfurt, Germany' },
-                { coords: [51.1657, 10.4515], popup: 'STEM activity in Hannover, Germany' },
-                { coords: [53.5511, 9.9937], popup: 'STEM activity in Hamburg, Germany' }
-            ],
-            'India': [
-                { coords: [28.6139, 77.2090], popup: 'STEM activity in Delhi, India' },
-                { coords: [19.0760, 72.8777], popup: 'STEM activity in Mumbai, India' },
-                { coords: [12.9716, 77.5946], popup: 'STEM activity in Bangalore, India' },
-                { coords: [22.5726, 88.3639], popup: 'STEM activity in Kolkata, India' },
-                { coords: [13.0827, 80.2707], popup: 'STEM activity in Chennai, India' },
-                { coords: [21.1458, 79.0882], popup: 'STEM activity in Nagpur, India' },
-                { coords: [30.7333, 76.7794], popup: 'STEM activity in Chandigarh, India' },
-                { coords: [26.8467, 80.9462], popup: 'STEM activity in Lucknow, India' },
-                { coords: [17.3850, 78.4867], popup: 'STEM activity in Hyderabad, India' },
-                { coords: [31.5497, 74.3436], popup: 'STEM activity in Amritsar, India' }
-            ],
-            'Spain': [
-                { coords: [40.4168, -3.7038], popup: 'STEM activity in Madrid, Spain' },
-                { coords: [41.3874, 2.1686], popup: 'STEM activity in Barcelona, Spain' },
-                { coords: [39.4699, -0.3763], popup: 'STEM activity in Valencia, Spain' },
-                { coords: [37.3886, -5.9823], popup: 'STEM activity in Seville, Spain' },
-                { coords: [43.3619, -8.4064], popup: 'STEM activity in A Coruña, Spain' }
-            ],
-            'France': [
-                { coords: [48.8566, 2.3522], popup: 'STEM activity in Paris, France' },
-                { coords: [45.7640, 4.8357], popup: 'STEM activity in Lyon, France' },
-                { coords: [44.8378, -0.5792], popup: 'STEM activity in Bordeaux, France' },
-                { coords: [43.7102, 7.2620], popup: 'STEM activity in Nice, France' },
-                { coords: [49.2583, 4.0317], popup: 'STEM activity in Reims, France' }
-            ],
-            'Italy': [
-                { coords: [41.9028, 12.4964], popup: 'STEM activity in Rome, Italy' },
-                { coords: [45.4642, 9.1900], popup: 'STEM activity in Milan, Italy' },
-                { coords: [40.8518, 14.2681], popup: 'STEM activity in Naples, Italy' },
-                { coords: [44.4056, 8.9463], popup: 'STEM activity in Genoa, Italy' },
-                { coords: [38.1157, 13.3615], popup: 'STEM activity in Palermo, Italy' }
-            ],
-            'Australia': [
-                { coords: [-33.8688, 151.2093], popup: 'STEM activity in Sydney, Australia' },
-                { coords: [-37.8136, 144.9631], popup: 'STEM activity in Melbourne, Australia' },
-                { coords: [-27.4698, 153.0251], popup: 'STEM activity in Brisbane, Australia' },
-                { coords: [-31.9505, 115.8605], popup: 'STEM activity in Perth, Australia' },
-                { coords: [-35.2809, 149.1300], popup: 'STEM activity in Canberra, Australia' }
-            ],
-            'Brazil': [
-                { coords: [-23.5505, -46.6333], popup: 'STEM activity in São Paulo, Brazil' },
-                { coords: [-22.9068, -43.1729], popup: 'STEM activity in Rio de Janeiro, Brazil' },
-                { coords: [-15.7801, -47.9292], popup: 'STEM activity in Brasília, Brazil' },
-                { coords: [-3.7172, -38.5433], popup: 'STEM activity in Fortaleza, Brazil' },
-                { coords: [-12.9714, -38.5014], popup: 'STEM activity in Salvador, Brazil' }
-            ],
-            'China': [
-                { coords: [39.9042, 116.4074], popup: 'STEM activity in Beijing, China' },
-                { coords: [31.2304, 121.4737], popup: 'STEM activity in Shanghai, China' },
-                { coords: [23.1291, 113.2644], popup: 'STEM activity in Guangzhou, China' },
-                { coords: [30.2751, 120.1551], popup: 'STEM activity in Hangzhou, China' },
-                { coords: [29.5630, 106.5500], popup: 'STEM activity in Chongqing, China' }
-            ],
-            'Japan': [
-                { coords: [35.6895, 139.6917], popup: 'STEM activity in Tokyo, Japan' },
-                { coords: [34.0522, 135.5022], popup: 'STEM activity in Osaka, Japan' },
-                { coords: [35.0116, 135.7681], popup: 'STEM activity in Kyoto, Japan' },
-                { coords: [43.0667, 141.3500], popup: 'STEM activity in Sapporo, Japan' },
-                { coords: [34.6937, 135.5023], popup: 'STEM activity in Kobe, Japan' }
-            ],
-            'South Africa': [
-                { coords: [-26.2041, 28.0473], popup: 'STEM activity in Johannesburg, South Africa' },
-                { coords: [-33.9249, 18.4241], popup: 'STEM activity in Cape Town, South Africa' },
-                { coords: [-29.1030, 26.2041], popup: 'STEM activity in Bloemfontein, South Africa' },
-                { coords: [-25.7461, 28.1881], popup: 'STEM activity in Pretoria, South Africa' },
-                { coords: [-28.4793, 24.6727], popup: 'STEM activity in Rustenburg, South Africa' }
-            ],
-            'Mexico': [
-                { coords: [19.4326, -99.1332], popup: 'STEM activity in Mexico City, Mexico' },
-                { coords: [20.6597, -103.3496], popup: 'STEM activity in Guadalajara, Mexico' },
-                { coords: [25.4383, -100.5509], popup: 'STEM activity in Monterrey, Mexico' },
-                { coords: [32.5276, -117.0382], popup: 'STEM activity in Tijuana, Mexico' },
-                { coords: [18.5000, -88.3000], popup: 'STEM activity in Mérida, Mexico' }
-            ],
-            'Russia': [
-                { coords: [55.7558, 37.6176], popup: 'STEM activity in Moscow, Russia' },
-                { coords: [59.9343, 30.3351], popup: 'STEM activity in Saint Petersburg, Russia' },
-                { coords: [56.8380, 60.5975], popup: 'STEM activity in Yekaterinburg, Russia' },
-                { coords: [54.7388, 55.9664], popup: 'STEM activity in Ufa, Russia' },
-                { coords: [53.0198, 83.3498], popup: 'STEM activity in Novosibirsk, Russia' }
-            ],
-            'Netherlands': [
-                { coords: [52.3676, 4.9041], popup: 'STEM activity in Amsterdam, Netherlands' },
-                { coords: [51.9202, 4.4818], popup: 'STEM activity in Rotterdam, Netherlands' },
-                { coords: [52.0907, 5.1214], popup: 'STEM activity in Utrecht, Netherlands' },
-                { coords: [51.4416, 5.4697], popup: 'STEM activity in Eindhoven, Netherlands' },
-                { coords: [50.8503, 4.3517], popup: 'STEM activity in Maastricht, Netherlands' }
-            ],
-            'Sweden': [
-                { coords: [59.3293, 18.0686], popup: 'STEM activity in Stockholm, Sweden' },
-                { coords: [57.7089, 11.9746], popup: 'STEM activity in Gothenburg, Sweden' },
-                { coords: [55.6060, 13.0038], popup: 'STEM activity in Malmö, Sweden' },
-                { coords: [59.8586, 17.6389], popup: 'STEM activity in Uppsala, Sweden' },
-                { coords: [60.1282, 18.6435], popup: 'STEM activity in Östersund, Sweden' }
-            ],
-            'Belgium': [
-                { coords: [50.8503, 4.3517], popup: 'STEM activity in Brussels, Belgium' },
-                { coords: [51.2194, 4.4025], popup: 'STEM activity in Antwerp, Belgium' },
-                { coords: [50.8467, 4.3499], popup: 'STEM activity in Ghent, Belgium' },
-                { coords: [50.8503, 4.3488], popup: 'STEM activity in Bruges, Belgium' },
-                { coords: [51.0261, 4.3095], popup: 'STEM activity in Leuven, Belgium' }
-            ],
-            'Switzerland': [
-                { coords: [46.9481, 7.4474], popup: 'STEM activity in Geneva, Switzerland' },
-                { coords: [47.3769, 8.5417], popup: 'STEM activity in Zurich, Switzerland' },
-                { coords: [46.9481, 7.4474], popup: 'STEM activity in Bern, Switzerland' },
-                { coords: [46.9481, 7.4474], popup: 'STEM activity in Basel, Switzerland' },
-                { coords: [47.3667, 8.5500], popup: 'STEM activity in Lausanne, Switzerland' }
-            ],
-            'Turkey': [
-                { coords: [41.0082, 28.9784], popup: 'STEM activity in Istanbul, Turkey' },
-                { coords: [39.9334, 32.8597], popup: 'STEM activity in Ankara, Turkey' },
-                { coords: [37.3833, 27.0667], popup: 'STEM activity in Izmir, Turkey' },
-                { coords: [37.0662, 37.3833], popup: 'STEM activity in Adana, Turkey' },
-                { coords: [38.4192, 27.1287], popup: 'STEM activity in Denizli, Turkey' }
-            ],
-            'Saudi Arabia': [
-                { coords: [24.7136, 46.6753], popup: 'STEM activity in Riyadh, Saudi Arabia' },
-                { coords: [21.3891, 39.8579], popup: 'STEM activity in Jeddah, Saudi Arabia' },
-                { coords: [26.4207, 50.0888], popup: 'STEM activity in Dammam, Saudi Arabia' },
-                { coords: [25.2769, 49.6880], popup: 'STEM activity in Khobar, Saudi Arabia' },
-                { coords: [19.6115, 42.8480], popup: 'STEM activity in Abha, Saudi Arabia' }
-            ]
-        };
+                'USA': [
+                    { coords: [37.7749, -122.4194], popup: 'University of California, San Francisco' },
+                    { coords: [40.7128, -74.0060], popup: 'New York University' },
+                    { coords: [34.0522, -118.2437], popup: 'University of Southern California' },
+                    { coords: [41.8781, -87.6298], popup: 'University of Chicago' },
+                    { coords: [47.6062, -122.3321], popup: 'University of Washington' }
+                ],
+                'UK': [
+                    { coords: [51.5074, -0.1278], popup: 'University College London' },
+                    { coords: [55.9533, -3.1883], popup: 'University of Edinburgh' },
+                    { coords: [51.4545, -2.5879], popup: 'University of Bristol' },
+                    { coords: [53.4839, -2.2446], popup: 'University of Manchester' },
+                    { coords: [52.4862, -1.8904], popup: 'University of Birmingham' }
+                ],
+                'Canada': [
+                    { coords: [45.4215, -75.6972], popup: 'University of Ottawa' },
+                    { coords: [49.2827, -123.1207], popup: 'University of British Columbia' },
+                    { coords: [43.6510, -79.3470], popup: 'University of Toronto' },
+                    { coords: [46.8139, -71.2082], popup: 'Université Laval' },
+                    { coords: [52.5200, -113.4928], popup: 'University of Alberta' }
+                ],
+                'Germany': [
+                    { coords: [52.5200, 13.4050], popup: 'Humboldt University of Berlin' },
+                    { coords: [48.1351, 11.5820], popup: 'Ludwig Maximilian University of Munich' },
+                    { coords: [50.1109, 8.6821], popup: 'Goethe University Frankfurt' },
+                    { coords: [51.1657, 10.4515], popup: 'University of Hannover' },
+                    { coords: [53.5511, 9.9937], popup: 'University of Hamburg' }
+                ],
+                'India': [
+                    { coords: [28.6139, 77.2090], popup: 'University of Delhi' },
+                    { coords: [19.0760, 72.8777], popup: 'University of Mumbai' },
+                    { coords: [12.9716, 77.5946], popup: 'Indian Institute of Science' },
+                    { coords: [22.5726, 88.3639], popup: 'University of Calcutta' },
+                    { coords: [13.0827, 80.2707], popup: 'University of Madras' },
+                    { coords: [21.1458, 79.0882], popup: 'Nagpur University' },
+                    { coords: [30.7333, 76.7794], popup: 'Panjab University' },
+                    { coords: [26.8467, 80.9462], popup: 'University of Lucknow' },
+                    { coords: [17.3850, 78.4867], popup: 'Osmania University' },
+                    { coords: [15.3173, 75.7139], popup: 'Karnatak University' }
+                ],
+                'France': [
+                    { coords: [48.8566, 2.3522], popup: 'Sorbonne University' },
+                    { coords: [45.7640, 4.8357], popup: 'University of Lyon' },
+                    { coords: [43.7102, 7.2620], popup: 'University of Nice' },
+                    { coords: [48.5734, 7.7521], popup: 'University of Strasbourg' },
+                    { coords: [48.5833, 7.7500], popup: 'University of Alsace' }
+                ],
+                'Spain': [
+                    { coords: [40.4168, -3.7038], popup: 'University of Madrid' },
+                    { coords: [41.3888, 2.1590], popup: 'University of Barcelona' },
+                    { coords: [37.3886, -5.9823], popup: 'University of Seville' },
+                    { coords: [39.4699, -0.3763], popup: 'University of Valencia' },
+                    { coords: [42.1401, -0.4074], popup: 'University of Zaragoza' }
+                ],
+                'Italy': [
+                    { coords: [41.9028, 12.4964], popup: 'University of Rome' },
+                    { coords: [45.4654, 9.1859], popup: 'University of Milan' },
+                    { coords: [43.7696, 11.2558], popup: 'University of Florence' },
+                    { coords: [40.8518, 14.2681], popup: 'University of Naples' },
+                    { coords: [44.4949, 11.3426], popup: 'University of Bologna' }
+                ],
+                'Australia': [
+                    { coords: [-33.8688, 151.2093], popup: 'University of Sydney' },
+                    { coords: [-37.8136, 144.9631], popup: 'University of Melbourne' },
+                    { coords: [-27.4698, 153.0251], popup: 'University of Queensland' },
+                    { coords: [-31.9505, 115.8605], popup: 'University of Western Australia' },
+                    { coords: [-34.9285, 138.6007], popup: 'University of Adelaide' }
+                ],
+                'Brazil': [
+                    { coords: [-23.5505, -46.6333], popup: 'University of São Paulo' },
+                    { coords: [-30.0346, -51.2177], popup: 'Federal University of Rio Grande do Sul' },
+                    { coords: [-22.9068, -43.1729], popup: 'Federal University of Rio de Janeiro' },
+                    { coords: [-15.7801, -47.9292], popup: 'University of Brasília' },
+                    { coords: [-3.7172, -38.5433], popup: 'Federal University of Ceará' }
+                ],
+                'China': [
+                    { coords: [39.9042, 116.4074], popup: 'Peking University' },
+                    { coords: [31.2304, 121.4737], popup: 'Fudan University' },
+                    { coords: [34.0522, 108.5719], popup: 'Xi\'an Jiaotong University' },
+                    { coords: [22.5431, 114.0579], popup: 'Hong Kong University of Science and Technology' },
+                    { coords: [29.5630, 106.5516], popup: 'Chongqing University' }
+                ],
+                'Japan': [
+                    { coords: [35.6762, 139.6503], popup: 'University of Tokyo' },
+                    { coords: [35.6895, 139.6917], popup: 'Tokyo Institute of Technology' },
+                    { coords: [34.6937, 135.5023], popup: 'Osaka University' },
+                    { coords: [43.0667, 141.3500], popup: 'Hokkaido University' },
+                    { coords: [37.7749, 140.3542], popup: 'Tohoku University' }
+                ],
+                'South Africa': [
+                    { coords: [-33.9249, 18.4241], popup: 'University of Cape Town' },
+                    { coords: [-26.2041, 28.0473], popup: 'University of the Witwatersrand' },
+                    { coords: [-29.0674, 26.2141], popup: 'University of the Free State' },
+                    { coords: [-29.8404, 31.0100], popup: 'University of KwaZulu-Natal' },
+                    { coords: [-32.9468, 27.6904], popup: 'North-West University' }
+                ],
+                'Mexico': [
+                    { coords: [19.4326, -99.1332], popup: 'National Autonomous University of Mexico' },
+                    { coords: [20.6597, -103.3496], popup: 'University of Guadalajara' },
+                    { coords: [25.4383, -100.9228], popup: 'Autonomous University of Nuevo León' },
+                    { coords: [29.0964, -110.9542], popup: 'University of Sonora' },
+                    { coords: [21.1619, -86.8515], popup: 'University of Quintana Roo' }
+                ],
+                'Russia': [
+                    { coords: [55.7558, 37.6176], popup: 'Lomonosov Moscow State University' },
+                    { coords: [59.9343, 30.3351], popup: 'Saint Petersburg State University' },
+                    { coords: [54.7348, 55.9578], popup: 'Ufa State Aviation Technical University' },
+                    { coords: [56.3269, 44.0020], popup: 'Nizhny Novgorod State University' },
+                    { coords: [56.8389, 60.6057], popup: 'Ural Federal University' }
+                ],
+                'Netherlands': [
+                    { coords: [52.3676, 4.9041], popup: 'University of Amsterdam' },
+                    { coords: [51.9202, 4.4791], popup: 'Erasmus University Rotterdam' },
+                    { coords: [52.0705, 4.3007], popup: 'Leiden University' },
+                    { coords: [53.2194, 6.5665], popup: 'University of Groningen' },
+                    { coords: [52.0907, 5.1214], popup: 'Utrecht University' }
+                ],
+                'Sweden': [
+                    { coords: [59.3293, 18.0686], popup: 'Stockholm University' },
+                    { coords: [55.6049, 13.0038], popup: 'Lund University' },
+                    { coords: [57.7089, 11.9746], popup: 'University of Gothenburg' },
+                    { coords: [60.1282, 18.6435], popup: 'Uppsala University' },
+                    { coords: [63.8258, 20.2630], popup: 'Umeå University' }
+                ],
+                'Belgium': [
+                    { coords: [50.8503, 4.3517], popup: 'KU Leuven' },
+                    { coords: [51.2194, 4.4025], popup: 'University of Antwerp' },
+                    { coords: [50.8503, 4.3488], popup: 'Free University of Brussels' },
+                    { coords: [50.8503, 4.3488], popup: 'University of Liège' },
+                    { coords: [50.6292, 3.0573], popup: 'Université Catholique de Louvain' }
+                ],
+                'Switzerland': [
+                    { coords: [46.9481, 7.4474], popup: 'ETH Zurich' },
+                    { coords: [46.9481, 7.4474], popup: 'University of Zurich' },
+                    { coords: [46.8182, 8.2275], popup: 'University of Geneva' },
+                    { coords: [46.2055, 6.1417], popup: 'University of Lausanne' },
+                    { coords: [47.3794, 8.5402], popup: 'University of Neuchâtel' }
+                ],
+                'Turkey': [
+                    { coords: [41.0082, 28.9784], popup: 'Boğaziçi University' },
+                    { coords: [39.9334, 32.8597], popup: 'Middle East Technical University' },
+                    { coords: [41.0082, 28.9784], popup: 'Istanbul University' },
+                    { coords: [38.9637, 35.2433], popup: 'Ankara University' },
+                    { coords: [37.0662, 37.3833], popup: 'Hacettepe University' }
+                ],
+                'Saudi Arabia': [
+                    { coords: [24.7136, 46.6753], popup: 'King Saud University' },
+                    { coords: [21.3891, 39.8579], popup: 'King Abdulaziz University' },
+                    { coords: [25.2733, 50.1971], popup: 'King Fahd University of Petroleum and Minerals' },
+                    { coords: [26.4207, 50.0888], popup: 'University of Dammam' },
+                    { coords: [24.7995, 46.6995], popup: 'Prince Sultan University' }
+                ],
+                'United Arab Emirates': [
+                    { coords: [25.2769, 55.2962], popup: 'United Arab Emirates University' },
+                    { coords: [24.4539, 54.3773], popup: 'Abu Dhabi University' },
+                    { coords: [25.2048, 55.2708], popup: 'American University of Sharjah' },
+                    { coords: [25.0634, 55.1713], popup: 'Sharjah University' },
+                    { coords: [22.3000, 73.1800], popup: 'Sardar Patel University' }
+                ]
+            };
 
         // Function to update map based on selected country
         function updateMap() {
