@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envision Homepage</title>
-    <link rel="icon" type="image/png" href="EnvisionLogo2.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forum Select</title>
+<link rel="icon" type="image/png" href="EnvisionLogo2.png">
     <style>
         /* Extend to Full Screen */
         html,
@@ -142,7 +142,7 @@
     <div class="main main-content">
         <ol>
             <li class="row">
-                <a href="/item">
+                <a href="Thread.html">
                     <h4 class="title">
                         Thread 1
                     </h4>
@@ -171,6 +171,51 @@
                     </div>
                 </a>
             </li>
+            <li class="row">
+                <a href="/item">
+                    <h4 class="title">
+                        Thread 3
+                    </h4>
+                    <div class="bottom">
+                        <p class="timestamp">
+                            10/11/2009
+                        </p>
+                        <p class="comment-count">
+                            5 comments
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li class="row">
+                <a href="/item">
+                    <h4 class="title">
+                        Thread 4
+                    </h4>
+                    <div class="bottom">
+                        <p class="timestamp">
+                            10/12/2009
+                        </p>
+                        <p class="comment-count">
+                            3 comments
+                        </p>
+                    </div>
+                </a>
+            </li>
+            <li class="row">
+                <a href="/item">
+                    <h4 class="title">
+                        Thread 5
+                    </h4>
+                    <div class="bottom">
+                        <p class="timestamp">
+                            10/13/2009
+                        </p>
+                        <p class="comment-count">
+                            7 comments
+                        </p>
+                    </div>
+                </a>
+            </li>
         </ol>
     </div>
 
@@ -188,7 +233,7 @@
             var html = ` 
             <li class="row">
                 <a href="/item">
-                   <h4 class="title">
+                <h4 class="title">
                     ${thread.title}
                 </h4>
                 <div class="bottom">
@@ -205,6 +250,14 @@
             container.insertAdjacentHTML('beforeend', html);
         }
     </script>
+
+    <div style="background-color:gray;color:white">
+        <h4>Contact Info</h4>
+        <p>Phone: 3091212121</p>
+        <p>Coralville, IA</p>
+        <p>EnvisionHelp@gmail.com</p>
+        <h6>© Since 3/8/2024, doing business as Envision</h6>
+    </div>
 </body>
 
 </html>

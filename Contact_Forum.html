@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Forum</title>
+    <link rel="icon" type="image/png" href="EnvisionLogo2.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            background-color: #333;
+            color: white;
+        }
+
+        .logo-container {
+            padding: 10px;
+        }
+
+        .logo {
+            height: 100px;
+            width: auto;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            text-align: center;
+        }
+
+        .navbar a {
+            display: inline-block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 17px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #555;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #F6F6EF;
+        }
+
+        .contact-info {
+            background-color: gray;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        .contact-info button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-info button:hover {
+            background-color: #555;
+        }
+
+        #forum h1 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header with Logo and Navbar -->
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="#" id="homeLink">
+                <img src="EnvisionLogo2.png" alt="Envision Logo" class="logo">
+            </a>
+        </div>
+        <div class="navbar">
+            <a class="active" href="#" id="homeNav">Home</a>
+            <a href="#" id="dashboardNav">About</a>
+            <a href="#" id="monitorsNav">Find</a>
+            <a href="#" id="settingsNav">Forum</a>
+            <a href="#" id="helpNav">Contact</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div id="forum">
+            <h1>Help Q&A</h1>
+            <div id="auth">
+                <input type="text" id="username" placeholder="Username">
+                <button id="login">Login</button>
+                <button id="logout" style="display:none;">Logout</button>
+            </div>
+            <div id="posts"></div>
+            <form id="post-form" style="display:none;">
+                <input type="text" id="post-input" placeholder="Write a post...">
+                <button type="submit">Post</button>
+            </form>
+        </div>
+                <button onclick="window.location.href='index.html';">Return to Homepage</button>
+
+    </div>
+
+    <!-- Footer with Contact Info and Return to Homepage Button -->
+    <div class="contact-info">
+        <h4>Contact Info</h4>
+        <p>Phone: 3091212121</p>
+        <p>Coralville, IA</p>
+        <p>EnvisionHelp@gmail.com</p>
+        <h6>© Since 3/8/2024, doing business as Envision</h6>
+    </div>
+</body>
+
+</html>
