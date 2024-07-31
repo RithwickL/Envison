@@ -179,188 +179,276 @@
         // Define STEM activity locations for different countries
         var locations = {
                 'USA': [
-                    { coords: [37.7749, -122.4194], popup: 'University of California, San Francisco' },
-                    { coords: [40.7128, -74.0060], popup: 'New York University' },
-                    { coords: [34.0522, -118.2437], popup: 'University of Southern California' },
-                    { coords: [41.8781, -87.6298], popup: 'University of Chicago' },
-                    { coords: [47.6062, -122.3321], popup: 'University of Washington' }
-                ],
+                { coords: [37.7749, -122.4194], popup: 'University of California, San Francisco', url: 'https://www.ucsf.edu/' },
+                { coords: [40.7128, -74.0060], popup: 'New York University', url: 'https://www.nyu.edu/' },
+                { coords: [34.0522, -118.2437], popup: 'University of Southern California', url: 'https://www.usc.edu/' },
+                { coords: [41.8781, -87.6298], popup: 'University of Chicago', url: 'https://www.uchicago.edu/' },
+                { coords: [47.6062, -122.3321], popup: 'University of Washington', url: 'https://www.washington.edu/' },
+                { coords: [42.3601, -71.0589], popup: 'Harvard University', url: 'https://www.harvard.edu/' },
+                { coords: [40.7306, -73.9352], popup: 'Columbia University', url: 'https://www.columbia.edu/' },
+                { coords: [37.7749, -122.4194], popup: 'Stanford University', url: 'https://www.stanford.edu/' },
+                { coords: [29.7604, -95.3698], popup: 'Rice University', url: 'https://www.rice.edu/' },
+                { coords: [39.9526, -75.1652], popup: 'University of Pennsylvania', url: 'https://www.upenn.edu/' },
+                { coords: [34.0522, -118.2437], popup: 'California State University, Los Angeles', url: 'https://www.calstatela.edu/' },
+                { coords: [33.2148, -97.1331], popup: 'University of North Texas', url: 'https://www.unt.edu/' },
+                { coords: [40.7608, -111.8910], popup: 'University of Utah', url: 'https://www.utah.edu/' },
+                { coords: [25.7617, -80.1918], popup: 'University of Miami', url: 'https://www.miami.edu/' },
+                { coords: [39.1638, -86.5264], popup: 'Indiana University', url: 'https://www.indiana.edu/' },
+                { coords: [36.1627, -86.7816], popup: 'Vanderbilt University', url: 'https://www.vanderbilt.edu/' },
+                { coords: [40.7792, -73.9683], popup: 'The City University of New York', url: 'https://www.cuny.edu/' },
+                { coords: [38.8951, -77.0369], popup: 'Georgetown University', url: 'https://www.georgetown.edu/' },
+                { coords: [41.7036, -73.9260], popup: 'Vassar College', url: 'https://www.vassar.edu/' },
+                { coords: [34.0682, -118.4455], popup: 'University of California, Los Angeles', url: 'https://www.ucla.edu/' },
+                { coords: [36.0166, -78.9382], popup: 'Duke University', url: 'https://www.duke.edu/' },
+                { coords: [39.7392, -104.9903], popup: 'University of Denver', url: 'https://www.du.edu/' },
+                { coords: [30.2849, -97.7341], popup: 'University of Texas at Austin', url: 'https://www.utexas.edu/' },
+                { coords: [37.8716, -122.2727], popup: 'University of California, Berkeley', url: 'https://www.berkeley.edu/' },
+                { coords: [43.0731, -89.4012], popup: 'University of Wisconsin-Madison', url: 'https://www.wisc.edu/' },
+                { coords: [41.9794, -87.6638], popup: 'Northwestern University', url: 'https://www.northwestern.edu/' },
+                { coords: [47.6550, -122.3035], popup: 'University of Washington Bothell', url: 'https://www.uwb.edu/' },
+                { coords: [40.7505, -73.9934], popup: 'The New School', url: 'https://www.newschool.edu/' },
+                { coords: [40.7515, -73.9877], popup: 'Fashion Institute of Technology', url: 'https://www.fitnyc.edu/' },
+                { coords: [44.9778, -93.2650], popup: 'University of Minnesota', url: 'https://www.umn.edu/' },
+                { coords: [41.7538, -87.5968], popup: 'University of Illinois at Chicago', url: 'https://www.uic.edu/' },
+                { coords: [37.5483, -121.9886], popup: 'San Jose State University', url: 'https://www.sjsu.edu/' },
+                { coords: [39.3210, -76.6204], popup: 'Johns Hopkins University', url: 'https://www.jhu.edu/' },
+                { coords: [40.4464, -79.9826], popup: 'University of Pittsburgh', url: 'https://www.pitt.edu/' },
+                { coords: [37.3756, -122.0354], popup: 'Santa Clara University', url: 'https://www.scu.edu/' },
+                { coords: [35.4697, -97.5208], popup: 'University of Oklahoma', url: 'https://www.ou.edu/' },
+                { coords: [39.0997, -94.5786], popup: 'University of Missouri-Kansas City', url: 'https://www.umkc.edu/' },
+                { coords: [40.7241, -73.9984], popup: 'New York Institute of Technology', url: 'https://www.nyit.edu/' },
+                { coords: [42.3384, -71.0892], popup: 'Boston University', url: 'https://www.bu.edu/' },
+                { coords: [41.8268, -71.4025], popup: 'Brown University', url: 'https://www.brown.edu/' },
+                { coords: [39.5451, -76.6090], popup: 'Towson University', url: 'https://www.towson.edu/' },
+                { coords: [41.7304, -72.1260], popup: 'University of Hartford', url: 'https://www.hartford.edu/' },
+                { coords: [32.7767, -96.7970], popup: 'Southern Methodist University', url: 'https://www.smu.edu/' },
+                { coords: [37.7208, -122.4798], popup: 'California State University, East Bay', url: 'https://www.csueastbay.edu/' },
+                { coords: [39.0997, -94.5786], popup: 'University of Kansas', url: 'https://www.ku.edu/' },
+                { coords: [41.6201, -93.5986], popup: 'Drake University', url: 'https://www.drake.edu/' },
+                { coords: [38.2587, -85.7594], popup: 'University of Louisville', url: 'https://www.louisville.edu/' },
+                { coords: [39.5517, -84.5555], popup: 'University of Cincinnati', url: 'https://www.uc.edu/' },
+                { coords: [41.3123, -72.9279], popup: 'University of New Haven', url: 'https://www.newhaven.edu/' },
+                { coords: [34.7454, -92.3311], popup: 'University of Arkansas', url: 'https://www.uark.edu/' },
+                { coords: [30.6954, -88.0399], popup: 'University of South Alabama', url: 'https://www.southalabama.edu/' },
+                { coords: [35.4676, -97.5164], popup: 'Oklahoma State University', url: 'https://www.okstate.edu/' },
+                { coords: [32.3210, -90.2070], popup: 'Jackson State University', url: 'https://www.jsums.edu/' },
+                { coords: [39.2858, -76.6138], popup: 'University of Maryland, Baltimore County', url: 'https://www.umbc.edu/' },
+                { coords: [35.5691, -97.5221], popup: 'University of Central Oklahoma', url: 'https://www.uco.edu/' },
+                { coords: [41.6570, -91.5302], popup: 'University of Iowa', url: 'https://www.uiowa.edu/' },
+                { coords: [36.1539, -95.9928], popup: 'University of Tulsa', url: 'https://www.utulsa.edu/' },
+                { coords: [42.3064, -83.0701], popup: 'Wayne State University', url: 'https://www.wayne.edu/' },
+                { coords: [42.3314, -83.0458], popup: 'University of Detroit Mercy', url: 'https://www.udmercy.edu/' },
+                { coords: [39.1031, -84.5120], popup: 'Xavier University', url: 'https://www.xavier.edu/' },
+                { coords: [39.0369, -94.5871], popup: 'University of Missouri-St. Louis', url: 'https://www.umsl.edu/' },
+                { coords: [32.8338, -96.8068], popup: 'University of Texas at Arlington', url: 'https://www.uta.edu/' },
+                { coords: [34.6858, -82.8360], popup: 'Clemson University', url: 'https://www.clemson.edu/' },
+                { coords: [41.6938, -70.1087], popup: 'Wellesley College', url: 'https://www.wellesley.edu/' },
+                { coords: [41.2029, -95.9773], popup: 'Creighton University', url: 'https://www.creighton.edu/' },
+                { coords: [42.2359, -83.7430], popup: 'Oakland University', url: 'https://www.oakland.edu/' },
+                { coords: [36.2290, -95.9780], popup: 'Oral Roberts University', url: 'https://www.oru.edu/' },
+                { coords: [42.7310, -84.5555], popup: 'Michigan State University', url: 'https://www.msu.edu/' },
+                { coords: [41.2565, -95.9345], popup: 'University of Nebraska Omaha', url: 'https://www.unomaha.edu/' },
+                { coords: [33.7490, -84.3880], popup: 'Georgia State University', url: 'https://www.gsu.edu/' },
+                { coords: [39.0997, -94.5786], popup: 'Missouri University of Science and Technology', url: 'https://www.mst.edu/' },
+                { coords: [34.0554, -118.2487], popup: 'California State University, Northridge', url: 'https://www.csun.edu/' },
+                { coords: [34.1484, -118.3089], popup: 'California State University, Channel Islands', url: 'https://www.csuci.edu/' },
+                { coords: [35.2271, -80.8431], popup: 'University of North Carolina at Charlotte', url: 'https://www.uncc.edu/' },
+                { coords: [40.0263, -75.3494], popup: 'Temple University', url: 'https://www.temple.edu/' },
+                { coords: [39.9778, -75.1294], popup: 'Drexel University', url: 'https://www.drexel.edu/' },
+                { coords: [35.4991, -97.5135], popup: 'University of Oklahoma Health Sciences Center', url: 'https://www.ouhsc.edu/' },
+                { coords: [39.1638, -86.5264], popup: 'IUPUI', url: 'https://www.iupui.edu/' },
+                { coords: [37.7749, -122.4194], popup: 'San Francisco State University', url: 'https://www.sfsu.edu/' },
+                { coords: [38.5816, -121.4944], popup: 'California State University, Sacramento', url: 'https://www.csus.edu/' },
+                { coords: [41.0935, -75.3623], popup: 'Lehigh University', url: 'https://www.lehigh.edu/' },
+                { coords: [42.9837, -81.2498], popup: 'University of Western Ontario', url: 'https://www.uwo.ca/' },
+                { coords: [39.1031, -84.5120], popup: 'Xavier University', url: 'https://www.xavier.edu/' },
+                { coords: [40.7792, -73.9683], popup: 'New York University', url: 'https://www.nyu.edu/' },
+                { coords: [36.1738, -86.8498], popup: 'Vanderbilt University', url: 'https://www.vanderbilt.edu/' },
+                { coords: [42.3314, -83.0458], popup: 'Wayne State University', url: 'https://www.wayne.edu/' },
+                { coords: [30.6954, -88.0399], popup: 'University of South Alabama', url: 'https://www.southalabama.edu/' },
+                { coords: [38.8951, -77.0369], popup: 'Georgetown University', url: 'https://www.georgetown.edu/' }
+            ],
                 'UK': [
-                    { coords: [51.5074, -0.1278], popup: 'University College London' },
-                    { coords: [55.9533, -3.1883], popup: 'University of Edinburgh' },
-                    { coords: [51.4545, -2.5879], popup: 'University of Bristol' },
-                    { coords: [53.4839, -2.2446], popup: 'University of Manchester' },
-                    { coords: [52.4862, -1.8904], popup: 'University of Birmingham' }
+                    { coords: [51.5074, -0.1278], popup: 'University College London', url: 'https://www.ucl.ac.uk/' },
+                    { coords: [55.9533, -3.1883], popup: 'University of Edinburgh', url: 'https://www.ed.ac.uk/' },
+                    { coords: [51.4545, -2.5879], popup: 'University of Bristol', url: 'https://www.bristol.ac.uk/' },
+                    { coords: [53.4839, -2.2446], popup: 'University of Manchester', url: 'https://www.manchester.ac.uk/' },
+                    { coords: [52.4862, -1.8904], popup: 'University of Birmingham', url: 'https://www.birmingham.ac.uk/' }
                 ],
                 'Canada': [
-                    { coords: [45.4215, -75.6972], popup: 'University of Ottawa' },
-                    { coords: [49.2827, -123.1207], popup: 'University of British Columbia' },
-                    { coords: [43.6510, -79.3470], popup: 'University of Toronto' },
-                    { coords: [46.8139, -71.2082], popup: 'Université Laval' },
-                    { coords: [52.5200, -113.4928], popup: 'University of Alberta' }
+                    { coords: [45.4215, -75.6972], popup: 'University of Ottawa', url: 'https://www.uottawa.ca/' },
+                    { coords: [49.2827, -123.1207], popup: 'University of British Columbia', url: 'https://www.ubc.ca/' },
+                    { coords: [43.6510, -79.3470], popup: 'University of Toronto', url: 'https://www.utoronto.ca/' },
+                    { coords: [46.8139, -71.2082], popup: 'Université Laval', url: 'https://www.ulaval.ca/' },
+                    { coords: [52.5200, -113.4928], popup: 'University of Alberta', url: 'https://www.ualberta.ca/' }
                 ],
                 'Germany': [
-                    { coords: [52.5200, 13.4050], popup: 'Humboldt University of Berlin' },
-                    { coords: [48.1351, 11.5820], popup: 'Ludwig Maximilian University of Munich' },
-                    { coords: [50.1109, 8.6821], popup: 'Goethe University Frankfurt' },
-                    { coords: [51.1657, 10.4515], popup: 'University of Hannover' },
-                    { coords: [53.5511, 9.9937], popup: 'University of Hamburg' }
+                    { coords: [52.5200, 13.4050], popup: 'Humboldt University of Berlin', url: 'https://www.hu-berlin.de/en' },
+                    { coords: [48.1351, 11.5820], popup: 'Ludwig Maximilian University of Munich', url: 'https://www.en.uni-muenchen.de/' },
+                    { coords: [50.1109, 8.6821], popup: 'Goethe University Frankfurt', url: 'https://www.goethe-university-frankfurt.de/en/' },
+                    { coords: [51.1657, 10.4515], popup: 'University of Hannover', url: 'https://www.uni-hannover.de/en/' },
+                    { coords: [53.5511, 9.9937], popup: 'University of Hamburg', url: 'https://www.uni-hamburg.de/en.html' }
                 ],
                 'India': [
-                    { coords: [28.6139, 77.2090], popup: 'University of Delhi' },
-                    { coords: [19.0760, 72.8777], popup: 'University of Mumbai' },
-                    { coords: [12.9716, 77.5946], popup: 'Indian Institute of Science' },
-                    { coords: [22.5726, 88.3639], popup: 'University of Calcutta' },
-                    { coords: [13.0827, 80.2707], popup: 'University of Madras' },
-                    { coords: [21.1458, 79.0882], popup: 'Nagpur University' },
-                    { coords: [30.7333, 76.7794], popup: 'Panjab University' },
-                    { coords: [26.8467, 80.9462], popup: 'University of Lucknow' },
-                    { coords: [17.3850, 78.4867], popup: 'Osmania University' },
-                    { coords: [15.3173, 75.7139], popup: 'Karnatak University' }
+                    { coords: [28.6139, 77.2090], popup: 'University of Delhi', url: 'http://www.du.ac.in/' },
+                    { coords: [19.0760, 72.8777], popup: 'University of Mumbai', url: 'http://www.mu.ac.in/' },
+                    { coords: [12.9716, 77.5946], popup: 'Indian Institute of Science', url: 'https://www.iisc.ac.in/' },
+                    { coords: [22.5726, 88.3639], popup: 'University of Calcutta', url: 'http://www.caluniv.ac.in/' },
+                    { coords: [13.0827, 80.2707], popup: 'University of Madras', url: 'http://www.unom.ac.in/' },
+                    { coords: [21.1458, 79.0882], popup: 'Nagpur University', url: 'https://www.nagpuruniversity.org/' },
+                    { coords: [30.7333, 76.7794], popup: 'Panjab University', url: 'http://www.puchd.ac.in/' },
+                    { coords: [26.8467, 80.9462], popup: 'University of Lucknow', url: 'http://www.lkouniv.ac.in/' },
+                    { coords: [17.3850, 78.4867], popup: 'Osmania University', url: 'https://www.osmania.ac.in/' },
+                    { coords: [15.3173, 75.7139], popup: 'Karnatak University', url: 'http://www.kud.ac.in/' }
                 ],
                 'France': [
-                    { coords: [48.8566, 2.3522], popup: 'Sorbonne University' },
-                    { coords: [45.7640, 4.8357], popup: 'University of Lyon' },
-                    { coords: [43.7102, 7.2620], popup: 'University of Nice' },
-                    { coords: [48.5734, 7.7521], popup: 'University of Strasbourg' },
-                    { coords: [48.5833, 7.7500], popup: 'University of Alsace' }
+                    { coords: [48.8566, 2.3522], popup: 'Sorbonne University', url: 'https://www.sorbonne-universite.fr/en' },
+                    { coords: [45.7640, 4.8357], popup: 'University of Lyon', url: 'https://www.univ-lyon1.fr/' },
+                    { coords: [43.7102, 7.2620], popup: 'University of Nice', url: 'http://unice.fr/' },
+                    { coords: [48.5734, 7.7521], popup: 'University of Strasbourg', url: 'https://unistra.fr/' },
+                    { coords: [48.5833, 7.7500], popup: 'University of Alsace', url: 'https://www.univ-alsace.fr/' }
                 ],
                 'Spain': [
-                    { coords: [40.4168, -3.7038], popup: 'University of Madrid' },
-                    { coords: [41.3888, 2.1590], popup: 'University of Barcelona' },
-                    { coords: [37.3886, -5.9823], popup: 'University of Seville' },
-                    { coords: [39.4699, -0.3763], popup: 'University of Valencia' },
-                    { coords: [42.1401, -0.4074], popup: 'University of Zaragoza' }
+                    { coords: [40.4168, -3.7038], popup: 'University of Madrid', url: 'https://www.ucm.es/' },
+                    { coords: [41.3888, 2.1590], popup: 'University of Barcelona', url: 'https://www.ub.edu/web/ub/en/' },
+                    { coords: [37.3886, -5.9823], popup: 'University of Seville', url: 'https://www.us.es/' },
+                    { coords: [39.4699, -0.3763], popup: 'University of Valencia', url: 'https://www.uv.es/' },
+                    { coords: [42.1401, -0.4074], popup: 'University of Zaragoza', url: 'https://www.unizar.es/' }
                 ],
                 'Italy': [
-                    { coords: [41.9028, 12.4964], popup: 'University of Rome' },
-                    { coords: [45.4654, 9.1859], popup: 'University of Milan' },
-                    { coords: [43.7696, 11.2558], popup: 'University of Florence' },
-                    { coords: [40.8518, 14.2681], popup: 'University of Naples' },
-                    { coords: [44.4949, 11.3426], popup: 'University of Bologna' }
+                    { coords: [41.9028, 12.4964], popup: 'University of Rome', url: 'https://www.uniroma1.it/en' },
+                    { coords: [45.4654, 9.1859], popup: 'University of Milan', url: 'https://www.unimi.it/en' },
+                    { coords: [43.7696, 11.2558], popup: 'University of Florence', url: 'https://www.unifi.it/' },
+                    { coords: [40.8518, 14.2681], popup: 'University of Naples', url: 'https://www.unina.it/' },
+                    { coords: [44.4949, 11.3426], popup: 'University of Bologna', url: 'https://www.unibo.it/en' }
                 ],
                 'Australia': [
-                    { coords: [-33.8688, 151.2093], popup: 'University of Sydney' },
-                    { coords: [-37.8136, 144.9631], popup: 'University of Melbourne' },
-                    { coords: [-27.4698, 153.0251], popup: 'University of Queensland' },
-                    { coords: [-31.9505, 115.8605], popup: 'University of Western Australia' },
-                    { coords: [-34.9285, 138.6007], popup: 'University of Adelaide' }
+                    { coords: [-33.8688, 151.2093], popup: 'University of Sydney', url: 'https://www.sydney.edu.au/' },
+                    { coords: [-37.8136, 144.9631], popup: 'University of Melbourne', url: 'https://www.unimelb.edu.au/' },
+                    { coords: [-27.4698, 153.0251], popup: 'University of Queensland', url: 'https://www.uq.edu.au/' },
+                    { coords: [-31.9505, 115.8605], popup: 'University of Western Australia', url: 'https://www.uwa.edu.au/' },
+                    { coords: [-34.9285, 138.6007], popup: 'University of Adelaide', url: 'https://www.adelaide.edu.au/' }
                 ],
                 'Brazil': [
-                    { coords: [-23.5505, -46.6333], popup: 'University of São Paulo' },
-                    { coords: [-30.0346, -51.2177], popup: 'Federal University of Rio Grande do Sul' },
-                    { coords: [-22.9068, -43.1729], popup: 'Federal University of Rio de Janeiro' },
-                    { coords: [-15.7801, -47.9292], popup: 'University of Brasília' },
-                    { coords: [-3.7172, -38.5433], popup: 'Federal University of Ceará' }
+                    { coords: [-23.5505, -46.6333], popup: 'University of São Paulo', url: 'https://www.usp.br/' },
+                    { coords: [-30.0346, -51.2177], popup: 'Federal University of Rio Grande do Sul', url: 'https://www.ufrgs.br/' },
+                    { coords: [-22.9068, -43.1729], popup: 'Federal University of Rio de Janeiro', url: 'https://www.ufrj.br/' },
+                    { coords: [-15.7801, -47.9292], popup: 'University of Brasília', url: 'https://www.unb.br/' },
+                    { coords: [-3.7172, -38.5433], popup: 'Federal University of Ceará', url: 'https://www.ufc.br/' }
                 ],
                 'China': [
-                    { coords: [39.9042, 116.4074], popup: 'Peking University' },
-                    { coords: [31.2304, 121.4737], popup: 'Fudan University' },
-                    { coords: [34.0522, 108.5719], popup: 'Xi\'an Jiaotong University' },
-                    { coords: [22.5431, 114.0579], popup: 'Hong Kong University of Science and Technology' },
-                    { coords: [29.5630, 106.5516], popup: 'Chongqing University' }
+                    { coords: [39.9042, 116.4074], popup: 'Peking University', url: 'http://www.pku.edu.cn/english/' },
+                    { coords: [31.2304, 121.4737], popup: 'Fudan University', url: 'http://www.fudan.edu.cn/en/' },
+                    { coords: [34.0522, 108.5719], popup: 'Xi\'an Jiaotong University', url: 'http://www.xjtu.edu.cn/en/' },
+                    { coords: [22.5431, 114.0579], popup: 'Hong Kong University of Science and Technology', url: 'https://www.ust.hk/' },
+                    { coords: [29.5630, 106.5516], popup: 'Chongqing University', url: 'http://english.cqu.edu.cn/' }
                 ],
                 'Japan': [
-                    { coords: [35.6762, 139.6503], popup: 'University of Tokyo' },
-                    { coords: [35.6895, 139.6917], popup: 'Tokyo Institute of Technology' },
-                    { coords: [34.6937, 135.5023], popup: 'Osaka University' },
-                    { coords: [43.0667, 141.3500], popup: 'Hokkaido University' },
-                    { coords: [37.7749, 140.3542], popup: 'Tohoku University' }
+                    { coords: [35.6762, 139.6503], popup: 'University of Tokyo', url: 'https://www.u-tokyo.ac.jp/en/' },
+                    { coords: [35.6895, 139.6917], popup: 'Tokyo Institute of Technology', url: 'https://www.titech.ac.jp/english/' },
+                    { coords: [34.6937, 135.5023], popup: 'Osaka University', url: 'https://www.osaka-u.ac.jp/en' },
+                    { coords: [43.0667, 141.3500], popup: 'Hokkaido University', url: 'https://www.global.hokudai.ac.jp/' },
+                    { coords: [37.7749, 140.3542], popup: 'Tohoku University', url: 'https://www.tohoku.ac.jp/en/' }
                 ],
                 'South Africa': [
-                    { coords: [-33.9249, 18.4241], popup: 'University of Cape Town' },
-                    { coords: [-26.2041, 28.0473], popup: 'University of the Witwatersrand' },
-                    { coords: [-29.0674, 26.2141], popup: 'University of the Free State' },
-                    { coords: [-29.8404, 31.0100], popup: 'University of KwaZulu-Natal' },
-                    { coords: [-32.9468, 27.6904], popup: 'North-West University' }
+                    { coords: [-33.9249, 18.4241], popup: 'University of Cape Town', url: 'http://www.uct.ac.za/' },
+                    { coords: [-26.2041, 28.0473], popup: 'University of the Witwatersrand', url: 'https://www.wits.ac.za/' },
+                    { coords: [-29.0674, 26.2141], popup: 'University of the Free State', url: 'https://www.ufs.ac.za/' },
+                    { coords: [-29.8404, 31.0100], popup: 'University of KwaZulu-Natal', url: 'http://www.ukzn.ac.za/' },
+                    { coords: [-32.9468, 27.6904], popup: 'North-West University', url: 'https://www.nwu.ac.za/' }
                 ],
                 'Mexico': [
-                    { coords: [19.4326, -99.1332], popup: 'National Autonomous University of Mexico' },
-                    { coords: [20.6597, -103.3496], popup: 'University of Guadalajara' },
-                    { coords: [25.4383, -100.9228], popup: 'Autonomous University of Nuevo León' },
-                    { coords: [29.0964, -110.9542], popup: 'University of Sonora' },
-                    { coords: [21.1619, -86.8515], popup: 'University of Quintana Roo' }
+                    { coords: [19.4326, -99.1332], popup: 'National Autonomous University of Mexico', url: 'https://www.unam.mx/' },
+                    { coords: [20.6597, -103.3496], popup: 'University of Guadalajara', url: 'https://www.udg.mx/' },
+                    { coords: [25.4383, -100.9228], popup: 'Autonomous University of Nuevo León', url: 'https://www.uanl.mx/' },
+                    { coords: [29.0964, -110.9542], popup: 'University of Sonora', url: 'https://www.uson.mx/' },
+                    { coords: [21.1619, -86.8515], popup: 'University of Quintana Roo', url: 'https://www.uqroo.mx/' }
                 ],
                 'Russia': [
-                    { coords: [55.7558, 37.6176], popup: 'Lomonosov Moscow State University' },
-                    { coords: [59.9343, 30.3351], popup: 'Saint Petersburg State University' },
-                    { coords: [54.7348, 55.9578], popup: 'Ufa State Aviation Technical University' },
-                    { coords: [56.3269, 44.0020], popup: 'Nizhny Novgorod State University' },
-                    { coords: [56.8389, 60.6057], popup: 'Ural Federal University' }
+                    { coords: [55.7558, 37.6176], popup: 'Lomonosov Moscow State University', url: 'http://www.msu.ru/en/' },
+                    { coords: [59.9343, 30.3351], popup: 'Saint Petersburg State University', url: 'https://english.spbu.ru/' },
+                    { coords: [54.7348, 55.9578], popup: 'Ufa State Aviation Technical University', url: 'https://www.usatu.ru/english/' },
+                    { coords: [56.3269, 44.0020], popup: 'Nizhny Novgorod State University', url: 'https://english.nsu.edu.ru/' },
+                    { coords: [56.8389, 60.6057], popup: 'Ural Federal University', url: 'https://urfu.ru/en/' }
                 ],
                 'Netherlands': [
-                    { coords: [52.3676, 4.9041], popup: 'University of Amsterdam' },
-                    { coords: [51.9202, 4.4791], popup: 'Erasmus University Rotterdam' },
-                    { coords: [52.0705, 4.3007], popup: 'Leiden University' },
-                    { coords: [53.2194, 6.5665], popup: 'University of Groningen' },
-                    { coords: [52.0907, 5.1214], popup: 'Utrecht University' }
+                    { coords: [52.3676, 4.9041], popup: 'University of Amsterdam', url: 'https://www.uva.nl/en' },
+                    { coords: [51.9202, 4.4791], popup: 'Erasmus University Rotterdam', url: 'https://www.eur.nl/en' },
+                    { coords: [52.0705, 4.3007], popup: 'Leiden University', url: 'https://www.universiteitleiden.nl/en' },
+                    { coords: [53.2194, 6.5665], popup: 'University of Groningen', url: 'https://www.rug.nl/?lang=en' },
+                    { coords: [52.0907, 5.1214], popup: 'Utrecht University', url: 'https://www.uu.nl/en' }
                 ],
                 'Sweden': [
-                    { coords: [59.3293, 18.0686], popup: 'Stockholm University' },
-                    { coords: [55.6049, 13.0038], popup: 'Lund University' },
-                    { coords: [57.7089, 11.9746], popup: 'University of Gothenburg' },
-                    { coords: [60.1282, 18.6435], popup: 'Uppsala University' },
-                    { coords: [63.8258, 20.2630], popup: 'Umeå University' }
+                    { coords: [59.3293, 18.0686], popup: 'Stockholm University', url: 'https://www.su.se/english' },
+                    { coords: [55.6049, 13.0038], popup: 'Lund University', url: 'https://www.lu.se/lund-university' },
+                    { coords: [57.7089, 11.9746], popup: 'University of Gothenburg', url: 'https://www.gu.se/en' },
+                    { coords: [60.1282, 18.6435], popup: 'Uppsala University', url: 'https://www.uu.se/en/' },
+                    { coords: [63.8258, 20.2630], popup: 'Umeå University', url: 'https://www.umu.se/en/' }
                 ],
                 'Belgium': [
-                    { coords: [50.8503, 4.3517], popup: 'KU Leuven' },
-                    { coords: [51.2194, 4.4025], popup: 'University of Antwerp' },
-                    { coords: [50.8503, 4.3488], popup: 'Free University of Brussels' },
-                    { coords: [50.8503, 4.3488], popup: 'University of Liège' },
-                    { coords: [50.6292, 3.0573], popup: 'Université Catholique de Louvain' }
+                    { coords: [50.8503, 4.3517], popup: 'KU Leuven', url: 'https://www.kuleuven.be/kuleuven/' },
+                    { coords: [51.2194, 4.4025], popup: 'University of Antwerp', url: 'https://www.uantwerpen.be/en/' },
+                    { coords: [50.8503, 4.3488], popup: 'Free University of Brussels', url: 'https://www.vub.ac.be/en' },
+                    { coords: [50.8503, 4.3488], popup: 'University of Liège', url: 'https://www.uliege.be/cms/c_278032/en/home' },
+                    { coords: [50.6292, 3.0573], popup: 'Université Catholique de Louvain', url: 'https://uclouvain.be/en/' }
                 ],
                 'Switzerland': [
-                    { coords: [46.9481, 7.4474], popup: 'ETH Zurich' },
-                    { coords: [46.9481, 7.4474], popup: 'University of Zurich' },
-                    { coords: [46.8182, 8.2275], popup: 'University of Geneva' },
-                    { coords: [46.2055, 6.1417], popup: 'University of Lausanne' },
-                    { coords: [47.3794, 8.5402], popup: 'University of Neuchâtel' }
+                    { coords: [46.9481, 7.4474], popup: 'ETH Zurich', url: 'https://www.ethz.ch/en.html' },
+                    { coords: [46.9481, 7.4474], popup: 'University of Zurich', url: 'https://www.uzh.ch/en.html' },
+                    { coords: [46.8182, 8.2275], popup: 'University of Geneva', url: 'https://www.unige.ch/en/' },
+                    { coords: [46.2055, 6.1417], popup: 'University of Lausanne', url: 'https://www.unil.ch/en' },
+                    { coords: [47.3794, 8.5402], popup: 'University of Neuchâtel', url: 'https://www.unine.ch/' }
                 ],
                 'Turkey': [
-                    { coords: [41.0082, 28.9784], popup: 'Boğaziçi University' },
-                    { coords: [39.9334, 32.8597], popup: 'Middle East Technical University' },
-                    { coords: [41.0082, 28.9784], popup: 'Istanbul University' },
-                    { coords: [38.9637, 35.2433], popup: 'Ankara University' },
-                    { coords: [37.0662, 37.3833], popup: 'Hacettepe University' }
+                    { coords: [41.0082, 28.9784], popup: 'Boğaziçi University', url: 'https://www.boun.edu.tr/en' },
+                    { coords: [39.9334, 32.8597], popup: 'Middle East Technical University', url: 'https://www.metu.edu.tr/en' },
+                    { coords: [41.0082, 28.9784], popup: 'Istanbul University', url: 'https://www.istanbul.edu.tr/en' },
+                    { coords: [38.9637, 35.2433], popup: 'Ankara University', url: 'https://www.ankara.edu.tr/en' },
+                    { coords: [37.0662, 37.3833], popup: 'Hacettepe University', url: 'https://www.hacettepe.edu.tr/english/' }
                 ],
                 'Saudi Arabia': [
-                    { coords: [24.7136, 46.6753], popup: 'King Saud University' },
-                    { coords: [21.3891, 39.8579], popup: 'King Abdulaziz University' },
-                    { coords: [25.2733, 50.1971], popup: 'King Fahd University of Petroleum and Minerals' },
-                    { coords: [26.4207, 50.0888], popup: 'University of Dammam' },
-                    { coords: [24.7995, 46.6995], popup: 'Prince Sultan University' }
+                    { coords: [24.7136, 46.6753], popup: 'King Saud University', url: 'https://www.ksu.edu.sa/en' },
+                    { coords: [21.3891, 39.8579], popup: 'King Abdulaziz University', url: 'https://www.kau.edu.sa/Main_en.aspx' },
+                    { coords: [25.2733, 50.1971], popup: 'King Fahd University of Petroleum and Minerals', url: 'https://www.kfupm.edu.sa/' },
+                    { coords: [26.4207, 50.0888], popup: 'University of Dammam', url: 'http://www.ud.edu.sa/' },
+                    { coords: [24.7995, 46.6995], popup: 'Prince Sultan University', url: 'https://www.psu.edu.sa/' }
                 ],
                 'United Arab Emirates': [
-                    { coords: [25.2769, 55.2962], popup: 'United Arab Emirates University' },
-                    { coords: [24.4539, 54.3773], popup: 'Abu Dhabi University' },
-                    { coords: [25.2048, 55.2708], popup: 'American University of Sharjah' },
-                    { coords: [25.0634, 55.1713], popup: 'Sharjah University' },
-                    { coords: [22.3000, 73.1800], popup: 'Sardar Patel University' }
+                    { coords: [25.2769, 55.2962], popup: 'United Arab Emirates University', url: 'https://www.uaeu.ac.ae/en/' },
+                    { coords: [24.4539, 54.3773], popup: 'Abu Dhabi University', url: 'https://www.adu.ac.ae/' },
+                    { coords: [25.2048, 55.2708], popup: 'American University of Sharjah', url: 'https://www.aus.edu/' },
+                    { coords: [25.0634, 55.1713], popup: 'Sharjah University', url: 'https://www.sharjah.ac.ae/en' },
+                    { coords: [22.3000, 73.1800], popup: 'Sardar Patel University', url: 'https://www.spuvvn.edu/' }
                 ]
             };
 
+
         // Function to update map based on selected country
         function updateMap() {
+            // Clear existing markers
+            map.eachLayer(function (layer) {
+                if (layer instanceof L.Marker) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            // Get selected country
             var country = document.getElementById('countryDropdown').value;
             if (country && locations[country]) {
-                var coords = locations[country];
-                var bounds = L.latLngBounds(coords.map(loc => loc.coords));
+                locations[country].forEach(function (location) {
+                    var marker = L.marker(location.coords).addTo(map);
+                    marker.bindPopup(location.popup);
 
-                // Clear existing markers
-                map.eachLayer(layer => {
-                    if (layer instanceof L.Marker) {
-                        map.removeLayer(layer);
-                    }
+                    // Redirect to the URL on marker click
+                    marker.on('click', function () {
+                        window.location.href = location.url;
+                    });
                 });
 
-                // Add new markers
-                coords.forEach(loc => {
-                    L.marker(loc.coords).addTo(map)
-                        .bindPopup(loc.popup)
-                        .openPopup();
-                });
-
-                // Move the map to the selected country
+                // Adjust map view based on the country
+                var bounds = L.latLngBounds(locations[country].map(function (location) {
+                    return location.coords;
+                }));
                 map.fitBounds(bounds);
             }
         }
