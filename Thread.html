@@ -1,101 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Envision Homepage</title>
+  <link rel="icon" type="image/png" href="EnvisionLogo2.png">
+  <style>
+    /* Extend to Full Screen */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .main-content {
+      flex: 1;
+    }
+
+    /* Logo Styles */
+    .logo {
+      display: block;
+      margin-left: 20px;
+      height: 100px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      overflow: hidden;
+      background-color: #333;
+      text-align: center;
+    }
+
+    .navbar a {
+      display: inline-block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 17px;
+      transition: background-color 0.3s ease;
+    }
+
+    .navbar a:hover {
+      background-color: #555;
+    }
+
+    .logo-container {
+      background-color: #333;
+      padding-top: 20px;
+    }
+
+    /* Centering Styles for top-bar */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(148, 135, 235);
+      padding: 20px;
+    }
+
+    /* Other Styles */
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    h1,
+    h4,
+    ol {
+      margin: 0;
+    }
+
+    p {
+      margin: 5px 10px;
+    }
+
+    textarea {
+      width: 80%;
+      height: 80px;
+    }
+
+    button {
+      display: block;
+      margin: 10px 0;
+    }
+
+    .main {
+      background-color: #F6F6EF;
+      padding: 10px 40px;
+    }
+
+    .comments {
+      margin: 40px 0;
+    }
+
+    .comment {
+      margin: 10px 0;
+    }
+
+    .row {
+      padding: 5px 0;
+    }
+
+    .bottom,
+    .top-comment {
+      display: flex;
+      color: grey;
+      font-size: 12px;
+    }
+
+    timestamp {
+      padding-right: 50px;
+    }
+  </style>
+</head>
+
 <body>
-    <div class="top-bar">
-        <h1>
-            Envision: Mental Health Mentorship Program!
-        </h1>
+  <!-- Logo Container -->
+  <div class="logo-container">
+    <!-- Logo -->
+    <a href="#" id="homeLink">
+      <img src="EnvisionLogo2.png" alt="Envision Logo" class="logo" width="50" height="100">
+    </a>
+  </div>
+
+  <!-- Navbar Container -->
+  <div class="navbar-container">
+    <div class="navbar">
+      <a class="active" href="#" id="homeNav">Home</a>
+      <a href="#" id="dashboardNav">About</a>
+      <a href="#" id="monitorsNav">Find</a>
+      <a href="#" id="settingsNav">Forum</a>
+      <a href="#" id="helpNav">Contact</a>
     </div>
-    <div class="main">
+  </div>
+
+  <div class="top-bar main-content">
+    <h1>
+      Thread 1: Mental Health Mentorship Program!
+    </h1>
+  </div>
+  <div class="main main-content">
     <div class="header">
-         <h4 class="title">
-            Thread 1
-    </h4>
-    <div class="bottom">
+      <div class="bottom">
         <p class="timestamp">
-            10/10/2009
+          10/10/2009
         </p>
         <p class="comment-count">
-            4 comments
-           </p>         
-       </div>
-    </div>
-    <textarea></textarea>
-    <button>add comment</button>
-    <div class="comments">
-        <div class="comment">
-            <div class="top comment">
-               <p class="user">
-            Aaron
-         </p>
-          <p class ="comment-ts">
-            10/10/2020
+          4 comments
         </p>
+      </div>
+    </div>
+    <textarea id="commentInput"></textarea>
+    <button id="addCommentButton">add comment</button>
+    <div class="comments" id="commentsSection">
+      <div class="comment">
+        <div class="top-comment">
+          <p class="user">
+            Aaron
+          </p>
+          <p class="comment-ts">
+            10/10/2020
+          </p>
         </div>
         <div class="comment-content">
           comment text here
-          </div>
-        </div>
-        <div class="comment">
-          <div class="top comment">
-             <p class="user">
-          Aaron
-       </p>
-        <p class ="comment-ts">
-          10/10/2020
-      </p>
-      </div>
-      <div class="comment-content">
-        comment text here
         </div>
       </div>
+      <div class="comment">
+        <div class="top-comment">
+          <p class="user">
+            Aaron
+          </p>
+          <p class="comment-ts">
+            10/10/2020
+          </p>
+        </div>
+        <div class="comment-content">
+          comment text here
+        </div>
       </div>
     </div>
-  <style>
-      body {
-          margin: 10px 60px;
-      }
-      a { 
-          text-decoration: none;
-          color: black;
-      }
-        h1, h4, ol {
-          margin: 0;
-      }
-        p {
-          margin: 5px 10px;
-      }
-      textarea {
-        width: 80%;
-        height:80px;
-      }
-      button {
-        display: block;
-        margin: 10px 0;
-      }
-        .top-bar {
-          background-color: rgb(148, 135, 235);
-          padding: 0 40px;
-      }
-        .main {
-          background-color: #F6F6EF;
-          padding: 10px 40px;
-      }
-      .comments {
-        margin: 40px 0;
-      }
-      .comment {
-        margin: 10px 0;
-      }
-        .row{
-          padding: 5px 0;
-      }
-        .bottom, .top-comment {
-          display: flex;
-          color: grey;
-          font-size: 12px;
-      }
-      timestamp {
-          padding-right: 50px;
-      }
-  </style>
+  </div>
+
+  <footer class="main-content">
+    <!-- Footer content here -->
+  </footer>
+
+  <script>
+    document.getElementById('addCommentButton').addEventListener('click', function () {
+      const commentText = document.getElementById('commentInput').value;
+      if (commentText.trim() === "") return; // Ignore empty comments
+
+      const commentSection = document.getElementById('commentsSection');
+      const newComment = document.createElement('div');
+      newComment.classList.add('comment');
+
+      const currentDate = new Date().toLocaleString();
+
+      newComment.innerHTML = `
+        <div class="top-comment">
+          <p class="user">User</p>
+          <p class="comment-ts">${currentDate}</p>
+        </div>
+        <div class="comment-content">${commentText}</div>
+      `;
+
+      commentSection.appendChild(newComment);
+      document.getElementById('commentInput').value = ''; // Clear the textarea
+    });
+  </script>
 </body>
-    
+
+</html>
