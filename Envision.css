@@ -1,6 +1,7 @@
 /* General Styles */
 body {
-    margin: 10px 60px; /* Margin for the body */
+    margin: 10px 60px;
+    /* Margin for the body */
     padding: 0;
     font-family: Arial, sans-serif;
 }
@@ -10,7 +11,9 @@ a {
     color: black;
 }
 
-h1, h4, ol {
+h1,
+h4,
+ol {
     margin: 0;
 }
 
@@ -170,7 +173,8 @@ button:hover {
     padding: 5px 0;
 }
 
-.bottom, .top-comment {
+.bottom,
+.top-comment {
     display: flex;
     color: grey;
     font-size: 12px;
@@ -210,7 +214,8 @@ timestamp {
     font-weight: bold;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
     color: red;
     cursor: pointer;
 }
@@ -221,13 +226,23 @@ timestamp {
 }
 
 @-webkit-keyframes animatezoom {
-    from { -webkit-transform: scale(0); }
-    to { -webkit-transform: scale(1); }
+    from {
+        -webkit-transform: scale(0);
+    }
+
+    to {
+        -webkit-transform: scale(1);
+    }
 }
 
 @keyframes animatezoom {
-    from { transform: scale(0); }
-    to { transform: scale(1); }
+    from {
+        transform: scale(0);
+    }
+
+    to {
+        transform: scale(1);
+    }
 }
 
 @media screen and (max-width: 300px) {
@@ -235,6 +250,7 @@ timestamp {
         display: block;
         float: none;
     }
+
     .cancelbtn {
         width: 100%;
     }

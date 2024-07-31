@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const postDiv = document.createElement('div');
         postDiv.classList.add('post');
         postDiv.innerHTML = `<strong>${post.username}</strong><p>${post.text}</p>`;
-        
+
         const commentForm = document.createElement('form');
         commentForm.classList.add('comment-form');
         commentForm.innerHTML = `

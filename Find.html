@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Forum</title>
-    <link rel="icon" type="image/png" href="EnvisionLogo2.png">
+    <title>Find STEM Activities</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         html,
         body {
@@ -22,14 +23,16 @@
         }
 
         .header-container {
-            display: flex;
-            flex-direction: column;
+            width: 100%;
             background-color: #333;
             color: white;
+            position: relative;
+            /* Ensure it doesn't overlap */
         }
 
         .logo-container {
-            padding: 10px;
+            padding: 30px 10px 10px;
+            text-align: center;
         }
 
         .logo {
@@ -60,9 +63,19 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            padding: 20px;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
             background-color: #F6F6EF;
+            width: 100%;
+        }
+
+        #map {
+            height: 500px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         .contact-info {
@@ -75,62 +88,39 @@
             margin: 0;
         }
 
-        .contact-info button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact-info button:hover {
-            background-color: #555;
-        }
-
-        #forum h1 {
-            margin-top: 0;
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 
 <body>
     <!-- Header with Logo and Navbar -->
+    <div class="logo-container"></div>
+    <div class="logo-container"></div>
+    <div class="logo-container"></div>
     <div class="header-container">
         <div class="logo-container">
-            <a href="index.html" id="homeLink">
+            <a href="#" id="homeLink">
                 <img src="EnvisionLogo2.png" alt="Envision Logo" class="logo">
             </a>
         </div>
         <div class="navbar">
-                <a href="index.html" id="homeNav">Home</a>
-                <a href="Find.html" id="monitorsNav">Find</a>
-                <a href="Forum_Home.html" id="settingsNav">Forum</a>
-                <a href="Contact_Forum.html" id="helpNav">Contact</a>
+    <a href="index.html" id="homeNav">Home</a>
+    <a href="Find.html" id="monitorsNav">Find</a>
+    <a href="Forum_Home.html" id="settingsNav">Forum</a>
+    <a href="Contact_Forum.html" id="helpNav">Contact</a>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content">
-        <div id="forum">
-            <h1>Help Q&A</h1>
-            <div id="auth">
-                <input type="text" id="username" placeholder="Username">
-                <button id="login">Login</button>
-                <button id="logout" style="display:none;">Logout</button>
-            </div>
-            <div id="posts"></div>
-            <form id="post-form" style="display:none;">
-                <input type="text" id="post-input" placeholder="Write a post...">
-                <button type="submit">Post</button>
-            </form>
-        </div>
-        <button onclick="window.location.href='index.html';">Return to Homepage</button>
-
+        <h1>Find STEM Activities</h1>
+        <div id="map"></div>
     </div>
 
-    <!-- Footer with Contact Info and Return to Homepage Button -->
+    <!-- Footer with Contact Info -->
     <div class="contact-info">
         <h4>Contact Info</h4>
         <p>Phone: 3091212121</p>
@@ -138,6 +128,23 @@
         <p>EnvisionHelp@gmail.com</p>
         <h6>© Since 3/8/2024, doing business as Envision</h6>
     </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Add a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add a marker
+        L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('A STEM activity location.')
+            .openPopup();
+    </script>
 </body>
 
 </html>
