@@ -33,48 +33,49 @@
       transition: transform 0.3s ease;
     }
 
-    .logo:hover {
-      transform: scale(1.1);
-    }
-
-    /* Navbar Styles */
-    .navbar {
-      overflow: hidden;
-      background-color: #333;
-      text-align: center;
-    }
-
-    .navbar a {
-      display: inline-block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px 20px;
-      font-size: 17px;
-      transition: background-color 0.3s ease;
-    }
-
-    .navbar a:hover {
-      background-color: #555;
-    }
-
     .logo-container {
-      background-color: #333;
-      padding-top: 20px;
-    }
+  padding: 10px;
+  background-color: #00264d; /* Slightly lighter blue */
+  text-align: center; /* Center the logo */
+}
 
-    /* Centering Styles for top-bar */
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgb(148, 135, 235);
-      padding: 20px;
-    }
+.navbar-container {
+  padding: 10px;
+  background-color: #00264d; /* Slightly lighter blue */
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #00264d; /* Slightly lighter blue */
+  text-align: center;
+}
+
+.navbar a {
+  display: inline-block;
+  color: white; /* White text */
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 17px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar a:hover {
+  background-color: #003366; /* Dark blue background on hover */
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #001a33; /* Darker blue for top bar */
+  padding: 20px;
+}
+
 
     /* Other Styles */
     a {
       text-decoration: none;
-      color: black;
+      color: #003366;
     }
 
     h1,
@@ -98,12 +99,13 @@
     }
 
     .main {
-      background-color: #F6F6EF;
+      background-color: #003366;
       padding: 10px 40px;
     }
 
     .comments {
       margin: 40px 0;
+      color: white;
     }
 
     .comment {
@@ -117,7 +119,7 @@
     .bottom,
     .top-comment {
       display: flex;
-      color: grey;
+      color: white;
       font-size: 12px;
     }
 
@@ -147,7 +149,7 @@
   </div>
 
   <div class="top-bar main-content">
-    <h1>
+    <h1 style="color:white">
       Thread 1: Mental Health Mentorship Program!
     </h1>
   </div>
@@ -194,9 +196,6 @@
     </div>
   </div>
 
-  <footer class="main-content">
-    <!-- Footer content here -->
-  </footer>
 
   <script>
     document.getElementById('addCommentButton').addEventListener('click', function () {

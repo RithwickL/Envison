@@ -13,26 +13,33 @@
       height: 100%;
       margin: 0;
       padding: 0;
+      background: url('backgroundfists.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      /* White text */
+      font-family: Arial, sans-serif;
     }
 
     body {
       display: flex;
       flex-direction: column;
-      background: url('background.png') no-repeat center center fixed;
-      background-size: cover;
     }
 
     .main-content {
       flex: 1;
-      background-color: rgba(255, 255, 255, 0.8);
-      /* Optional: Add a semi-transparent background to enhance readability */
       padding: 20px;
-      border-radius: 10px;
     }
 
-    .logo-container,
+    .logo-container {
+      padding: 10px;
+      background-color: #001f3f;
+      /* Dark blue background */
+    }
+
     .navbar-container {
       padding: 10px;
+      background-color: #001f3f;
+      /* Dark blue background */
     }
 
     .navbar {
@@ -51,10 +58,30 @@
     }
 
     .footer {
-      background-color: gray;
+      background-color: #001a33;
+      /* Slightly darker blue for the footer */
       color: white;
       text-align: center;
       padding: 10px;
+    }
+
+    h2 {
+      color: white;
+      /* White for headings */
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #00264d;
+      /* Darker blue for the content background */
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
@@ -79,7 +106,7 @@
   </div>
 
   <div class="container main-content">
-    <h2>About us: Envision</h2>
+    <h2 style="color:powderblue;">About us: Envision</h2>
     <p>Facing the challenges to get the assistance needed for the university's application is an exhausting
       experience for most of us. From feeling lost when school counselors aren’t able to provide the accurate
       guidance about university applications, to keeping track of crucial deadlines, and even planning out the
@@ -98,7 +125,7 @@
       process while feeling welcomed and giving everyone a fair chance to flourish in a world that often seems
       unfair.
     </p>
-    <h2>Navigate to the Find Tab to Continue!</h2>
+    <h2 style="color:powderblue;">Navigate to the Find Tab to Continue!</h2>
   </div>
 
   <div class="footer">

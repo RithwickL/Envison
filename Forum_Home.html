@@ -7,12 +7,16 @@
     <title>Forum Select</title>
     <link rel="icon" type="image/png" href="EnvisionLogo2.png">
     <style>
-        /* Extend to Full Screen */
         html,
         body {
             height: 100%;
             margin: 0;
             padding: 0;
+            background-color: #003366;
+            /* Dark Blue Background */
+            color: white;
+            /* Text color */
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -20,86 +24,60 @@
             flex-direction: column;
         }
 
-        .main-content {
-            flex: 1;
-        }
-
-        /* Logo Styles */
-        .logo {
-            display: block;
-            margin-left: 20px;
-            height: 100px;
-            width: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.1);
-        }
-
-        /* Navbar Styles */
-        .navbar {
-            overflow: hidden;
-            background-color: #333;
+        .logo-container {
+            padding: 10px;
+            background-color: #00264d;
+            /* Slightly lighter blue */
             text-align: center;
+            /* Center the logo */
+        }
+
+        .navbar-container {
+            padding: 10px;
+            background-color: #00264d;
+            /* Slightly lighter blue */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
         }
 
         .navbar a {
-            display: inline-block;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 20px;
-            font-size: 17px;
-            transition: background-color 0.3s ease;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
         }
 
         .navbar a:hover {
-            background-color: #555;
+            text-decoration: underline;
         }
 
-        .logo-container {
-            background-color: #333;
-            padding-top: 20px;
-        }
-
-        /* Centering Styles for top-bar */
-        .top-bar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: rgb(148, 135, 235);
+        .main-content {
+            flex: 1;
             padding: 20px;
+            background-color: #001f3f;
+            /* Darker blue for main content area */
         }
 
-        /* Other Styles */
-        a {
-            text-decoration: none;
-            color: black;
+        .footer {
+            background-color: #001a33;
+            /* Even darker blue for footer */
+            color: white;
+            text-align: center;
+            padding: 10px;
         }
 
         h1,
         h4,
-        ol {
+        h2 {
+            color: white;
+            /* White for headings */
             margin: 0;
         }
 
         p {
-            margin: 5px 10px;
-        }
-
-        textarea {
-            width: 80%;
-            height: 80px;
-        }
-
-        button {
-            display: block;
-            margin: 10px 0;
-        }
-
-        .main {
-            background-color: #F6F6EF;
-            padding: 0px 15px;
+            line-height: 1.6;
         }
 
         .row {
@@ -108,12 +86,29 @@
 
         .bottom {
             display: flex;
-            color: rgba(76, 67, 67, 0.481);
+            color: white;
+            /* Text color for bottom section */
             font-size: 12px;
         }
 
         .timestamp {
             padding-right: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #00264d;
+            /* Darker blue for content background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            height: 100px;
+            width: auto;
+            /* Preserve aspect ratio */
         }
     </style>
 </head>
@@ -130,88 +125,58 @@
     <!-- Navbar Container -->
     <div class="navbar-container">
         <div class="navbar">
-                <a href="index.html" id="homeNav">Home</a>
-                <a href="Find.html" id="monitorsNav">Find</a>
-                <a href="Forum_Home.html" id="settingsNav">Forum</a>
-                <a href="Contact_Forum.html" id="helpNav">Contact</a>
+            <a href="index.html" id="homeNav">Home</a>
+            <a href="Find.html" id="monitorsNav">Find</a>
+            <a href="Forum_Home.html" id="settingsNav">Forum</a>
+            <a href="Contact_Forum.html" id="helpNav">Contact</a>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="main main-content">
+    <div class="main-content">
         <ol>
             <li class="row">
                 <a href="Thread.html">
-                    <h4 class="title">
-                        Thread 1
-                    </h4>
+                    <h4 class="title">Thread 1</h4>
                     <div class="bottom">
-                        <p class="timestamp">
-                            10/10/2009
-                        </p>
-                        <p class="comment-count">
-                            4 comments
-                        </p>
+                        <p class="timestamp">10/10/2009</p>
+                        <p class="comment-count">4 comments</p>
                     </div>
                 </a>
             </li>
             <li class="row">
                 <a href="Thread_2.html">
-                    <h4 class="title">
-                        Thread 2
-                    </h4>
+                    <h4 class="title">Thread 2</h4>
                     <div class="bottom">
-                        <p class="timestamp">
-                            10/10/2009
-                        </p>
-                        <p class="comment-count">
-                            10 comments
-                        </p>
+                        <p class="timestamp">10/10/2009</p>
+                        <p class="comment-count">10 comments</p>
                     </div>
                 </a>
             </li>
             <li class="row">
                 <a href="Thread_3.html">
-                    <h4 class="title">
-                        Thread 3
-                    </h4>
+                    <h4 class="title">Thread 3</h4>
                     <div class="bottom">
-                        <p class="timestamp">
-                            10/11/2009
-                        </p>
-                        <p class="comment-count">
-                            5 comments
-                        </p>
+                        <p class="timestamp">10/11/2009</p>
+                        <p class="comment-count">5 comments</p>
                     </div>
                 </a>
             </li>
             <li class="row">
                 <a href="Thread_4.html">
-                    <h4 class="title">
-                        Thread 4
-                    </h4>
+                    <h4 class="title">Thread 4</h4>
                     <div class="bottom">
-                        <p class="timestamp">
-                            10/12/2009
-                        </p>
-                        <p class="comment-count">
-                            3 comments
-                        </p>
+                        <p class="timestamp">10/12/2009</p>
+                        <p class="comment-count">3 comments</p>
                     </div>
                 </a>
             </li>
             <li class="row">
                 <a href="Thread_5.html">
-                    <h4 class="title">
-                        Thread 5
-                    </h4>
+                    <h4 class="title">Thread 5</h4>
                     <div class="bottom">
-                        <p class="timestamp">
-                            10/13/2009
-                        </p>
-                        <p class="comment-count">
-                            7 comments
-                        </p>
+                        <p class="timestamp">10/13/2009</p>
+                        <p class="comment-count">7 comments</p>
                     </div>
                 </a>
             </li>
@@ -219,9 +184,13 @@
     </div>
 
     <!-- Footer -->
-    <footer class="main-content">
-        <!-- Footer content here -->
-    </footer>
+    <div class="footer">
+        <h4>Contact Info</h4>
+        <p>Phone: 3091212121</p>
+        <p>Coralville, IA</p>
+        <p>EnvisionHelp@gmail.com</p>
+        <h6>© Since 3/8/2024, doing business as Envision</h6>
+    </div>
 
     <!-- Scripts -->
     <script src="data.js"></script>
@@ -229,19 +198,13 @@
         console.log(threads);
         var container = document.querySelector('ol');
         for (let thread of threads) {
-            var html = ` 
+            var html = `
             <li class="row">
                 <a href="/item">
-                <h4 class="title">
-                    ${thread.title}
-                </h4>
+                <h4 class="title">${thread.title}</h4>
                 <div class="bottom">
-                    <p class="timestamp">
-                        ${new Date(thread.date).toLocaleString()}
-                    </p>
-                    <p class="comment-count">
-                        ${thread.comments.length} comments
-                    </p>
+                    <p class="timestamp">${new Date(thread.date).toLocaleString()}</p>
+                    <p class="comment-count">${thread.comments.length} comments</p>
                 </div>
                 </a>
             </li>
@@ -249,14 +212,6 @@
             container.insertAdjacentHTML('beforeend', html);
         }
     </script>
-
-    <div style="background-color:gray;color:white">
-        <h4>Contact Info</h4>
-        <p>Phone: 3091212121</p>
-        <p>Coralville, IA</p>
-        <p>EnvisionHelp@gmail.com</p>
-        <h6>© Since 3/8/2024, doing business as Envision</h6>
-    </div>
 </body>
 
 </html>
