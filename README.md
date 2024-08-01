@@ -3,10 +3,15 @@ This project helps users find educational institutions and scholarships around t
 
 Project Structure
 index.html: The main Homepage.
+
 Find.html: The page where users can find institutions by country.
+
 Forum_Home.html: The forum homepage.
-Contact_Forum.html: The contact page for Envision
+
+Contact_Forum.html: The contact page for Envision.
+
 style.css/Envison.css: The stylesheets for the project.
+
 script.js: The JavaScript file for dynamic functionality.
 
 Features
