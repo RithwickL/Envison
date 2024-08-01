@@ -6,152 +6,139 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Thread 3</title>
   <link rel="icon" type="image/png" href="EnvisionLogo2.png">
-<style>
-  /* Extend to Full Screen */
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
 
-  body {
-    display: flex;
-    flex-direction: column;
-  }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .main-content {
-    flex: 1;
-  }
+    .main-content {
+      flex: 1;
+    }
 
-  /* Logo Styles */
-  .logo {
-    display: block;
-    margin-left: 20px;
-    height: 100px;
-    width: auto;
-    transition: transform 0.3s ease;
-  }
+    .logo {
+      display: block;
+      margin-left: 20px;
+      height: 100px;
+      width: auto;
+      transition: transform 0.3s ease;
+    }
 
-  .logo-container {
-    padding: 10px;
-    background-color: #00264d;
-    /* Slightly lighter blue */
-    text-align: center;
-    /* Center the logo */
-  }
+    .logo-container {
+      padding: 10px;
+      background-color: #00264d;
+      text-align: center;
+    }
 
-  .navbar-container {
-    padding: 10px;
-    background-color: #00264d;
-    /* Slightly lighter blue */
-  }
+    .navbar-container {
+      padding: 10px;
+      background-color: #00264d;
+    }
 
-  .navbar {
-    overflow: hidden;
-    background-color: #00264d;
-    /* Slightly lighter blue */
-    text-align: center;
-  }
+    .navbar {
+      overflow: hidden;
+      background-color: #00264d;
+      text-align: center;
+    }
 
-  .navbar a {
-    display: inline-block;
-    color: white;
-    /* White text */
-    text-align: center;
-    padding: 14px 20px;
-    font-size: 17px;
-    transition: background-color 0.3s ease;
-  }
+    .navbar a {
+      display: inline-block;
+      color: white;
+      text-align: center;
+      padding: 14px 20px;
+      font-size: 17px;
+      transition: background-color 0.3s ease;
+    }
 
-  .navbar a:hover {
-    background-color: #003366;
-    /* Dark blue background on hover */
-  }
+    .navbar a:hover {
+      background-color: #003366;
+    }
 
-  .top-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #001a33;
-    /* Darker blue for top bar */
-    padding: 20px;
-  }
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #001a33;
+      padding: 20px;
+    }
 
 
-  /* Other Styles */
-  a {
-    text-decoration: none;
-    color: #003366;
-  }
+    a {
+      text-decoration: none;
+      color: #003366;
+    }
 
-  h1,
-  h4,
-  ol {
-    margin: 0;
-  }
+    h1,
+    h4,
+    ol {
+      margin: 0;
+    }
 
-  p {
-    margin: 5px 10px;
-  }
+    p {
+      margin: 5px 10px;
+    }
 
-  textarea {
-    width: 80%;
-    height: 80px;
-  }
+    textarea {
+      width: 80%;
+      height: 80px;
+    }
 
-  button {
-    display: block;
-    margin: 10px 0;
-  }
+    button {
+      display: block;
+      margin: 10px 0;
+    }
 
-  .main {
-    background-color: #003366;
-    padding: 10px 40px;
-  }
+    .main {
+      background-color: #003366;
+      padding: 10px 40px;
+    }
 
-  .comments {
-    margin: 40px 0;
-    color: white;
-  }
+    .comments {
+      margin: 40px 0;
+      color: white;
+    }
 
-  .comment {
-    margin: 10px 0;
-  }
+    .comment {
+      margin: 10px 0;
+    }
 
-  .row {
-    padding: 5px 0;
-  }
+    .row {
+      padding: 5px 0;
+    }
 
-  .bottom,
-  .top-comment {
-    display: flex;
-    color: white;
-    font-size: 12px;
-  }
+    .bottom,
+    .top-comment {
+      display: flex;
+      color: white;
+      font-size: 12px;
+    }
 
-  timestamp {
-    padding-right: 50px;
-  }
-</style>
+    timestamp {
+      padding-right: 50px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Logo Container -->
   <div class="logo-container">
-    <!-- Logo -->
     <a href="index.html" id="homeLink">
       <img src="EnvisionLogo2.png" alt="Envision Logo" class="logo" width="50" height="100">
     </a>
   </div>
 
-  <!-- Navbar Container -->
   <div class="navbar-container">
     <div class="navbar">
-            <a href="index.html" id="homeNav">Home</a>
-            <a href="Find.html" id="monitorsNav">Find</a>
-            <a href="Forum_Home.html" id="settingsNav">Forum</a>
-            <a href="Contact_Forum.html" id="helpNav">Contact</a>
+      <a href="index.html" id="homeNav">Home</a>
+      <a href="Find.html" id="monitorsNav">Find</a>
+      <a href="Forum_Home.html" id="settingsNav">Forum</a>
+      <a href="Contact_Forum.html" id="helpNav">Contact</a>
     </div>
   </div>
 
@@ -207,7 +194,7 @@
   <script>
     document.getElementById('addCommentButton').addEventListener('click', function () {
       const commentText = document.getElementById('commentInput').value;
-      if (commentText.trim() === "") return; // Ignore empty comments
+      if (commentText.trim() === "") return;
 
       const commentSection = document.getElementById('commentsSection');
       const newComment = document.createElement('div');
@@ -224,7 +211,7 @@
       `;
 
       commentSection.appendChild(newComment);
-      document.getElementById('commentInput').value = ''; // Clear the textarea
+      document.getElementById('commentInput').value = '';
     });
   </script>
 </body>

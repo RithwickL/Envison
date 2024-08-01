@@ -7,7 +7,6 @@
     <title>Find STEM Activities</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-    <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         html,
@@ -16,22 +15,18 @@
             margin: 0;
             padding: 0;
             color: white;
-            /* Default text color */
         }
 
         body {
             display: flex;
             flex-direction: column;
             background-color: #003366;
-            /* Dark blue background for the entire page */
         }
 
         .header-container {
             width: 100%;
             background-color: #003366;
-            /* Dark blue background for the header */
             color: white;
-            /* White text color for header */
             position: relative;
         }
 
@@ -48,14 +43,12 @@
         .navbar {
             overflow: hidden;
             background-color: #003366;
-            /* Dark blue background for navbar */
             text-align: center;
         }
 
         .navbar a {
             display: inline-block;
             color: #f2f2f2;
-            /* Light color for navbar links */
             text-align: center;
             padding: 14px 20px;
             font-size: 17px;
@@ -65,7 +58,6 @@
 
         .navbar a:hover {
             background-color: #00509e;
-            /* Slightly lighter blue for hover effect */
         }
 
         .main-content {
@@ -77,9 +69,7 @@
             padding: 0;
             margin: 0;
             background-color: #003366;
-            /* Dark blue background for main content */
             color: white;
-            /* White text color for main content */
             width: 100%;
         }
 
@@ -92,9 +82,7 @@
 
         .contact-info {
             background-color: #003366;
-            /* Dark blue background for footer */
             color: white;
-            /* White text color for footer */
             padding: 20px;
             text-align: center;
             width: 100%;
@@ -115,15 +103,12 @@
             padding: 10px;
             font-size: 16px;
             color: black;
-            /* Text color for select box */
             background-color: white;
-            /* Background color for select box */
         }
     </style>
 </head>
 
 <body>
-    <!-- Header with Logo and Navbar -->
     <div class="logo-container"></div>
     <div class="logo-container"></div>
     <div class="logo-container"></div>
@@ -144,7 +129,6 @@
         </div>
     </div>
 
-    <!-- Main Content -->
     <div class="main-content">
         <h1>Find Colleges/Universities in your Country</h1>
         <p>Click on the Marker to Naviagte to the Institution's Website</p>
@@ -177,7 +161,6 @@
         <div id="map"></div>
     </div>
 
-    <!-- Footer with Contact Info -->
     <div class="contact-info">
         <h4>Contact Info</h4>
         <p>Phone: 3091212121</p>
@@ -186,18 +169,14 @@
         <h6>© Since 3/8/2024, doing business as Envision</h6>
     </div>
 
-    <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script>
-        // Initialize the map
         var map = L.map('map').setView([20.0, 0.0], 2);
 
-        // Add a tile layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Define STEM activity locations for different countries
         var locations = {
             'USA': [
                 { coords: [37.7749, -122.4194], popup: 'University of California, San Francisco', url: 'https://www.ucsf.edu/' },
@@ -444,29 +423,24 @@
         };
 
 
-        // Function to update map based on selected country
         function updateMap() {
-            // Clear existing markers
             map.eachLayer(function (layer) {
                 if (layer instanceof L.Marker) {
                     map.removeLayer(layer);
                 }
             });
 
-            // Get selected country
             var country = document.getElementById('countryDropdown').value;
             if (country && locations[country]) {
                 locations[country].forEach(function (location) {
                     var marker = L.marker(location.coords).addTo(map);
                     marker.bindPopup(location.popup);
 
-                    // Redirect to the URL on marker click
                     marker.on('click', function () {
                         window.location.href = location.url;
                     });
                 });
 
-                // Adjust map view based on the country
                 var bounds = L.latLngBounds(locations[country].map(function (location) {
                     return location.coords;
                 }));
@@ -474,7 +448,6 @@
             }
         }
 
-        // Event listener for dropdown change
         document.getElementById('countryDropdown').addEventListener('change', updateMap);
     </script>
 </body>

@@ -1,7 +1,6 @@
-/* General Styles */
 body {
     margin: 10px 60px;
-    /* Margin for the body */
+
     padding: 0;
     font-family: Arial, sans-serif;
 }
@@ -48,7 +47,6 @@ button:hover {
     background-color: #f44336;
 }
 
-/* Logo Styles */
 .logo {
     display: block;
     margin-left: 20px;
@@ -61,7 +59,6 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Navbar Styles */
 .navbar {
     overflow: hidden;
     background-color: #333;
@@ -81,7 +78,6 @@ button:hover {
     background-color: #555;
 }
 
-/* Search Container Styles */
 .search-container {
     display: inline-block;
     float: right;
@@ -95,7 +91,6 @@ button:hover {
     border: none;
 }
 
-/* Container Styles */
 .container {
     position: relative;
     width: 50%;
@@ -148,19 +143,16 @@ button:hover {
     padding: 16px 32px;
 }
 
-/* Top Bar Styles */
 .top-bar {
     background-color: rgb(148, 135, 235);
     padding: 0 40px;
 }
 
-/* Main Content Styles */
 .main {
     background-color: #F6F6EF;
     padding: 10px 40px;
 }
 
-/* Comments Styles */
 .comments {
     margin: 40px 0;
 }
@@ -184,7 +176,6 @@ timestamp {
     padding-right: 50px;
 }
 
-/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -256,7 +247,6 @@ timestamp {
     }
 }
 
-/* Pie Chart Styles */
 .progress-pie-chart {
     width: 200px;
     height: 200px;
@@ -324,7 +314,6 @@ timestamp {
     text-align: center;
 }
 
-/* Button Container Styles */
 .button-container {
     display: flex;
     justify-content: center;
@@ -347,13 +336,11 @@ timestamp {
     background-color: #45a049;
 }
 
-/* Logo Container Styles */
 .logo-container {
     background-color: #333;
     padding-top: 20px;
 }
 
-/* Login Menu Styles */
 .login-menu {
     display: none;
     position: absolute;
