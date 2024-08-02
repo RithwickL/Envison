@@ -88,20 +88,20 @@
     textarea {
       width: 80%;
       height: 80px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 10px;
     }
 
     button {
       display: block;
       margin: 10px 0;
-      padding: 12px 20px; /* Added padding for better button size */
-      background-color: #001a33; /* Dark blue background */
-      color: white; /* White text color */
-      border: none; /* Remove default border */
-      border-radius: 22px; /* Rounded corners */
-      font-size: 16px; /* Increase font size for readability */
-      cursor: pointer; /* Pointer cursor on hover */
-      transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+      padding: 12px 20px;
+      background-color: #001a33;
+      color: white;
+      border: none;
+      border-radius: 22px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .main {
@@ -147,6 +147,7 @@
       <a href="index.html" id="homeNav">Home</a>
       <a href="Find.html" id="monitorsNav">Find Institutions</a>
       <a href="scholarships.html" id="helpNav">Find Scholarships</a>
+      <a href="checklist.html" id="helpNav">Checklist</a>
       <a href="Forum_Home.html" id="settingsNav">Forum</a>
       <a href="Contact_Forum.html" id="helpNav">Contact</a>
     </div>
@@ -163,7 +164,7 @@
         <p class="timestamp">
           02/08/2024
         </p>
-        <p class="comment-count">
+        <p class="comment-count" id="commentCount">
           2 comments
         </p>
       </div>
@@ -212,14 +213,19 @@
       const currentDate = new Date().toLocaleString();
 
       newComment.innerHTML = `
-        <div class="top-comment">
-          <p class="user">User</p>
-          <p class="comment-ts">${currentDate}</p>
-        </div>
-        <div class="comment-content">${commentText}</div>
-      `;
+          <div class="top-comment">
+            <p class="user">User</p>
+            <p class="comment-ts">${currentDate}</p>
+          </div>
+          <div class="comment-content">${commentText}</div>
+        `;
 
       commentSection.appendChild(newComment);
+
+      const commentCountElement = document.getElementById('commentCount');
+      const commentCount = parseInt(commentCountElement.textContent);
+      commentCountElement.textContent = `${commentCount + 1} comments`;
+
       document.getElementById('commentInput').value = '';
     });
   </script>

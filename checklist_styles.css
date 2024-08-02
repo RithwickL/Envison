@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #001f3f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+main {
+    padding: 20px;
+}
+
+.advice,
+.example-checklist,
+.user-checklist,
+.checklist {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.advice h2,
+.example-checklist h2,
+.user-checklist h2,
+.checklist h2 {
+    color: #003366;
+}
+
+.advice ul,
+.example-checklist ul,
+.user-checklist ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.advice li,
+.example-checklist li,
+.user-checklist li {
+    margin: 10px 0;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 20px;
+}
+
+.advice li::before,
+.example-checklist li::before,
+.user-checklist li::before {
+    content: "•";
+    color: #001f3f;
+    position: absolute;
+    left: 0;
+}
+
+.user-checklist input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-checklist button {
+    padding: 10px 20px;
+    background-color: #001f3f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-checklist button:hover {
+    background-color: #003366;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #001f3f;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #003366;
+}
+
+footer {
+    background-color: #001f3f;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}

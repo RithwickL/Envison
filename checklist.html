@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Application Checklist</title>
+    <link rel="stylesheet" href="checklist_styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>College Application Checklist</h1>
+        <p>Essential tips and a downloadable checklist for FGLI students.</p>
+        <button onclick="window.location.href='index.html';" class="homepage-button">Return to Homepage</button>
+
+    </header>
+
+
+    <main>
+        <section class="advice">
+            <h2>Essential Tips for FGLI Students</h2>
+            <ul>
+                <li><strong>Start Early:</strong> Begin your application process as early as possible to avoid
+                    last-minute stress.</li>
+                <li><strong>Research Financial Aid:</strong> Look into scholarships, grants, and work-study
+                    opportunities to ease financial burdens.</li>
+                <li><strong>Seek Support:</strong> Reach out to mentors, teachers, and community organizations for
+                    guidance.</li>
+                <li><strong>Stay Organized:</strong> Keep track of deadlines, required documents, and application
+                    statuses.</li>
+                <li><strong>Personal Statement:</strong> Highlight your unique experiences and challenges to make your
+                    application stand out.</li>
+                <li><strong>Letters of Recommendation:</strong> Ask for letters of recommendation early and provide your
+                    recommenders with sufficient time.</li>
+                <li><strong>Prepare for Interviews:</strong> Practice common interview questions and present yourself
+                    confidently.</li>
+                <li><strong>Double-Check Applications:</strong> Review your applications for any errors before
+                    submitting.</li>
+            </ul>
+        </section>
+
+        <section class="example-checklist">
+            <h2>Example Checklist</h2>
+            <ul id="exampleChecklist">
+                <li>Request transcripts</li>
+                <li>Complete FAFSA</li>
+                <li>Write personal statement</li>
+                <li>Ask for letters of recommendation</li>
+                <li>Submit application fees</li>
+            </ul>
+        </section>
+
+        <section class="user-checklist">
+            <h2>Your Checklist</h2>
+            <ul id="userChecklist">
+            </ul>
+            <input type="text" id="newItem" placeholder="Add a new item">
+            <button onclick="addItem()">Add</button>
+        </section>
+
+        <section class="checklist">
+            <h2>Downloadable College Application Checklist</h2>
+            <button class="download-button" onclick="downloadPDF()">Download Checklist</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Envision. All rights reserved.</p>
+    </footer>
+
+    <script src="checklist_script.js"></script>
+</body>
+
+</html>
