@@ -10,15 +10,24 @@ Forum_Home.html: The forum homepage.
 
 Contact_Forum.html: The contact page for Envision.
 
+scholarship.html: The page where users can find scholarships by name, amount, and date.
+
+scholarship.css: The stylesheet for the scholarship page.
+
 style.css/Envison.css: The stylesheets for the project.
 
 script.js: The JavaScript file for dynamic functionality.
+
+backgroundfists.png: the Background for the homepage
+
+EnvisonLogo.png: the logo for the project
 
 Features
 Interactive Map: Uses Leaflet.js to display a map with markers for various institutions.
 Country Selection: Dropdown menu allows users to select a country to view relevant institutions.
 Responsive Design: Designed to work well on different devices.
 Data Storing Forum: Data stored from comments and posts made in the Contact Forum Page
+Scholarship Storage: Custom Built naviagtion to find scholarships for school
 
 Installation
 Clone the repository:
