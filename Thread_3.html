@@ -88,11 +88,20 @@
     textarea {
       width: 80%;
       height: 80px;
+      border-radius: 10px; /* Rounded corners */
     }
 
     button {
       display: block;
       margin: 10px 0;
+      padding: 12px 20px; /* Added padding for better button size */
+      background-color: #001a33; /* Dark blue background */
+      color: white; /* White text color */
+      border: none; /* Remove default border */
+      border-radius: 22px; /* Rounded corners */
+      font-size: 16px; /* Increase font size for readability */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
     }
 
     .main {
@@ -159,7 +168,7 @@
       </div>
     </div>
     <textarea id="commentInput"></textarea>
-    <button id="addCommentButton">add comment</button>
+    <button id="addCommentButton">Add comment</button>
     <div class="comments" id="commentsSection">
       <div class="comment">
         <div class="top-comment">
