@@ -88,12 +88,21 @@
             transition: background-color 0.3s ease;
         }
 
+        button {
+            background: #044a91;
+        }
+
         .contact-info button:hover {
             background-color: #003366;
         }
 
         #forum h1 {
             margin-top: 0;
+        }
+
+        .homepage-button {
+            margin-top: 20px;
+            width: 100%;
         }
     </style>
 </head>
@@ -118,8 +127,8 @@
                 <input type="text" id="post-input" placeholder="Write a post...">
                 <button type="submit">Post</button>
             </form>
+            <button onclick="window.location.href='index.html';" class="homepage-button">Return to Homepage</button>
         </div>
-        <button onclick="window.location.href='index.html';">Return to Homepage</button>
 
     </div>
 
