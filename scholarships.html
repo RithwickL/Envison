@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Listings</title>
+    <link rel="stylesheet" href="scholarships.css">
+</head>
+
+<body>
+
+    <div class="logo-container">
+        <a href="index.html" id="homeLink">
+            <img src="EnvisionLogo2.png" alt="Envision Logo" class="logo">
+        </a>
+    </div>
+
+    <div class="navbar-container">
+        <div class="navbar">
+            <a href="index.html" id="homeNav">Home</a>
+            <a href="Find.html" id="monitorsNav">Find Institutions</a>
+            <a href="scholarships.html" id="helpNav">Find Scholarships</a>
+            <a href="Forum_Home.html" id="settingsNav">Forum</a>
+            <a href="Contact_Forum.html" id="helpNav">Contact</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1 style="color:white">Scholarship Listings</h1>
+        <input type="text" id="searchBar" placeholder="Search by name...">
+        <select id="sortOptions">
+            <option value="default">Sort By</option>
+            <option value="name">Name</option>
+            <option value="date">Due Date</option>
+            <option value="amount">Award Amount</option>
+        </select>
+        <table id="scholarshipTable">
+            <thead>
+                <tr>
+                    <th>Scholarship Name</th>
+                    <th>Due Date</th>
+                    <th>Eligibility/Rules</th>
+                    <th>Award Amount</th>
+                    <th>Application/Information Link</th>
+                </tr>
+            </thead>
+            <tbody id="scholarshipBody">
+            </tbody>
+        </table>
+        <div class="pagination">
+            <button id="prevPage">Previous</button>
+            <span style="color:white" id="pageNumber">1</span>
+            <button id="nextPage">Next</button>
+        </div>
+    </div>
+    <script>
+        const scholarships = [
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "1-Jan-24",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "1-Jan-24",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "1-Jan-24",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "Taco Bell Live Mas Scholarship",
+                "DUE DATE": "3-Jan-24",
+                "Eligibility/Rules": "High school student 16 years or older with parental consent to produce a short 2 minute or less video that talks about your passion and how you plan to make a positive change in your comunity/world and how your education will help you pursue your passion and make those changes.",
+                "Award Amount": "100 awards of $25,000",
+                "Applictaion/Information Link": "https://www.tacobellfoundation.org/live-mas-scholarship/"
+            },
+            {
+                "Scholarship Name": "GE Reagan Foundation Scholarship",
+                "DUE DATE": "4-Jan-24",
+                "Eligibility/Rules": "High school senior, 3.0 minimum GPAUS Citizen. Demonstrate in school, work and community the attributes of leadership, drive, integrity and citizenship.",
+                "Award Amount": "20 awards of $10,000/per year",
+                "Applictaion/Information Link": "https://www.reaganfoundation.org/education/scholarship-programs/ge-reagan-foundation-scholarship-program/"
+            },
+            {
+                "Scholarship Name": "The May Firm Scholarship Fund",
+                "DUE DATE": "5-Jan-24",
+                "Eligibility/Rules": "What is one traumatic experience you experienced in your life, and how did you overcome it?\n\nAttached to your essay (300+ words), please include a copy of your resume including current GPA as well as what University or community college you are attending.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://mayfirm.com/scholarship"
+            },
+            {
+                "Scholarship Name": "The May Firm Scholarship Fund",
+                "DUE DATE": "5-Jan-24",
+                "Eligibility/Rules": "What is one traumatic experience you experienced in your life, and how did you overcome it?\n\nAttached to your essay (300+ words), please include a copy of your resume including current GPA as well as what University or community college you are attending.",
+                "Award Amount": 1,
+                "Applictaion/Information Link": "https://mayfirm.com/scholarship"
+            },
+            {
+                "Scholarship Name": "Asian and Pacific Islander American Scholarship",
+                "DUE DATE": "9-Jan-24",
+                "Eligibility/Rules": "High School senior, financial need based on income level, first generation college student, Asian or Pacific Islander ethnicity, legal permanent resident of the US, 2.7 minimum GPA, Must apply for FAFSA for the 2021-2022 school year.",
+                "Award Amount": "500 awards of up to $20,000",
+                "Applictaion/Information Link": "https://apiascholars.org/scholarship/apia-scholarship/"
+            },
+            {
+                "Scholarship Name": "USU Scholarships",
+                "DUE DATE": "10-Jan-24",
+                "Eligibility/Rules": "seniors who have applied to USU for Fall 2021",
+                "Award Amount": "Awards vary by Scholarship",
+                "Applictaion/Information Link": "https://www.usu.edu/scholarships/incoming/index"
+            },
+            {
+                "Scholarship Name": "Love Your Career Scholarship",
+                "DUE DATE": "10-Jan-24",
+                "Eligibility/Rules": "You must be a student enrolled in an accredited college or University located in the United States.\n\nIf you are applying for the winter scholarship, you must be enrolled for classes during that winter semester.\n\nIf you are applying for the fall scholarship, you must be enrolled for classes during that fall semester.\n\nYou must follow all of the essay requirements and submission requirements outlined above in order to qualify.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.jonestshirts.com/pages/scholarship"
+            },
+            {
+                "Scholarship Name": "Love Your Career Scholarship",
+                "DUE DATE": "10-Jan-24",
+                "Eligibility/Rules": "You must be a student enrolled in an accredited college or University located in the United States.\n\nIf you are applying for the winter scholarship, you must be enrolled for classes during that winter semester.\n\nIf you are applying for the fall scholarship, you must be enrolled for classes during that fall semester.\n\nYou must follow all of the essay requirements and submission requirements outlined above in order to qualify.",
+                "Award Amount": 1,
+                "Applictaion/Information Link": "https://www.jonestshirts.com/pages/scholarship"
+            },
+            {
+                "Scholarship Name": "Jackie Robinson Foundation Scholarship",
+                "DUE DATE": "10-Jan-24",
+                "Eligibility/Rules": "To be eligible for a Jackie Robinson Foundation Scholarship, an applicant must:\n- Be a graduating, minority high school senior\n- Be a United States citizen\n- Present evidence of financial need\n- Demonstrate a record of academic excellence\n- Demonstrate leadership potential and a dedication to community service\n- Submit an official SAT and/or ACT test exam score from junior or senior year*\n- Plan to attend an accredited and approved 4-year college within the United States or affiliated with a United States-based college or university\n- Have not accrued more than 25% of credits needed to graduate from college.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://jackierobinson.org/apply/?utm_campaign=network&utm_term=FY23&utm_source=programs&utm_medium=email"
+            },
+            {
+                "Scholarship Name": "Grow Ag Leaders Scholarship",
+                "DUE DATE": "11-Jan-24",
+                "Eligibility/Rules": "High School Senior planning to pursue a degree in the agricultural science. Minimum GPA 2.5",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.ffa.org/participate/grants-and-scholarships/scholarships/"
+            },
+            {
+                "Scholarship Name": "John F. Kennedy Profile in Courage Essay Contest",
+                "DUE DATE": "12-Jan-24",
+                "Eligibility/Rules": "High School students. Essay, max word count is 1000 words, minimum of 700. Students will write and original and creative essay that demonstrates an understanding of political courage as described by John F. Kennedy in Profiles in Courage. Use at least 5 sources such as government documents, newspaper articles, books, and/or personal interviews.",
+                "Award Amount": "8 awards of $10,000",
+                "Applictaion/Information Link": "https://www.jfklibrary.org/learn/education/profile-in-courage-essay-contest/getting-started"
+            },
+            {
+                "Scholarship Name": "DECA Scholarships",
+                "DUE DATE": "12-Jan-24",
+                "Eligibility/Rules": "Must be a current DECA member to be eligible for DECA scholarships. See website for details",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.deca.org/high-school-programs/scholarships/"
+            },
+            {
+                "Scholarship Name": "Washington Crossing Foundation Scholarship",
+                "DUE DATE": "15-Jan-24",
+                "Eligibility/Rules": "high school senior entering college Fall 2021 planning a career in government service. US Citizen, 1 page essay stating why he/she is planning a career in government service, including any inspriation that can be derived from the leadership of George Washington in his famous crossing of the Delaware River.",
+                "Award Amount": "39 awards of up to $5000",
+                "Applictaion/Information Link": "https://www.gwcf.org/scholarship"
+            },
+            {
+                "Scholarship Name": "20K Lyndsey Scott Coding Scholarship",
+                "DUE DATE": "15-Jan-24",
+                "Eligibility/Rules": "Any LGBTQIA+, Women, and/or BIPOC students who are majoring in computer science and are also pursuing other interests may apply to this scholarship.",
+                "Award Amount": "13 winners of $20,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/lyndsey-scott-coding-plus-scholarship/"
+            },
+            {
+                "Scholarship Name": "The Utah High School Entrepenuer Challenge",
+                "DUE DATE": "16-Jan-24",
+                "Eligibility/Rules": "Utah residents ages 14-18 can enter a business idea. May have a team of up to 5 people.",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://lassonde.utah.edu/hsuec/"
+            },
+            {
+                "Scholarship Name": "Bank of American Student Leaders Program",
+                "DUE DATE": "17-Jan-24",
+                "Eligibility/Rules": "Currently be a junior or senior in high school\nLive in one of the eligible markets listed\nBe able to participate in an 8‐week paid internship at a local nonprofit/charitable organization and work 35 hours a week*\nBe legally authorized to work in the US without sponsorship through the end of September 2022\nBe able to participate in a week‐long Student Leadership Summit in Washington, DC (July 25-30, 2022) (All expenses paid as part of Student Leaders. This week will be part of your 8‐ week experience.) *\nBe a student in good standing at your school\nPlease note: Bank of America employees or members of their immediate family (e.g., children, siblings, grandchildren, nieces, nephews, etc.) are NOT eligible to apply.",
+                "Award Amount": "Not a scholarship",
+                "Applictaion/Information Link": "https://about.bankofamerica.com/en/making-an-impact/student-leaders"
+            },
+            {
+                "Scholarship Name": "Coolidge Scholarship",
+                "DUE DATE": "18-Jan-24",
+                "Eligibility/Rules": "High School Juniors, US citizen or legal resident. Applications must be completed online",
+                "Award Amount": "Full-ride scholarship for 4 years",
+                "Applictaion/Information Link": "www.coolidgescholars.org"
+            },
+            {
+                "Scholarship Name": "CTE Scholarships",
+                "DUE DATE": "29-Jan-24",
+                "Eligibility/Rules": "Senior students planning on attending one of the participating institutions. See website for details",
+                "Award Amount": "Varies per institution",
+                "Applictaion/Information Link": "https://www.schools.utah.gov/cte/resources/scholarshipsawards?mid=3119&tid=0"
+            },
+            {
+                "Scholarship Name": "Unigo: I have a Dream Scholarship",
+                "DUE DATE": "31-Jan-24",
+                "Eligibility/Rules": "14 years or older, 250 words or less essay on \"What do you dream about?\" Whether it's some bizarre dream you had last week, or your hopes for the future, share your dreams.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/i-have-a-dream-scholarship"
+            },
+            {
+                "Scholarship Name": "The Princeton Prize in Race Relations",
+                "DUE DATE": "31-Jan-24",
+                "Eligibility/Rules": "Recipients of the Princeton Prize in Race Relations have stood up to intolerance, worked toward advancing racial equity, and encouraged racial comity in their school or communities.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://princetonprize.smapply.io/prog/princeton_prize_in_race_relations/"
+            },
+            {
+                "Scholarship Name": "Daughters of the American Revolution Scholarships",
+                "DUE DATE": "31-Jan-24",
+                "Eligibility/Rules": "Various Scholarships - students will need to visit the website to see which scholarships they want to apply for.",
+                "Award Amount": "Amount Varies",
+                "Applictaion/Information Link": "https://www.dar.org/national-society/scholarships"
+            },
+            {
+                "Scholarship Name": "Utah Interscholastic Athletic Administrators Association Scholarship",
+                "DUE DATE": "31-Jan-24",
+                "Eligibility/Rules": "Applicants must be a senior in high school with a minimum GPA of 3.0 and an ACT score of 20+ or SAT of 900+. Applicants must have participated in 2 or more sports for a minimum of 3 years, earning at least one varsity letter in at least 2 sports. Applicants must complete the application and essay and include a letter of recommendation from the athletic director at the school and the application must be signed by the AD or Principal over Athletics. Applications must be emailed to Utahiaaa@gmail.com.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://uiaaa.org/student-athlete-scholarships/"
+            },
+            {
+                "Scholarship Name": "National DAR Scholarships",
+                "DUE DATE": "31-Jan-24",
+                "Eligibility/Rules": "Students must be a senior, and a US Citizen. Studen'ts need to have a 4.0 GPA and be attending college in a accredited school in the US.",
+                "Award Amount": "up to $5000",
+                "Applictaion/Information Link": "https://www.dar.org/national-society/scholarships/general-info"
+            },
+            {
+                "Scholarship Name": "University of Utah Scholarships",
+                "DUE DATE": "1-Feb-24",
+                "Eligibility/Rules": "seniors planning on attending University of Utah",
+                "Award Amount": "Awards vary by Scholarship",
+                "Applictaion/Information Link": "https://financialaid.utah.edu/types-of-aid/scholarships/freshman/index.php"
+            },
+            {
+                "Scholarship Name": "Elks National Foundation Legacy Award",
+                "DUE DATE": "5-Feb-24",
+                "Eligibility/Rules": "child or grandchild of an current Elks Member. must be a senior student",
+                "Award Amount": "300 awards of $4000",
+                "Applictaion/Information Link": "https://www.elks.org/scholars/scholarships/legacy.cfm#WhoIsEligible"
+            },
+            {
+                "Scholarship Name": "Wells Fargo Scholarship Program for People with Disabilities",
+                "DUE DATE": "18-Feb-24",
+                "Eligibility/Rules": "Have an identified disability (defined as someone who has, or considers themselves to have, a long-term or recurring issue that impacts one or more major life activity)\nHave a minimum grade point average of 3.0 on a 4.0 scale or its equivalent\nBe a high school senior or graduate who plans to enroll or who is already enrolled in full-time or half-time (at least 6 credits per term) undergraduate study at an accredited two-year or four-year college or university in the United States for the entire 2021-2022 academic year",
+                "Award Amount": "student will receive a $2,500 award for full-time study or a $1,250 award for half-time study",
+                "Applictaion/Information Link": "https://learnmore.scholarsapply.org/pwdscholarship/"
+            },
+            {
+                "Scholarship Name": "Joseph James Morelli Scholarship",
+                "DUE DATE": "25-Feb-24",
+                "Eligibility/Rules": "Seniors going into a STEM field of study in their post secondary education. This means they can be attending a technical college going for a certification or 2 year degree. This scholarship is for a student who has a demonstrated learning disability of dyslexia or similar reading or language based disability.",
+                "Award Amount": "up to $2500 and can go towards tuition, books, tutoring or assistive technology",
+                "Applictaion/Information Link": "https://morelli.foundation/scholarship/"
+            },
+            {
+                "Scholarship Name": "Scholars Helping Collars Scholarship",
+                "DUE DATE": "26-Feb-24",
+                "Eligibility/Rules": "HS Senior who can tell the best story, describing the impact he or she made in the life of a rescue animal or animal welfare cause in general.",
+                "Award Amount": "up to $1500",
+                "Applictaion/Information Link": "https://www.petplay.com/pages/scholarship"
+            },
+            {
+                "Scholarship Name": "Freedom Festival Essay Contest",
+                "DUE DATE": "26-Feb-24",
+                "Eligibility/Rules": "All grades K-12. Essay must focus on some aspect of the theme of the contest as given on the website.",
+                "Award Amount": "Division Grades 7-9 $200, Division Grades 10-12 $500",
+                "Applictaion/Information Link": "https://www.freedomfestival.org/event/essay-contest-2/"
+            },
+            {
+                "Scholarship Name": "Freedom Festival Art Contest",
+                "DUE DATE": "26-Feb-24",
+                "Eligibility/Rules": "All students K-12. Entries must be original work, submitted in digital jpg format only and no smaller than 300 dpi. No personal or identifying information may appear on the artwork itself.",
+                "Award Amount": "500 per division",
+                "Applictaion/Information Link": "http://freefestival.wpengine.com/event/art-contest/"
+            },
+            {
+                "Scholarship Name": "Information Security Undergraduate Scholarship",
+                "DUE DATE": "29-Feb-24",
+                "Eligibility/Rules": "senior with 3.3 GPA",
+                "Award Amount": "20 awards of up to $5000",
+                "Applictaion/Information Link": "https://www.iamcybersafe.org/s/undergraduate-scholarships"
+            },
+            {
+                "Scholarship Name": "Dixie State Scholarships for Utah Residents",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "Must be accepted to Dixie State for Fall 2021, US Citizen, intent to graduate from Dixie State",
+                "Award Amount": "Awards vary by Scholarship",
+                "Applictaion/Information Link": "https://scholarships.dixie.edu/utah-resident-freshman-scholarship/"
+            },
+            {
+                "Scholarship Name": "UVU Scholarships",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "students who have applied to UVU, including those CE students whose applications automatically turn over to on campus students",
+                "Award Amount": "varies by scholarship",
+                "Applictaion/Information Link": "https://www.uvu.edu/financialaid/scholarships/"
+            },
+            {
+                "Scholarship Name": "Utah Young Humanitarian Scholarship",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "Juniors and seniors, who have completed humanitarian service and are committed to humanitarian service",
+                "Award Amount": "up to $5,000",
+                "Applictaion/Information Link": "https://www.youthlinc.org/scholarships/young-humanitarian-award/"
+            },
+            {
+                "Scholarship Name": "One Refugee Scholarhsip",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "Either you or your parents come from a refugee background\n\nFull-time undergraduate student (taking 12-14 credits)\n\nCompleted FAFSA application for 2022-23 school year\n\nResident of Utah or Idaho\n\nCollege English and math ready\n\nMinimum 2.5 GPA\n\nHighly-motivated, Opens 12/1",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.onerefugee.org/apply-now"
+            },
+            {
+                "Scholarship Name": "Life Lessons Scholarship",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "The Life Lessons Scholarship Program is open only to legal residents of the fifty (50) United States, the District of Columbia and Puerto Rico, who are between 17 and 24 years of age, have experienced the death of a parent or legal guardian, and are currently enrolled in, or have been accepted to, a college, university or trade school within the fifty (50) United States, the District of Columbia or Puerto Rico. Employees of Life and Health Insurance Foundation for Education (“Life Happens” or “Sponsor”), KWT Global, and their respective parents, affiliates, subsidiaries, and advertising, and promotion agencies, and any such employee’s immediate family members (spouse, parent, child, sibling and their respective spouses) and those living in their same households, whether or not related, are not eligible to enter or win a scholarship. A minor should have a parent’s or legal guardian’s permission to enter. Void where prohibited by law. The Scholarship Program is subject to all applicable federal, state and local laws.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://lifehappens.org/life-lessons-scholarship-program/application/"
+            },
+            {
+                "Scholarship Name": "Engebretson Foundation Scholarship",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "Senior with 28 composite ACT and 3.75 GPA, who has completed the FAFSA application and has received their Student Aid Report showing the EFC. Application is online to be filled out then printed and mailed along with teacher recommendations together in one envelope",
+                "Award Amount": "$5,000",
+                "Applictaion/Information Link": "https://www.engebretsonfoundation.org/application.html"
+            },
+            {
+                "Scholarship Name": "Create a Greeting Card Scholarship",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "US Residents, 14 years or older. Applicants must design a greeting card and submit their application and artwork",
+                "Award Amount": "1 award of $10,000",
+                "Applictaion/Information Link": "https://www.gallerycollection.com/greeting-cards-scholarship.htm"
+            },
+            {
+                "Scholarship Name": "American Legion: Eagle Scout of the Year",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "• Be either a registered active member of a Boy Scouts of\nAmerica unit that is chartered to an American Legion\npost, American Legion Auxiliary unit or Sons of The\nAmerican Legion squadron.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.legion.org/scholarships/eaglescout"
+            },
+            {
+                "Scholarship Name": "ACS Scholars Program",
+                "DUE DATE": "1-Mar-24",
+                "Eligibility/Rules": "U.S. citizens or a legal permanent U.S. residents (please inquire via email if you have questions regarding asylum or DACA status)\nAfrican-American/Black, Hispanic/Latino, or American Indian (please see below for more details)\nGraduating high school seniors or college freshmen, sophomores or juniors. Seniors can apply for their fifth year.\nThose intending to major or are already majoring in chemistry, biochemistry, chemical engineering, chemical technology, or another chemistry-related science AND planning to pursue a career in a chemistry-related science as well (please see below for more details)\nFull-time students at a high school or an accredited college, university, or community college\nThose demonstrating high academic achievement in chemistry or science (Grade Point Average 3.0 or higher)",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.acs.org/content/acs/en/education/acs-scholars/apply.html"
+            },
+            {
+                "Scholarship Name": "World of 8 Billion Video Contest",
+                "DUE DATE": "5-Mar-24",
+                "Eligibility/Rules": "Think Critically about global challenges related to population growth and share what you think we should do to fix it.",
+                "Award Amount": "Varies: See website for more details",
+                "Applictaion/Information Link": "https://www.worldof7billion.org/student-video-contest/"
+            },
+            {
+                "Scholarship Name": "Private Frontier Scholarship Essay Contest",
+                "DUE DATE": "8-Mar-24",
+                "Eligibility/Rules": "students ages 12-18. Essay of 500-1000 words on the topic: Certain endeavors were always considered a job for government, but entrepreneurs have changed that. Consider space exploration. Elon Musk's SpaceX recently sent two astronauts into space for two months. But it's not just up in space that entrepreneurs are making changes. Down here on Earth, entrepreneurs are forcing us to reconsider what private enterprise might do better than government does. Education and the Postal Service are two other examples of numerous government-run operations that might face similar challenges from private enterprise. Is this the future? Is society better served with greater involvement from entrepreneurs? If so, who pays and who profits?",
+                "Award Amount": "88 awards of $2500",
+                "Applictaion/Information Link": "https://stosselintheclassroom.org/essay-contest/"
+            },
+            {
+                "Scholarship Name": "AG Bell College Scholarship Awards",
+                "DUE DATE": "8-Mar-24",
+                "Eligibility/Rules": "To be eligible, spoken communication must be the applicant's primary mode of communication and hearing loss must have been diagnosed before the applicant's fourth birthday. Hearing loss must be bilateral and in the moderate to profound range. Applicants must have an unaided Pure-Tone Average (PTA) of 60dB or greater in the better-hearing ear in the speech frequencies of 500, 1000 and 2000 Hz. For more information, or to apply, please visit the scholarship provider's website.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.agbell.org/Connect/AG-Bell-College-Scholarship-Program"
+            },
+            {
+                "Scholarship Name": "Jiffy Lube Teen Driver \"What Drives You\" Scholarship, Licensed Driver",
+                "DUE DATE": "11-Mar-24",
+                "Eligibility/Rules": "for Utah students 16-18, enrolled in high school during the 2020-21 school year. Write a 500 word typed essay about what drives you now.",
+                "Award Amount": "up to $6500",
+                "Applictaion/Information Link": "https://www.yourturn2apply.com/utah.htm"
+            },
+            {
+                "Scholarship Name": "Microsoft Women Scholarship",
+                "DUE DATE": "13-Mar-24",
+                "Eligibility/Rules": "Be a graduating senior who identifies as a woman and/or as non-binary. Wishes to pursue a career in a STEAM (Science, Technology, Engineering, Arts, Math) field, plans to attend an accredited 2-4 year public college or university in the US in the upcoming academic year , GPA of 3.0 or higher",
+                "Award Amount": "7 awards, up to $5000",
+                "Applictaion/Information Link": "https://www.microsoft.com/en-us/diversity/programs/women-at-microsoft-scholarship"
+            },
+            {
+                "Scholarship Name": "Doodle for Google Scholarship",
+                "DUE DATE": "14-Mar-24",
+                "Eligibility/Rules": "Doodle for Google is an annual art contest open to students in grades K-12. Students are invited to create their own Google Doodle for the chance to have it featured on Google.com, as well as win some great scholarships and tech packages for their schools.",
+                "Award Amount": "60 awards of up to $55,000",
+                "Applictaion/Information Link": "https://doodles.google.com/d4g/prizes/"
+            },
+            {
+                "Scholarship Name": "GoSkills Be the Boss Scholarship",
+                "DUE DATE": "15-Mar-24",
+                "Eligibility/Rules": "Open to any high school female student who wants to start her own online business",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://www.goskills.com/scholarship"
+            },
+            {
+                "Scholarship Name": "Shell Oil Company Technical Scholarship",
+                "DUE DATE": "15-Mar-24",
+                "Eligibility/Rules": "HS seniors who have expressed an interest in the energy industry and demonstrate an aptitude in math and science. Plan to enroll full-time in one of the following majors (geology, geophysics, physics, chemical, civil, electrical geological, geophysical, mechanical or petroleum engineering). be lawfully allowed to work on a full-time basis in the US without sponsorship",
+                "Award Amount": "20 awards of $2500",
+                "Applictaion/Information Link": "https://www.shell.us/careers/about-careers-at-shell/shell-graduate-program/scholarships.html"
+            },
+            {
+                "Scholarship Name": "UCT Charities Heaston Scholarship",
+                "DUE DATE": "15-Mar-24",
+                "Eligibility/Rules": "The UCT Charities Heaston scholarships will be given to three deserving students annually, each covering four years of undergraduate education. The winners will demonstrate: Evidence of hard work to overcome obstacles, Academic success and extracurricular success in high school, and commitment to community service.",
+                "Award Amount": "3 awards of up to $24,000",
+                "Applictaion/Information Link": "https://www.uct.org/the-uct-heaston-scholarship/"
+            },
+            {
+                "Scholarship Name": "Well Fargo Scholarship Program for Peoples with Disabilities",
+                "DUE DATE": "20-Mar-24",
+                "Eligibility/Rules": "Have an identified disability (defined as someone who has, or considers themselves to have, a long-term or recurring issue that impacts one or more major life activity). Have a minimum grade point average of 3.0 on a 4.0 scale or its equivalent. Be a high school senior or graduate or a current postsecondary undergraduate who plans to enroll or who is already enrolled in full-time or half-time (at least 6 credits per term) undergraduate study at an accredited two-year or four-year college or university in the United States for the entire upcoming academic year",
+                "Award Amount": "Up to $2500",
+                "Applictaion/Information Link": "https://learnmore.scholarsapply.org/pwdscholarship/"
+            },
+            {
+                "Scholarship Name": "National AI Scholarship",
+                "DUE DATE": "25-Mar-24",
+                "Eligibility/Rules": "Level 1 - Want to learn about AI with instructors from Stanford, MIT and Carnegie Mellon University, even if you do not have any coding experience?\n\n\n\nApply now for a scholarship for our programs, valued at over $2,000 USD.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.ai-camp.org/scholarship?utm_medium=email&_hsmi=233616512&_hsenc=p2ANqtz-9CHIv5VcRW0ENaZgArFFblEVVvKcrruAow1VlEKvV95_y_PkLyghtgGc3JHCGOaG9YHNjchUZPzXIQhs4dl1rT-dktFA&utm_content=233616512&utm_source=hs_email"
+            },
+            {
+                "Scholarship Name": "Too Cool to Pay for School",
+                "DUE DATE": "31-Mar-24",
+                "Eligibility/Rules": "Open to high school, college, and graduate school students of all years. Must be currently enrolled full time (in high school or at an accredited university) or planning on enrolling within 24 months.",
+                "Award Amount": "",
+                "Applictaion/Information Link": ""
+            },
+            {
+                "Scholarship Name": "Because College is Expensive Scholarship",
+                "DUE DATE": "31-Mar-24",
+                "Eligibility/Rules": "High school sophomores, juniors & seniors, current college students and anyone else looking to attend college or graduate school.",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://cedaredlending.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "Beyond the Cure Ambassador Scholarship",
+                "DUE DATE": "31-Mar-24",
+                "Eligibility/Rules": "Open to childhood cancer survivors who have demonstrated the ability to overcome the difficult challenges of cancer with determination and motivation. US Citizen. Attending post-secondary school Fall 2024. Minimum GPA of 2.5",
+                "Award Amount": "Up to $3500",
+                "Applictaion/Information Link": "https://accessscholarships.com/scholarship/beyond-the-cure-ambassador-scholarship-program/"
+            },
+            {
+                "Scholarship Name": "Expressions Challenge award",
+                "DUE DATE": "31-Mar-24",
+                "Eligibility/Rules": "Open to all high school students. This scholarship challenges teens to use their creativity to share how they feel about what is happening in their world.. Must be a legal resident and a current high school student.",
+                "Award Amount": "Up to $2000",
+                "Applictaion/Information Link": "https://expressionschallenge.com/the-challenge/"
+            },
+            {
+                "Scholarship Name": "LULAC National Scholarship",
+                "DUE DATE": "31-Mar-24",
+                "Eligibility/Rules": "Seniors who will be enrolled in college Fall 2024 with a 3.5 GPA, Legal resident or DACA",
+                "Award Amount": "up to $2000",
+                "Applictaion/Information Link": "https://www.lnesc.org/scholarships/lulac/"
+            },
+            {
+                "Scholarship Name": "AFA Teens for Alzheimer's Awareness College Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "HS seniors who have been impacted by Alzheimer's disease. Essay up to 1500 words describing the impact of Alzheimer's disease or another demetia-related illness on themselves, their families or their community and what they have learned. Must be a US Citizen and attending college/university Fall 2024",
+                "Award Amount": "$5,000",
+                "Applictaion/Information Link": "https://alzfdn.org/young-leaders-of-afa/alzheimers-awareness-scholarship/"
+            },
+            {
+                "Scholarship Name": "Cancer Fighter Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Open to senior students who have fought cancer or helped someone fight their cancer.",
+                "Award Amount": "10 awards of $1000",
+                "Applictaion/Information Link": "https://www.supportsmac.org/cfscholarship"
+            },
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "Dura-Pack Scholarship Award",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Must be planning on attending a college or Univeristy in Fall. Proof of acceptance will be necessary",
+                "Award Amount": "$3,000",
+                "Applictaion/Information Link": "https://dura-pack.com/scholarship"
+            },
+            {
+                "Scholarship Name": "BeArt Presets Academic Scholarship Program",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Open to all students. Submit a 1000 word essay in English with correct spelling and grammar on one of the topics listed on the website. Essay must reflect the contestants own research, writing and original thinking.",
+                "Award Amount": "2 awards of $5000",
+                "Applictaion/Information Link": "https://www.beart-presets.com/beart-scholarship-program"
+            },
+            {
+                "Scholarship Name": "Foot Locker Scholar Athletes Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Senior entering college Fall 2024, involved in high school sports, intramural sports or community based sports and have a minimum GPA of 3.0. A permanent legal resident of the US",
+                "Award Amount": "2 awards up to $25000",
+                "Applictaion/Information Link": "https://footlockerscholarathletes.squarespace.com/about"
+            },
+            {
+                "Scholarship Name": "Foundation for Fraternal Excellence Men's Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Open to high school seniors who identify as males. Demonstrate and ability to excel in the fields of academics, extra-curricular school activities, and community involvement.",
+                "Award Amount": "Up to $1000",
+                "Applictaion/Information Link": "https://app.smarterselect.com/programs/79371-Foundation-For-Fraternal-Excellence-"
+            },
+            {
+                "Scholarship Name": "Ike Foundation Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "HS senior enrolled in college/university for Fall 2024, legal resident or US citizen, demonstrate a commitment of time to support the community preferably Fish/conservation-related. Minimum GPA of 3.2 (transcript required). Letter of recommendation from a current teacher, coach or administrator, show written acceptance to your selected college. 5 paragraph essay on the given topic found on website.",
+                "Award Amount": "Amount varies",
+                "Applictaion/Information Link": "https://theikefoundation.org/forms-and-applications/scholarship-application/"
+            },
+            {
+                "Scholarship Name": "Lockheed Martin STEM Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Open to high school seniors with a CUM GPA of 2.5 or higher. Must be enrolled to attend Fall 2024 majoring in Aerospace Engineering, Computer Engineering, Computer Science, Electrical Engineering, Industrical Engineering, Mathematics, Mechanical Engineering pr Physics. Students must demonstrate financial need.",
+                "Award Amount": "100 awards of $10,000",
+                "Applictaion/Information Link": "https://learnmore.scholarsapply.org/lockheedmartin/"
+            },
+            {
+                "Scholarship Name": "Mattress Nerd Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Seniors enrolled to attend college/university fall 2024. 500-1000 word essay answering the given questions on the scholarship website about the environment, Sustainability and conservation",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.mattressnerd.com/scholarship/#our-scholarship"
+            },
+            {
+                "Scholarship Name": "National High School Essay Contest",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Open to grades 9-12, Essay based on topic given on website",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://afsa.org/essay-contest"
+            },
+            {
+                "Scholarship Name": "Project Yellow Light Billboard Scholarship",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Open to juniors and seniors. Create a video ad, radio spot, or design a billboard ad to encourage safe driving with young drivers who are new to the road.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://www.projectyellowlight.com/instructions"
+            },
+            {
+                "Scholarship Name": "The West High School Art Competition",
+                "DUE DATE": "1-Apr-24",
+                "Eligibility/Rules": "Western Governors Association competition, open to grades 9-12. Submit an inspired piece of art that celebrates our part of the Western US.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://westgov.org/celebrate-the-west"
+            },
+            {
+                "Scholarship Name": "Educators Rising Scholarships",
+                "DUE DATE": "2-Apr-24",
+                "Eligibility/Rules": "Open to students pursuing a career in education. Minimum GPA of 3.5. Be an active dues paying member of Educators Rising . $5 Required application fee.",
+                "Award Amount": "up to $4000",
+                "Applictaion/Information Link": "https://educatorsrising.org/recognition/"
+            },
+            {
+                "Scholarship Name": "Utah Association of Independent Insurance Agents Scholarship",
+                "DUE DATE": "3-Apr-24",
+                "Eligibility/Rules": "High School senior with a minimum of 3.0 GPA and are active in extra-curricular activities through school, church, community or work. Financial need will be considered. 2 letters of recommendation, Personal Photo, your tax return and a transcript are required for submission.",
+                "Award Amount": "up to $2000",
+                "Applictaion/Information Link": "https://www.utahia.org/Education/Pages/Scholarships/default.aspx"
+            },
+            {
+                "Scholarship Name": "Newton Pens Scholarship",
+                "DUE DATE": "5-Apr-24",
+                "Eligibility/Rules": "High school seniors with minimum GPA of 2.5, US resident. students must be signing up for a full schedule of classes, trade schools are included in this scholarship. Essay required. Topic given on website.",
+                "Award Amount": "up to $2000",
+                "Applictaion/Information Link": "https://newtonpens.com/rules-for-application/"
+            },
+            {
+                "Scholarship Name": "Pearson Butler Scholarship Reimbursement Program",
+                "DUE DATE": "5-Apr-24",
+                "Eligibility/Rules": "Open to high school seniors on track to graduate. 2 page essay on \"How I Overcame a Trial and How I am Using that Experience to Further Success in My Life”. Essays should be email to scholarship@pearsonbutler.com with the subject title “Scholarship Essay – Student Name and School” and must also include the student’s name and high school name in the email. Required Verification:\nProof of higher education enrollment (college, university, trade school, etc.); and\nProof of payment for housing, books, tuition, etc. This is a reimbursement scholarship and student will not receive the award without a receipt of payment equaling or exceeding $1,000.00.\n\nAll submissions must be submitted in .pdf format.",
+                "Award Amount": "3 awards of $1000",
+                "Applictaion/Information Link": "send essay prior to deadline to: scholarship@pearsonbutler.com"
+            },
+            {
+                "Scholarship Name": "Stonewater Scholarship",
+                "DUE DATE": "7-Apr-24",
+                "Eligibility/Rules": "High school seniors enrolled for Fall 2024. Video submission required. Submission requirements available on website.",
+                "Award Amount": "6 awards of $2500",
+                "Applictaion/Information Link": "https://docs.google.com/forms/d/e/1FAIpQLSd1HYfFqdXnTChiPM9j_LSexi-yCFReT5jEKNjzXMd5fYdsdA/viewform"
+            },
+            {
+                "Scholarship Name": "NPG Scholarship",
+                "DUE DATE": "8-Apr-24",
+                "Eligibility/Rules": "High school seniors attending college Fall 2o24. Essay required",
+                "Award Amount": "multiple awards up to $4000",
+                "Applictaion/Information Link": "https://npg.org/2024-essay-scholarship-contests.html"
+            },
+            {
+                "Scholarship Name": "ESA National Scholarship",
+                "DUE DATE": "12-Apr-24",
+                "Eligibility/Rules": "Senior whose parent is a first responder. Students will need a HS transcript, College acceptance letter, resume, letter of recommendation, Proof of parents occupation, Community Service verification and 500-1000 word essay on: What it means to have my parent/guardian involved in securing our community.",
+                "Award Amount": "20 awards of up to $12,000",
+                "Applictaion/Information Link": "https://esaweb.org/programs/youth-scholarship/ysapplyhome/"
+            },
+            {
+                "Scholarship Name": "Jiffy Lube Teen Driver \"What Drives You\" Scholarship, Driver's Ed Student",
+                "DUE DATE": "12-Apr-24",
+                "Eligibility/Rules": "for Utah students 16-18, enrolled in high school during the 2020-21 school year. Write a 500 word typed essay about what drives you now.",
+                "Award Amount": "up to $6500",
+                "Applictaion/Information Link": "https://www.yourturn2apply.com/utah.htm"
+            },
+            {
+                "Scholarship Name": "Bald Eagle Scholarship",
+                "DUE DATE": "14-Apr-24",
+                "Eligibility/Rules": "Any high school student whose family has endured hardship may apply",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/bald-eagle-scholarship/"
+            },
+            {
+                "Scholarship Name": "Eye on the Future Video Contest Scholarship",
+                "DUE DATE": "14-Apr-24",
+                "Eligibility/Rules": "Open to grades 9-12 currently living in the US. Video must be between 30 seconds and 3 minutes, no more than 3 people working on the video",
+                "Award Amount": "3 awards of $2000",
+                "Applictaion/Information Link": "https://www.nei.nih.gov/learn-about-eye-health/campaigns/eye-future-campaign/eye-future-teen-video-contest"
+            },
+            {
+                "Scholarship Name": "Barton Watch Bands $1000 Scholarship",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "Legal resident of the US, high school senior enrolled for Fall 2024. 500 Word essay on topic given on website",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.bartonwatchbands.com/pages/scholarship"
+            },
+            {
+                "Scholarship Name": "La Matriz Sagrada Scholarship",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "BIPOC high school seniors are eligible if they are pregnant and/or teen parents or children of teen parents.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/la-matriz-sagrada-scholarship/"
+            },
+            {
+                "Scholarship Name": "CJ Pony Parts SCholarship Video Contest",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "Bi-annual contest open to any US Resident who will be enrolling in post-secondary education in the next semester after graduation. Open to all fields of study not just Automotive.",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://www.cjponyparts.com/cj-pony-parts-scholarship-video-contest"
+            },
+            {
+                "Scholarship Name": "Gandy Ink Scholarship",
+                "DUE DATE": "5-Apr-24",
+                "Eligibility/Rules": "High School seniors enrolled for Fall 2024. Complete application",
+                "Award Amount": "10 awards of $1000",
+                "Applictaion/Information Link": "https://form.jotform.com/gandyink/scholarship"
+            },
+            {
+                "Scholarship Name": "Gloria Barron Prize for Young Heroes",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "Open students between the ages of 8-18 who currently reside in the US or Canada, currently working on an inspiring service project or have done so within the past 12 months, working as an individual to lead their service project.",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://barronprize.org/apply/"
+            },
+            {
+                "Scholarship Name": "Headway Scholarship for Book Lovers",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "High school seniors at least 16 years old, demonstrate leadership at school or in their community. Essay or video required.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://makeheadway.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "Navy League Foundation Scholarships",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "Open to children and grandchildren of veterans or active duty sea service, including US Naval Sea Cadet Corps.",
+                "Award Amount": "multiple awards of $10,000",
+                "Applictaion/Information Link": "https://www.navyleague.org/programs/scholarships/"
+            },
+            {
+                "Scholarship Name": "Party Headphones Scholarship",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "High school seniors. 4 essay questions required. Legal resident 18 years or older.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://partyheadphones.com/party-headphones-1000-scholarship-program/"
+            },
+            {
+                "Scholarship Name": "Pretty Presets Scholarship",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "High school senior enrolled for Fall 2024. Essay on a topic given on website",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://www.lightroompresets.com/pages/pretty-lightroom-presets-scholarship-program"
+            },
+            {
+                "Scholarship Name": "TechWaste Recycling Scholarship",
+                "DUE DATE": "15-Apr-24",
+                "Eligibility/Rules": "Open to all US high school students. Original Essay of 700-2000 words or Submit a viewo up to 5 minutes long.",
+                "Award Amount": "3 awards of $1000",
+                "Applictaion/Information Link": "https://www.techwasterecycling.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "HireAHelper Skilled Trade & Technology Scholarships",
+                "DUE DATE": "16-Apr-24",
+                "Eligibility/Rules": "High school seniors enrolled in college/university of trade schools for Fall 2024. Minimum GPA of 3.4",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://www.hireahelper.com/about/scholarships/"
+            },
+            {
+                "Scholarship Name": "Brian Watkins Memorial Scholarship",
+                "DUE DATE": "17-Apr-24",
+                "Eligibility/Rules": "For Provo High School Seniors who can demonstrate academic excellence, has participated in athletics and has financial need. Students will need to write a one page letter telling the committee why you should receive the scholarship.",
+                "Award Amount": "$4,000",
+                "Applictaion/Information Link": "https://brianwatkinsfoundation.org/apply/"
+            },
+            {
+                "Scholarship Name": "$3000 Scholarships for Autistic Students",
+                "DUE DATE": "24-Apr-24",
+                "Eligibility/Rules": "Senior with an established autism diagnosis and enrolled as a full-time students for Fall of 2024",
+                "Award Amount": "$3,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/3000-scholarships-for-autistic-students/14489?utm_source=sendgrid&utm_medium=email&utm_campaign=counselor-scholarship-digest-csv&utm_term=counselor-referral"
+            },
+            {
+                "Scholarship Name": "Resilient Scholar Award",
+                "DUE DATE": "25-Apr-24",
+                "Eligibility/Rules": "High school student who is from a single-parent household and will be attending college",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/resilient-scholar-award/"
+            },
+            {
+                "Scholarship Name": "Hogan & Associates Construction Scholarship",
+                "DUE DATE": "26-Apr-24",
+                "Eligibility/Rules": "High school senior interested in a degree or trade in the construction industry.",
+                "Award Amount": "2 /$1000",
+                "Applictaion/Information Link": "hoganconstruction.com/scholarship"
+            },
+            {
+                "Scholarship Name": "School Spirit Scholarship",
+                "DUE DATE": "1-May-24",
+                "Eligibility/Rules": "open to High school seniors in the US who will be attending college/university fall 2024. Short essay of 300-500 words on how you demonstrate school spirit.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.1stplacespiritwear.com/scholarship"
+            },
+            {
+                "Scholarship Name": "Curtis Holloway Memorial Scholarship",
+                "DUE DATE": "16-May-24",
+                "Eligibility/Rules": "High School student who has lost a parent or lives in a single-parent household",
+                "Award Amount": "2/$1500",
+                "Applictaion/Information Link": "https://bold.org/scholarships/curtis-holloway-memorial-scholarship/"
+            },
+            {
+                "Scholarship Name": "Concrete Rose Scholarship Award",
+                "DUE DATE": "24-May-24",
+                "Eligibility/Rules": "First generation BIPOC women who are high school seniors with at least a 2.0 GPA",
+                "Award Amount": "2/$1150",
+                "Applictaion/Information Link": "https://bold.org/scholarships/concrete-rose-scholarship-award/"
+            },
+            {
+                "Scholarship Name": "Our Destiny Our Future Scholarship",
+                "DUE DATE": "30-Jun-24",
+                "Eligibility/Rules": "High school senior who has experience volunteering or participating in non-profit work",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/our-destiny-future-scholarship/"
+            },
+            {
+                "Scholarship Name": "Geneva Rock Scholarship",
+                "DUE DATE": "1-Jul-24",
+                "Eligibility/Rules": "To be eligible, applicants must be currently enrolled in an accredited university, college, trade or vocational school. Scholarship applicants must be in pursuit of construction-related careers including, but not limited to: Construction management, civil engineering, business, and commercial/professional sales. Students involved in trades such as welding, diesel tech, heavy equipment operations and building tech are also welcome to apply. High school seniors are eligible to apply, but must be enrolled in one of the previously mentioned institutions. All applicants must have received, (or be in the process of attaining), their high school diploma or GED. All applicants must be U.S. citizens, or be a legal permanent resident with work eligibility status.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://genevarock.com/company/scholarship/"
+            },
+            {
+                "Scholarship Name": "The Places You Go",
+                "DUE DATE": "Februrary 28, 2024",
+                "Eligibility/Rules": "Eligibility\nThe scholarship is open to any current high school senior, college student or graduate student who is a legal resident of the United States residing in one of the 50 states or the District of Columbia.\nCandidates for this scholarship should have a minimum GPA of 3.0 or higher and be in good overall academic standing.",
+                "Award Amount": "",
+                "Applictaion/Information Link": "https://www.afbfamilylaw.com/2023-the-places-you-go-scholarship/"
+            },
+            {
+                "Scholarship Name": "Mountain America CU Elevate Scholarship",
+                "DUE DATE": "Feburary 11, 2024",
+                "Eligibility/Rules": "Scholastic records\nCharacter and core values\nWork ethic and experience\nCommunity involvement and contributions\nLeadership in action",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.macu.com/about/community/mountain-america-foundation/scholarship-notification-form"
+            },
+            {
+                "Scholarship Name": "APIQWTC Scholarship",
+                "DUE DATE": "Feburary 14, 2024",
+                "Eligibility/Rules": "Asian/Pacific Islander lesbian, bisexual, or queer women or transgender individuals pursuing technical, professional, or trades certification or other tuition-based learning.Current students in a U.S.-based certificate or degree-granting program as well as high school seniors and other future students about to enter into a certificate or degree-granting program in Summer 2022 or Fall 2022 are eligible to apply. Applicants should demonstrate professional commitment as well as community involvement.",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://apiqwtc.org/resources/apiqwtc-scholarship/"
+            },
+            {
+                "Scholarship Name": "ACB Scholarship Program",
+                "DUE DATE": "Feburary 14, 2024",
+                "Eligibility/Rules": "To be eligible for a scholarship, applicants need to be legally blind, maintain a 3.0 GPA to be eligible for most scholarships, be a full-time student (as well as students who work 32 or more hours per week and attend college part time), and be involved in their school/local community.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.acb.org/scholarships"
+            },
+            {
+                "Scholarship Name": "The Linda S. Montross New Latin Educators Scholarship",
+                "DUE DATE": "Feburary 15, 2024",
+                "Eligibility/Rules": "The National Latin Exam is excited to continue its New Latin Educators Scholarship. In keeping with the spirit of inspiring young people to enter the teaching profession, the NLE will award up to 10 $2000 scholarships in 2023 to high school seniors, college students, or students enrolled in a master’s degree program.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://docs.google.com/forms/d/e/1FAIpQLSdk9VOHA2EiSZpgcLutop2iklPTCr9T8Tekstvgl4TCfDcAYQ/viewform?c=0&w=1"
+            },
+            {
+                "Scholarship Name": "Utah Prime Program Scholarship",
+                "DUE DATE": "19-Jan-24",
+                "Eligibility/Rules": "Opens January 2, 2024 - Utah class of 2024",
+                "Award Amount": "$500 - Subject to available funding",
+                "Applictaion/Information Link": "https://ushe.edu/prime-program-grant/"
+            },
+            {
+                "Scholarship Name": "UIAAA Student-Athlete Scholarship",
+                "DUE DATE": "Janurary 31, 2024",
+                "Eligibility/Rules": "Become a member of the UIAAA",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://uiaaa.org/uiaaa-student-athlete-scholarship-applications-2/"
+            },
+            {
+                "Scholarship Name": "Fossi Scholarship",
+                "DUE DATE": "Janurary 31, 2024",
+                "Eligibility/Rules": "Be a citizen or legal permanent resident of the United States\nComplete or have completed high school with a minimum GPA of 3.0 on a 4.0 scale (unweighted) and be entering their freshman year of college\nPursue studies in a pertinent chemical and engineering industry STEM field. See preferred majors\nAttend an HBCU for the entirety of their college education\nHave interest in pursuing a career in chemical manufacturing, engineering, environmental health and sustainability or other related chemical-industry fields\nDemonstrate financial need",
+                "Award Amount": "up to $40,000",
+                "Applictaion/Information Link": "https://www.tfaforms.com/5003307?utm_source=webpage&utm_medium=CTA&utm_campaign=FOSSI-2022"
+            },
+            {
+                "Scholarship Name": "DAR National Society Scholarship",
+                "DUE DATE": "Janurary 31, 2024",
+                "Eligibility/Rules": "Applicants must be citizens of the United States.\nApplicants must attend or plan to attend an accredited college or university in the United States.\nAll multi-year scholarships, typically renewable up to four years, must be for consecutive years of attendance.\nAwards are based on academic excellence, commitment to the field of study, and/or financial need, or other restrictions on specific scholarships.\nAwards are placed on deposit with the recipient’s college or university and any unused portion shall be returned to the DAR.\nApplicants are only eligible to receive one scholarship from the DAR",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.dar.org/national-society/scholarships"
+            },
+            {
+                "Scholarship Name": "Girls & Boys State Opens",
+                "DUE DATE": "Janurary, 1,2024",
+                "Eligibility/Rules": "Check Websites for details",
+                "Award Amount": "Summer Program",
+                "Applictaion/Information Link": "https://apps.weber.edu/girlsstate/ https://www.legion.org/boysnation/about"
+            },
+            {
+                "Scholarship Name": "Horatio Alger State Scholarship",
+                "DUE DATE": "Opens December 1, 2023",
+                "Eligibility/Rules": "Be enrolled full time as a high school junior in the United States\nExhibit a strong commitment to pursue and complete a bachelor’s degree at an accredited non-profit public or private institution in the United States (students may start their studies at a two-year institution and then transfer to a four-year institution)\nDemonstrate critical financial need ($55,000 or lower adjusted gross family income is required)\nBe involved in co-curricular and community service activities\nDisplay integrity and perseverance in overcoming adversity\nMaintain a minimum grade point average (GPA) of 2.0; and\nBe a United States citizen",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://app.smarterselect.com/programs/85190-Horatio-Alger-Association"
+            },
+            {
+                "Scholarship Name": "Fred M. Young Sr./SAE Engineering Scholarship",
+                "DUE DATE": "Opens February 1, 2024",
+                "Eligibility/Rules": "U.S. Resident\nIncoming college Freshman\nMinimum unweighted 3.75 grade point average\nPursue an engineering or related science degree through a U.S. ABET accredited program with an interest in mobility (Automotive, Ground or Air)\nProvide two (2) Letters of Recommendation - one (1) that focuses on academics and one (1) that speaks to your involvement in extra-curricular activities or employment\nServe in a leadership role inside or outside of school and be able to outline how your leadership skills were developed, the size of the team(s) led and how your personal leadership skills will benefit you in your future career.\nMust be able to detail how 2 traits of an engineer (from listed provided) apply to them.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.sae.org/participate/scholarships/fred-m-young-sr-sae-engineering-scholarship"
+            },
+            {
+                "Scholarship Name": "Carl N. and Margaret Karcher Founders' Scholarship Program",
+                "DUE DATE": "Opens in January",
+                "Eligibility/Rules": "Students, age 21 and under, who reside in Alaska, Arizona, California, Colorado, Hawaii, Idaho, Louisiana, Nevada, New Mexico, Oklahoma, Oregon, Texas, Utah, Washington or Wyoming.\nHigh school seniors or graduates, who plan to enroll for the first time in full-time undergraduate study at an accredited or four-year college or university for the entire upcoming academic year.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://learnmore.scholarsapply.org/karcherfounders/"
+            },
+            {
+                "Scholarship Name": "USHE Opportunity Scholarship Final Deadline",
+                "DUE DATE": "Priority - Jan. 19, 2024, Final March 20, 2024",
+                "Eligibility/Rules": "Seniors, 3.3 GPA Complete 3 advanced courses in Math, Science, and Language Arts, Complete the FAFSA Graduate ontime from Utah high school. Class of 2022 ONLY- May still use old regents criteria",
+                "Award Amount": "Last Dollar",
+                "Applictaion/Information Link": "https://ushe.edu/state-scholarships-aid/opportunity-scholarship/",
+                "": "Replaces Regents and New Century Scholarship."
+            },
+            {
+                "Scholarship Name": "Web Design Scholarship",
+                "DUE DATE": "Spring Deadline",
+                "Eligibility/Rules": "Submit an original web design page to show how creative you are!",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.loungelizard.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "2023 Keys to Success Bill J. Pope Scholarship",
+                "DUE DATE": "T BA",
+                "Eligibility/Rules": "You must be a graduating senior to apply and choosing to pursue a Science, Technology, Engineering, and Math (STEM) major. Scholarship Deadline: March 3rd, 2023.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "ktsutah.org"
+            },
+            {
+                "Scholarship Name": "Lakeview Elementary Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS senior, must have attended Lakeview Elementary School for at least 1-full year during grades K-6.",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "paper application in the CCC or online Turn in to Mrs. Castillo by 3pm!"
+            },
+            {
+                "Scholarship Name": "BMW/SAE Engineering Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "US Resident, senior, 3.75 GPA minimum, pursuing an engineering or ralted science degree through an ABET accredited program",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.sae.org/participate/scholarships/bmw-sae-engineering-scholarship"
+            },
+            {
+                "Scholarship Name": "Real Life Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Have a refugee or immigrant background\nBe a Real Life participant\nBe accepted to a college or university and be a full-time student\nMaintain a minimum 2.5 GPA\nComplete FAFSA (PELL eligible)",
+                "Award Amount": "up to $5,000",
+                "Applictaion/Information Link": "https://www.youthlinc.org/real-life-scholarship/"
+            },
+            {
+                "Scholarship Name": "Microsoft Disability Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "To be considered for the Microsoft Disability Scholarship, you must:\n\nBe a current high school senior living with a disability (as defined by WHO), whether that be visual, hearing, mobility, cognitive, speech or other disability.\nPlan to attend an undergraduate program in a 2 or 4-year University/College or Technical College in the fall of the academic year following high-school graduation. Schools must be in the USA or have a USA-Affiliate for financial transactions (contact Seattle Foundation to verify non-USA school’s eligibility).\nDeclare an approved major in engineering, computer science, computer information systems, law, business, or a related field (e.g. paralegal, pre-law, finance, business administration, or marketing).\nDemonstrate a passion for technology.\nDemonstrate leadership at school and/or in the community.\nHave a high school cumulative GPA of 3.0 or higher.\nRequire financial assistance to attend college.\nEnrollment status must be full-time or half-time.",
+                "Award Amount": "annual award of $5,000 for up to four (4) consecutive years for a potential total $20,000 scholars",
+                "Applictaion/Information Link": "https://www.microsoft.com/en-us/diversity/programs/microsoftdisabilityscholarship.aspx"
+            },
+            {
+                "Scholarship Name": "Graf Orthodontics Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Senior students who have been a Graf Orthodontics Patient. Write an original 1,000 word essay on our theme: \"The Gift of a Smile\"\nEmail your essay, along with the entrance application (see attachment) and a senior photo to: orthoteam@briangrafortho.com\nOr\nBring all three items into our office:\n419 N Orem Blvd\nOrem UT 84057",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "Application available in the CCC OR http://www.briangrafortho.com/patient/scholarships"
+            },
+            {
+                "Scholarship Name": "Fred M Young Sr. Engineering Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS Senior, 3.75 minimum GPA, Pursuing an engineering or related science degree through an ABET accredited program. Provide 2 letters of recommendation 1-academic, 1-involvement in extracurricular. Have held leadership positions either in school or outside of school.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.sae.org/participate/scholarships/fred-m-young-sr-sae-engineering-scholarship"
+            },
+            {
+                "Scholarship Name": "Donald and Barbara Mozley Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "all students going into engineering or related field in college. Have participated in STEM activities in or out of school. 3.5 GPA or higher",
+                "Award Amount": "7 awards of $5000",
+                "Applictaion/Information Link": "https://www.sae.org/participate/scholarships/donald-and-barbara-mozley-scholarship"
+            },
+            {
+                "Scholarship Name": "Beyond the Boroughs National Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School senior entering college Fall 2021. Minimum 2.5 GPA involved in extracurricular activities. Come from low-income household. Must submit a completed FAFSA Student Aid Report with application.",
+                "Award Amount": "2 awards of $20,000",
+                "Applictaion/Information Link": "http://www.beyondtheboroughs.org/the-scholarship/scholarship-requirements/"
+            },
+            {
+                "Scholarship Name": "Mattress Advisor Sleep Science Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS Seniors attending school Fall 2021, 800-1000 word essay exploring their personal relationship with sleep health and the impact it's had on their education. The essay should quote from recent studies in the field and explain what resources are available to help reduce poor sleep health.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.mattressadvisor.com/sleep-scholarships/"
+            },
+            {
+                "Scholarship Name": "$1000 March Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Lottery scholarship - All students can enter, no essay required. Be prepared to get spam from entering this scholarship.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.niche.com/colleges/scholarship/march-scholarship/?utm_source=ScholarshipExperts&utm_medium=Referral&utm_campaign=SEmonthly&source=se"
+            },
+            {
+                "Scholarship Name": "4-H Youth in Action Awards",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "See website for details",
+                "Award Amount": "$5,000",
+                "Applictaion/Information Link": "https://4-h.org/parents/4-h-youth-in-action-awards/#!2023-application"
+            },
+            {
+                "Scholarship Name": "Culvers Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Be employed at Culver’s at least six months as of the due date.\nHave worked at Culver’s at least 400 hours over the last 12 months (as of the application due date).\nBe high school seniors or graduates, or current postsecondary undergraduates, or graduate level students who plan to enroll in part-time or full-time study at an accredited two-year or four-year college, university, or vocational-technical school for the entire upcoming academic year.\nHave a minimum grade point average of 2.0 out of 4.0 scale (or its equivalent).",
+                "Award Amount": "$5,000",
+                "Applictaion/Information Link": "https://learnmore.scholarsapply.org/culvers/"
+            },
+            {
+                "Scholarship Name": "USPAACC Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Applicants must be of Asian-Pacific Island heritage and live in the United States.",
+                "Award Amount": "$3,000",
+                "Applictaion/Information Link": "https://fs25.formsite.com/i42EXM/agpem7py5n/index.html"
+            },
+            {
+                "Scholarship Name": "University of Aftermarket Foundation",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Full time students at an accredited U.S. college or university or an ASE/NATEF Certified post-secondary automotive, heavy duty, or collision repair school\nGraduating high school seniors planning to be full time students at any of the above\nNo GPA requirement",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://automotivescholarships.com/apply-online"
+            },
+            {
+                "Scholarship Name": "Unigo: Faster Than the Click of a Button",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "14 years or older, Legal US Resident, 250 Words or less essay on: Which Superhero or villian would you want to change places with for a day and why?",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/superpower-scholarship"
+            },
+            {
+                "Scholarship Name": "Stossel in the classroom essay contest",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligibility – The contest is open to writers in grades 5-12, (ages 10-18) at some point during the contest period September 1, 2022-March 31, 2023. No more than one submission will be accepted for each essay writer. Writers must be located in North America, Hawaii, or a U.S. military address, and all submissions should be in English.",
+                "Award Amount": "varies",
+                "Applictaion/Information Link": "https://stosselintheclassroom.org/essay-contest/"
+            },
+            {
+                "Scholarship Name": "National Cyber Scholarship Competition",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "This NCS Competition is a new type of CTF that has challenges for every level. Students can qualify for the National Cyber Scholarship Competition through CyberStart America, beginning on October 30, 2020, or through alternative entry routes include the Spring picoCTF competition and the CyberPatriot program. Qualified students will compete nationally to win one of three tiers of award, with the highest scorers being awarded college scholarships to use at the school of their choice to pursue further study related to cybersecurity. This CTF competition will allow students to rank highly by completing challenges across a range of disciplines, or to focus their efforts on a particular area, such as defensive hacking.",
+                "Award Amount": "$2500 Scholarship and $3000 worth of training.",
+                "Applictaion/Information Link": "https://www.nationalcyberscholarship.org/"
+            },
+            {
+                "Scholarship Name": "LULAC Honors Awards",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Honors Awards ($500 to $2,000): GPA of 3.0 or better on a 4.0 scale or equivalent, and if the student is an entering freshman, 23 or higher on the ACT test, or 1100 or higher on the SAT test.GPA ≥ 3.00\nEducation Level High School - Class of 2021, Community College, College (4-year)\nEthnicity:Hispanic or Latino\nStandardized Tests SAT 2016\n≥ 1100 - Total Score\nACT\n≥ 23 - Composite Score",
+                "Award Amount": "$500 - $2,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/lulac-honors-awards/7638"
+            },
+            {
+                "Scholarship Name": "Kezian Science Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School seniors 18 years or older, 1-2 page essay on why you deserve the scholarship",
+                "Award Amount": "$1,200",
+                "Applictaion/Information Link": "https://www.drkezian.com/science-scholarship/"
+            },
+            {
+                "Scholarship Name": "James Beard Foundation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Culinary Arts Students, 250 word personal statement detailing what makes you a great candidate for a JBF scholarship, two letters of recommendation, a copy of your transcript, and an updated resume.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://aim.applyists.net/JBF/Initiate"
+            },
+            {
+                "Scholarship Name": "INKAS Rising Star Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Be currently enrolled or intending to enroll (i.e., as of January 2023) as a full-time student in Business or Engineering areas of study at an accredited university in Canada or U.S.; and to support the application with appropriate documentation, including but not limited to: school transcripts (unofficial), invitation or acceptance letter from the institution.\nMaintain a minimum 75% average or equal GPA from the most recent term/semester\nBe a Canadian citizen, permanent resident of Canada, U.S. citizen or Green Card holder or student visa holder or study permit holder and be able to support it with a clear and legible photocopy.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://inkasarmored.com/inkas-rising-star-scholarship-program/"
+            },
+            {
+                "Scholarship Name": "GAMMA MU Foundtation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "All male students under 35 years of age who (1) identify themselves as gay, (2) are U.S. citizens and (3) will have graduated from high school, or received their GED Certificate, by June of the application year are eligible to apply. Graduate level candidates may also apply.",
+                "Award Amount": "$1,000-2,500",
+                "Applictaion/Information Link": "https://www.grantinterface.com/Home/Logon?urlkey=gammamufoundationscholarship"
+            },
+            {
+                "Scholarship Name": "Driver Education Initiative Annual Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School Student who drives. Essay on Being a driver. For more details go to the website.",
+                "Award Amount": "6 awards of $500",
+                "Applictaion/Information Link": "https://www.dmvedu.org/scholarship/"
+            },
+            {
+                "Scholarship Name": "Driver Education Initiative",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Submit an essay of no less than 750 words addressing the questions listed on the website. Reward will be made directly to college that the applicant has been admitted to.",
+                "Award Amount": "2 rewards: $500",
+                "Applictaion/Information Link": "https://www.dmvedu.org/scholarship/"
+            },
+            {
+                "Scholarship Name": "Districts Make the Difference: Video Contest",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "U.S. High school students grades 9-12 are strongly encouraged to participate in this contest for its educational engagement and scholarship opportunities. Enjoy creating a video and learning about special districts for a chance to win up to $2,000! Suggested Topic for PCSD : CE, CTE and CAPS programs",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://www.districtsmakethedifference.org/video-contest"
+            },
+            {
+                "Scholarship Name": "Beyond the Cure Ambassador Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Any student under the age of 25 who has been diagnosed with cancer or a high grade or anaplastic brain tumore prior to the age of 18. US Citizen attending school in the US Fall 2021",
+                "Award Amount": "58 awards of $3500",
+                "Applictaion/Information Link": "https://www.thenccs.org/scholarship"
+            },
+            {
+                "Scholarship Name": "Actuarial Diversity Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must have at least one birth parent who is a member of one of the following minority groups:\nBlack/African American,\nLatinx,\nNative North American,\nPacific Islander.\nEnrolling as or enrolled as a full-time undergraduate student at a U.S. accredited educational institution.\nMinimum cumulative GPA of 3.0 (on a 4.0 scale), emphasis on math or actuarial courses.\nEntering college freshmen must have a minimum ACT math score of 28 or SAT math score of 620.\nIntent on pursuing a career in the actuarial profession.",
+                "Award Amount": "$1,000-$4,000",
+                "Applictaion/Information Link": "https://www.actuarialfoundation.org/scholarships/actuarial-diversity-scholarship/"
+            },
+            {
+                "Scholarship Name": "2021 Side Hustlin' Student Scholarship Opportunity",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Senior student , 1000+ word essay about how you are earning extra income on the side of going to school. Topics can include anything from how you started a business, to why you decided to get a job, to how your parents encouraged you to work. See website for more details.",
+                "Award Amount": "$100 - $2500",
+                "Applictaion/Information Link": "https://thecollegeinvestor.com/18899/side-hustle-student-scholarship-opportunity/"
+            },
+            {
+                "Scholarship Name": "$5000 Flavorful Futures Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must be a U.S. citizen or permanent legal resident of the United States.\nMust be a high school senior graduating between August 1, 2021 and July 31, 2022.\nMust have a cumulative high school grade point average (GPA) of at least 2.5 on a 4 point scale (high school/home schooled seniors).\nMust enroll for Fall 2022 as a freshman or 1st year student in part-time or full-time study at a 2-year, 4-year, college, university, trade or vocational school. The school must be an accredited U.S. institution, and listed on the official website for the U.S. Department of Education.\nMust not be a relative or dependent child of an employee of Talking Rain or any of its retail customers.",
+                "Award Amount": "$5,000",
+                "Applictaion/Information Link": "https://apply.mykaleidoscope.com/scholarships/flavorfulfutures"
+            },
+            {
+                "Scholarship Name": "$5000 Flavorful Futures GO GREEN Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must be a U.S. citizen or permanent legal resident of the United States.\nMust be a high school senior graduating between August 1, 2021 and July 31, 2022.\nMust have a cumulative high school grade point average (GPA) of at least 2.5 on a 4 point scale (high school/home schooled seniors).\nMust intend to pursue a degree related to environmental studies\nProof of involvement in sustainable initiatives and projects (volunteering work, job, etc.)\nMust enroll for Fall 2021 as a freshman or 1st year student in part-time or full-time study at a 2-year, 4-year, college, university, trade or vocational school. The school must be an accredited U.S. institution, and listed on the official website for the U.S. Department of Education.\nMust not be a relative or dependent child of an employee of Talking Rain or any of its retail customers",
+                "Award Amount": "$5,000",
+                "Applictaion/Information Link": "https://apply.mykaleidoscope.com/scholarships/flavorfulfuturesgogreen"
+            },
+            {
+                "Scholarship Name": "LULAC General Awards",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Grades and academic performance will serve as indicators of potential; however, an emphasis may be placed on the individual's motivation, sincerity, and community involvement.High School - Class of 2021, Community College, College (4-year)\nEthnicity: Hispanic or Latino",
+                "Award Amount": "$250 - $1,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/lulac-general-awards/7637"
+            },
+            {
+                "Scholarship Name": "Sons Of Utah Pioneers",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Any graduating senior planning to attend a post-secondary institution.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "Application in room A226"
+            },
+            {
+                "Scholarship Name": "PCSD Concurrent Enrollment Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligibility:\nMust be a senior\nMust have completed at least 12 concurrent enrollment credits.\nFirst consideration will be to first-generation students (parents did not obtain a bachelor’s degree or higher in the U.S.)\nEnrolling in a trade school, community college, or 4-year university after senior year\nOpen to: U.S. Citizens, Residents, DACA recipients & Undocumented students",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": ""
+            },
+            {
+                "Scholarship Name": "Navajo Nations Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Candidates for the Brown and Caldwell Navajo Nations Scholarship Program must be:\n\nA United States citizen or permanent resident.\nA full-time student enrolled at an accredited two-year junior or four-year undergraduate college, or a senior in high school with a letter of acceptance from the college or university to be attended.\nHave or intend to declare a major in civil, chemical, mechanical, electrical or environmental engineering or one of the environmental sciences (e.g. geology, hydrogeology, ecology).\nCumulative GPA of 3.0 or higher on a 4.0 scale (or equivalent on a 5.0 scale).\nAn enrolled member of the Navajo Nation",
+                "Award Amount": "$4,000",
+                "Applictaion/Information Link": "https://brownandcaldwell.com/careers/navajo-nation-scholarship/"
+            },
+            {
+                "Scholarship Name": "Mattress Nerd Sustainability Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Any senior including DACA may apply, 500-1000 word essay on the following 3 questions: 1. What choices can we make as consumers to better our carbon footprints? 2. what reuse and recycle innovations do you think are leading the change in business environmental conscientoiousness? 3. What have you altered about your own day-to-day life to reduce your own environmental impact?",
+                "Award Amount": 1000,
+                "Applictaion/Information Link": "https://www.mattressnerd.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "Lockheed Martin STEM Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS Senior going into an area of Engineering. 2.5 Minimum GPA, US Citizen. Ineterest in completing an internship during college at Lockheed Martin.",
+                "Award Amount": "200 awards of $20,000",
+                "Applictaion/Information Link": "https://www.lockheedmartin.com/en-us/who-we-are/communities/stem-education/lm-scholarship-program.html"
+            },
+            {
+                "Scholarship Name": "Legacy Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Children of U.S. military members who died while on active duty on or after Sept. 11, 2001.\n\nChildren of post-9/11 veterans having been assigned a combined disability rating of 50 percent or greater by the Department of Veterans Affairs also qualify.",
+                "Award Amount": "$20,000",
+                "Applictaion/Information Link": "https://www.legion.org/scholarships/legacy/about"
+            },
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "Energy Pathways Scholarship - University STEM",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligibility\n\nEligible students must be in the 12th grade and enrolled in any public or private high school in Utah, or a first-year student pursuing a STEM undergraduate degree at a university in Utah. Past scholarship winners are ineligible to apply for the program. Applications consist of a questionnaire and essay. The following scholarship types will be awarded under the program as stated below:\n\n$4,000 per student for a Utah university scholarship\n\nApplications must be submitted annually by April 1.",
+                "Award Amount": "$4,000",
+                "Applictaion/Information Link": "https://completescholarships.scholarshipuniverse.com/student/scholarship/114796?search=true"
+            },
+            {
+                "Scholarship Name": "Energy Pathway Scholarship: Tech, Trade & Community College",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligible students must be in the 12th grade and enrolled in any public or private high school in Utah, or a first-year student pursuing a STEM undergraduate degree or STEM-related technical certification at a Utah institute of higher learning. Past scholarship winners are ineligible to apply for the program. Applications consist of a questionnaire and essay. The following scholarship types will be awarded under the program as stated below:\n\n$2,000 per student for a Utah technical college or community college scholarship\n\nApplications must be submitted annually by April 1.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://completescholarships.scholarshipuniverse.com/student/scholarship/140891?search=true"
+            },
+            {
+                "Scholarship Name": "Cypress Credit Union Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "high school senior, member of Cypress Credit Union. Minimum 3.0 GPA plans to attend college in Utah",
+                "Award Amount": "up to 15 awards of $1000",
+                "Applictaion/Information Link": "https://www.cypruscu.com/about/in-the-community/college-scholarships"
+            },
+            {
+                "Scholarship Name": "#AnxietySucks Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "This scholarship is open to any high school senior who is a legal resident of the United States.\nScholarship will only be paid to winner who is living in the United States\nThis is NOT a financial need based scholarship\nRelatives or employees of Life Launch Centers may not enter\nHome-schooled students may apply as long as their curriculum and course of study is equivalent to a Utah high school senior\nApplicants are required to submit a video on YouTube (click the “Make a Video” button or scroll down for details)\nMust include a link to Life Launch Center’s website in your video description: https://www.lifelaunchcenters.com/ and these 4 hashtags: #AnxietySucks #StrongerFamiliesStrongerFutures #LifeLaunchCentersScholorship #LifeLaunchCenters.\nApplicants MUST “like” Life Launch Centers’ Facebook page to be considered. Failure to “like” our Facebook page will result in automatic disqualification.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.lifelaunchcenters.com/scholarship/?utm_source=ActiveCampaign&utm_medium=email&utm_content=%23AnxietySucks+%241000+Scholarship+2023+Details&utm_campaign=Anxiety+Scholarship+2023"
+            },
+            {
+                "Scholarship Name": "Jaqaun Webb Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school senior\n3.0 or higher\nBlack/African American",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://bold.org/scholarships/jaqaun-webb-scholarship/"
+            },
+            {
+                "Scholarship Name": "Utah Jumpstart Financial Literacy Spring Scholarhsip",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "1. Be a high school student, graduating class of 2022 or 2023, at an accredited Utah school.\n\n2. Have successfully completed or currently be enrolled in the General Financial Literacy course or\n\nequivalent required course.\n\n3. If selected as a scholarship winner, applicant must show proof that you plan to pursue post\n\nsecondary education which includes acceptance letter from an eligible post-secondary institution.Complete online application on your Complete Scholarships account\n\n2. Submit required video as specified in application criteria (see below)\n\n3. Submit post-secondary institution acceptance letter OR document indicating student has\n\ncompleted the application process and is being considered for admission. Juniors will not need to do this until they claim their funds after graduation\n\n4. Upload your video to YouTube and copy the video link into your scholarship application on Complete Scholarships",
+                "Award Amount": "$1,250",
+                "Applictaion/Information Link": "https://www.utahjumpstart.org/scholarship"
+            },
+            {
+                "Scholarship Name": "Scott and Kim Verplank Foundation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS Senior diagnosed with Type Diabetes and successfully managing the disease. minimum GPA of 3.0, Participating in an athletic team",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "http://verplankfoundation.com/scholarships/"
+            },
+            {
+                "Scholarship Name": "Brigham Young Granddaughters Association Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Submission requirements must include the following:\n\n· Title Page with name of applicant\n\n· Essay of 800-1000 words\n\n· Current GPA\n\n· Proof of acceptance to a College or University for Fall 2023\n\n· Family tree showing genealogy of applicant to Brigham Young\n\n· Letter of reference from another dues paying member of BYGA\n\n· Achievements/Volunteering",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.brighamyounggranddaughters.org/scholarship"
+            },
+            {
+                "Scholarship Name": "Husband and Wife Law Team Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School senior enrolled in college for Fall 2021, 3.0 GPA, US Citizen, Permanent Resident or DACA Student. Essay of 500-1000 words on how you intend to use your education no matter what field you end up working in.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.breyerlaw.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "Kauwahi 'Anaina Hawai'i\nHawaiian Civic Club",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligibility: Preference will be given to students with Hawaiian heritage. Awards will be given based on grade\npoint average, personal accomplishments, community involvement, and merit. All applicants must\nhave at least a 2.5 cumulative GPA.",
+                "Award Amount": "$500-$1000",
+                "Applictaion/Information Link": "paper application in the CCC or rm. A226"
+            },
+            {
+                "Scholarship Name": "Theresa Lord Future Leader Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must be a high school senior or undergraduate student\nMust be African American or of Caribbean descent",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://bold.org/scholarships/theresa-lord-future-lord-scholarship/"
+            },
+            {
+                "Scholarship Name": "Student View Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School seniors who plan to attend a 4-year college or university, or trade school. Complete the 15-20 minute online application survey about colleges in your area",
+                "Award Amount": "1-$5000 award, 3-$1000 awards, 10-$500 awards",
+                "Applictaion/Information Link": "http://www.student-view.com/ScholarshipWmap.html"
+            },
+            {
+                "Scholarship Name": "Unigo's All About Education Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must be 14 or older and a U.S. legal resident. Respond in 250 words or less to the question \"How will a $3,000 scholarship for education make a difference in your life?",
+                "Award Amount": "$3,000",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/all-about-education-scholarship"
+            },
+            {
+                "Scholarship Name": "Society of Hispanic Professional Engineers",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "• Active SHPE Member\n• Minimum Cumulative GPA (High School): 2.75\n• High School Senior\n• Graduating in Summer 2022\n• College Freshman in Fall 2022\no Plan to pursue a STEM degree\no Attending an academic institution in the\nUnited States or Puerto Rico",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.shpe.org/uploads/images/general/PDF/Scholarship-Offerings-2022-2023_UPDATED-02.01.22.pdf"
+            },
+            {
+                "Scholarship Name": "Snapology STEM Studies Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Female senior attending college fall 2021, show demonstrated academic achievement, financial need, and an expressed interest in pursuing STEM education.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.snapology.com/scholarships"
+            },
+            {
+                "Scholarship Name": "RealtyHop Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school senior, Essay under 500 words on \"COVID-19 has drastically impacted the world and will continue to change how society views our home as a place of living, working, and studying. As you reflect on the global pandemic and the beginning of your professional life, tell us what you would like to start doing, stop doing, and keep on doing.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.realtyhop.com/resources/scholarship"
+            },
+            {
+                "Scholarship Name": "Prochnow Foundation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Transcript showing a cumulative high school GPA of at least 3.5\nCollege or trade school acceptance letter\nRecommendation letter\nEssay of 250-500 words describing your long-term personal and professional goals and how you achieve at a high level with a mental illness",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/prochnow-foundation-scholarship/8712"
+            },
+            {
+                "Scholarship Name": "LetGrow \"Think for Yourself\" Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School Student, 500 word essay based on prompt provided on website",
+                "Award Amount": "up to $5000",
+                "Applictaion/Information Link": "https://letgrow.org/program/think-for-yourself-scholarship/"
+            },
+            {
+                "Scholarship Name": "Celebrate the West, High School Art Contest",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Entrants from WGA member states will create original two-dimensional artwork inspired by their state or informed by living in the West. Students may draw ideas from a variety of sources, including state history, landmarks, natural resources, National Parks and Monuments, people, communities, and culture.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/celebrate-the-west-high-school-art-competition/7032?utm_source=sendgrid&utm_medium=email&utm_campaign=counselor-scholarship-digest&utm_content=unregistered-counselors"
+            },
+            {
+                "Scholarship Name": "Anthony's Scholarship Living with a Sense of Purpose",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School Senior with 3.0 GPA, A school resume, transcript and 500-1000 word essay on thoughtful ideas on how legislation can b inmplemented to lower or decrease the rate of suicide in the United States.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://protectingpatientrights.com/anthonys-scholarship-living-with-a-sense-of-purpose-2021/"
+            },
+            {
+                "Scholarship Name": "America First Credit Union Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "members must be graduating high school seniors or undergraduate students currently enrolled in a two-year, four-year or technical college or university, and have a passion for serving and helping others.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.americafirst.com/about/community-involvement/charitable-outreach-programs/scholarship-application.html"
+            },
+            {
+                "Scholarship Name": "America First Charitable Foundation Scholarships",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school senior, with community service and leadership and academic potential.",
+                "Award Amount": "10 awards of $1000",
+                "Applictaion/Information Link": "https://www.americafirst.com/about/community-involvement/charitable-outreach-programs/scholarship-application.html"
+            },
+            {
+                "Scholarship Name": "AbbVie Cystic Fibrosis Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Applicants must be United States citizens or a legal and permanent residents of the United States who have been diagnosed with CF by a physician and are enrolled in or awaiting acceptance from an accredited institution (i.e., college, university, or trade/vocational school) for an educational program during the upcoming academic year. Employees of AbbVie and their immediate family members are not eligible to apply. Healthcare providers and their immediate family members are not eligible to apply. For more information or to apply, please visit the scholarship provider's website.",
+                "Award Amount": "$25, 000",
+                "Applictaion/Information Link": "https://www.scholarships.com/financial-aid/college-scholarships/scholarships-by-type/disability-scholarships/abbvie-cystic-fibrosis-scholarship/"
+            },
+            {
+                "Scholarship Name": "The Paradigm Challenge",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must be no older than 18 years at the time of submission.\n\nYou may work in a team or alone in creating an original and creative way to help solve real-life problems in homes, schools, communities, and/or around the world.\n\nEntries may come in the form of posters, videos, inventions, messages, community events, websites, mobile apps, or anything else that will help save lives",
+                "Award Amount": "up to $100,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/the-paradigm-challenge/16534"
+            },
+            {
+                "Scholarship Name": "Save a Life Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS senior, going into healthcare or education, provide Transcript. Must be 18. Essay of 750-1000 words explaining your career aspiratioins, how you plan to advance healthcare and/or education through your work and what inspired you to commit yourself to this field.",
+                "Award Amount": "2 awards of $1500",
+                "Applictaion/Information Link": "https://www.onlinecprcertification.net/scholarship.php"
+            },
+            {
+                "Scholarship Name": "Rover Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Seniors attenging college Fall 2022, Essay of 400-500 words on \"How did growing up with a pet in your life (could be a friend's or family member's) impact the person you are today?",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://www.rover.com/college-scholarship/"
+            },
+            {
+                "Scholarship Name": "Pureland Supply Skilled Trades Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Senior planning to attend MTEC or other vocational trades school, A 1-page typed essay on how your chosen trade or field is important in today's society and why this is the trade you want to be in. High school transcript, letter of recommendation from non-family member, completed application.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.purelandsupply.com/t-scholarship.aspx"
+            },
+            {
+                "Scholarship Name": "Print and Graphic Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School Seniors pursuing a career in printing technology, graphic Communications, or publishing",
+                "Award Amount": "$1000 - $5000",
+                "Applictaion/Information Link": "https://www.pgsf.wp1.openfunction.website/scholarship-application"
+            },
+            {
+                "Scholarship Name": "Photographers.org Annual Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school senior, have photo ID. 300 word essay describing your interest in photography",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.photographer.org/academic-scholarships/"
+            },
+            {
+                "Scholarship Name": "Odenza Vacations Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Students ages 17 to 24, 2.5 GPA. Be a resident of the US or Canada. Essay of up to 1000 words on \"Why do you want to be in College/University?",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://odenzavacationsscholarships.com/apply.php"
+            },
+            {
+                "Scholarship Name": "IVEY Essay Contest",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "The requirements for eligible student entries are:\n\nYou should presently be a senior in high school;\nOr be transitioning from high school to a college or university;\nOr be already enrolled as an undergraduate in a college or university inside the United States.\nEmployees and their immediate family members of Ivey Engineering are not eligible to participate.\nStudents with full academic scholarships are not eligible to enter.\nPast winners are not eligible to participate in the contest.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.iveyengineering.com/about-us/scholarship/"
+            },
+            {
+                "Scholarship Name": "I Have the Spirit, Yes I do!",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "The scholarship is open to all high school seniors in the United States who will be attending college in 2023 (community college or a 4-year university!)\n\nApplicants must write a short essay (300-500 words or more) to show us how you demonstrate school spirit",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/i-have-spirit-yes-i-do-scholarship-2023/18883"
+            },
+            {
+                "Scholarship Name": "Equality Utah & Jeff Green LGBTQ and Allied Student Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Students who meet the requirements may apply at any time during or before their higher education experience. To remain eligible for the scholarship, recipients must:\n- Remain enrolled full-time (at least 12 credits a semester)\n- Maintain a 2.0 GPA\n- Participate in the Equality Utah Membership Program while receiving funds",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.equalityutah.org/scholarships#:~:text=Equality%20Utah%20%26%20Jeff%20Green%20LGBTQ,sexual%20orientation%20or%20gender%20identity."
+            },
+            {
+                "Scholarship Name": "DutchCrafters Amish Furniture Heritage Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Senior, legal resident, 3.0 GPA, must have completed the FAFSA, Essay on how you will draw upon your cultural heritage to shape your vocational aspirations, offer creative value to your future employer, and serve your community?",
+                "Award Amount": "3 awards of $500",
+                "Applictaion/Information Link": "https://www.dutchcrafters.com/heritage-scholarship"
+            },
+            {
+                "Scholarship Name": "Code Wizards HQ Educational Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school senior, 3.5 GPA - Priority to STEM majors, completed FAFSA Application, Letter of recommendation. 600 word essay on, \"Beyond needing financial support, why do you deserve this scholarship?\", resume, unofficial transcript, (Iptional short video - less than 2 minutes, about your need and how can this scholarship help you get ahead.",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://codewizardshq.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "Annual Louise W Pilgrim (LWP) Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Be a US citizen or legal permanent resident.\n\nIntend to be registered with full-time hours as a student.\n\nBe a high school senior or be currently enrolled at an accredited college or university as an undergraduate or graduate student (specifications vary for each scholarship).\n\n*Students who are currently taking a gap year that will enroll for the fall are eligible to apply.\nHave a minimum GPA score of 3.0.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/annual-louise-w-pilgrim-lwp-scholarship/14686"
+            },
+            {
+                "Scholarship Name": "ACF Visionary Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Open to all students, legal resident. Must submit a high school transcript and a 500-600 word essay on \"Why College is Important to Me.",
+                "Award Amount": "6 awards of $5000",
+                "Applictaion/Information Link": "https://americancollegefoundation.org/college-planning-visionary-scholarship-details/"
+            },
+            {
+                "Scholarship Name": "Steps for Change Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Legal Status in the US, High School Senior, attending college Fall 2021, household income of less than $55,000, GPA of 3.5+, A 1 minute video answering the question: How would you value yourself?,",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://www.wealthbyhealth.org/steps-for-change-scholarship"
+            },
+            {
+                "Scholarship Name": "Trane Technnician of the Future",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Be a current high school senior, high school graduate or current college undergraduate in an eligible region in the US and Canada.\n\nBe pursuing an HVAC (Heating, ventilation, and air conditioning) degree or certification or building automation technology degree or certification.\n\nplan to enroll in part-time or fulltime undergraduate study at an accredited two- or four-year college, university or vocational-technical/trade school for the upcoming academic term.",
+                "Award Amount": "$4,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/trane-technician-of-the-future-scholarship/15423?utm_source=sendgrid&utm_medium=email&utm_campaign=counselor-scholarship-digest&utm_content=unregistered-counselors"
+            },
+            {
+                "Scholarship Name": "Westridge Elementary School Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Open to seniors who attended Westridge Elementary School. 1 page Essay",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "Paper Application available in A143/CCC Turn in to Mrs. Castillo by 3pm!"
+            },
+            {
+                "Scholarship Name": "Principals Leadership",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Paper Applictaion in CCC or A226, Transcript and short essay.",
+                "Award Amount": "varies",
+                "Applictaion/Information Link": "Paper Applictaion"
+            },
+            {
+                "Scholarship Name": "Darren Hirsche",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Paper Applictaion in CCC or A226, Transcript and short essay.",
+                "Award Amount": "varies",
+                "Applictaion/Information Link": "Paper Application"
+            },
+            {
+                "Scholarship Name": "Waste Management Four Corners Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Be pursuing a Diesel or Heavy Equipment Mechanic major.\n\nBe a high school senior or graduate, or current college undergraduate.\n\nPlan to enroll in full-time undergraduate study at an accredited two-year college or vocational-technical school for the entire upcoming academic year in Colorado, New Mexico, Utah or Arizona.\n\nHave a minimum grade point average of 2.0 on a 4.0 scale (or its equivalent).\n\nWM employees and immediate family members of WM employees are ineligible.",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/wm-four-corners-scholarship-program/15436"
+            },
+            {
+                "Scholarship Name": "Cyber America",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "CyberStart America gives students in 9th-12th grade free access to the world-renowned CyberStart game.\n\nTackle four unique bases, each focusing on both offensive and defensive cybersecurity disciplines.\n\nExplore over 200 unique security challenges which you'll solve as a cybersecurity agent investigating criminal gangs.\n\nGet access to an extensive field manual featuring video demos, top tips and essential background information to help with challenges.\n\nUnlock a hidden interest, progress from novice to expert and demonstrate your skills to win scholarships.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.cyberstartamerica.org/?utm_source=Newsletter&utm_medium=email&utm_content=Student+scholarship+opportunities+with+CyberStart+America&utm_campaign=%5BCSA%5D+CyberStart+America+-+Enable+-+teachers&vgo_ee=0%2BwtksE76i1gZJa8ZG24ZA%3D%3D"
+            },
+            {
+                "Scholarship Name": "The Generation Google Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Intend to be enrolled in or accepted as a full-time student in a Bachelors, Masters, or PhD program at an accredited university or college in the United States or Canada for the upcoming academic year\n\nBe studying computer science, computer engineering, or a closely related technical field\n\nDemonstrate a strong academic record\n\nDemonstrate financial need\n\nExemplify leadership and demonstrate passion for improving representation of underrepresented groups in computer science and technology",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/the-generation-google-scholarship/12395"
+            },
+            {
+                "Scholarship Name": "NCCF Survivor Scholarship Program",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS senior who has battled cancer or is currently a cancer patient. Check out website for more criteria",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "http://collegiatecancer.org/scholarships/"
+            },
+            {
+                "Scholarship Name": "NCCF Legacy Scholarship Program",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS seniors who have lost a parent/guardian to cancer. Check the Website for more criteria",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "http://collegiatecancer.org/scholarships/"
+            },
+            {
+                "Scholarship Name": "Bryan Cameron Education Foundation",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Maintain a minimum, cumulative, unweighted GPA of a 3.7/4.0 scale or equivalent in their high school studies;\nBe a full citizen of the United States of America;\nBe in the high school graduating Class of 2022, planning to enroll in a full-time course of study towards a degree at an accredited four-year U.S. college or university for the full academic year following high school graduation;\nShow proven excellence in extracurricular activities, be motivated leaders with a strong work ethic, demonstrate active participation in community service and/or civic minded arenas; and\nSubmit the following three components by the Application Deadline:\nOnline Application;\nTwo required Letters of Recommendation; and\nTranscript certifying academic performance.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.bryancameroneducationfoundation.org/scholarship#eligibility"
+            },
+            {
+                "Scholarship Name": "MGMA Western Section Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Scholarship applicants are required to be a member of MGMA.\n\nApplicants must be enrolled in an undergraduate or graduate degree program relevant to medical practice management, including public health, business administration, healthcare administration and other related areas.\n\nTo be eligible to receive a scholarship, students must be enrolled in a degree program for the coming academic year at a university located within the United States.\n\nMust reside in Alaska, Arizona, California, Colorado, Hawaii, Idaho, Montana, Nevada, New Mexico, Oregon, Utah, Washington or Wyoming",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://app.goingmerry.com/scholarships/mgma-western-section-scholarship/7096"
+            },
+            {
+                "Scholarship Name": "Beans for Brains Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School Seniors. 3.0 GPA, know how to Knit, Crochet, Weave, Etc. Submit photo of an original knitted, crocheted and/or woven project",
+                "Award Amount": "3 awards of $2500",
+                "Applictaion/Information Link": "https://www.jimmybeanswool.com/details/knitting/scholarshipFAQs.asp"
+            },
+            {
+                "Scholarship Name": "Design a Better Future Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "To be eligible for the scholarship, applicants must be graduating high school seniors planning on attending an accredited college or university or trade school in the United States of America. Additionally, students must have met all of the requirements described on this website (https://honorsgradu.com/). Employees of Honors Graduation and their families are not eligible to participate. Submissions must be received before the deadlines in order to qualify for the scholarship program. Mailed applications must be postmarked by that deadline. There are no citizenship requirements.",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://www.honorsgradu.com/Scholarship/"
+            },
+            {
+                "Scholarship Name": "Unigo: What Does the Number Five Mean to You",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "14 years or older, Legal US Resident. 250 words or less essay on\" May is the fifth month of the year. Write a letter to the number five explaining why five is important. Be serious or be funny, either way here's a high five to you for being original.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/fifth-month-scholarship"
+            },
+            {
+                "Scholarship Name": "Project Management Instutute Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "To be eligible for this scholarship you must meet the following criteria:\n● Utah student attending an accredited Utah High School, College, University, or Trade School (High School\nstudents must be a Junior or a Senior. University Students must be Undergraduate in Freshman,\nSophomore, or Junior year.)",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://projectmanager.org/Scholarship"
+            },
+            {
+                "Scholarship Name": "American Indian College Fund",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligibility\n\nAny Native American U.S. citizen that is a member or descendant of a state or federally recognized tribe with at least a 2.0 grade point average, and enrolled as a full-time student can apply for a scholarship.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://collegefund.org/students/scholarships/"
+            },
+            {
+                "Scholarship Name": "HelpTeaching.com Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "open to all students. Students must submit a short piece of original work. This can be a short story, a personal story or teaching moment. Check out the website for more information",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.helpteaching.com/resources/scholarship"
+            },
+            {
+                "Scholarship Name": "Jane Austen Society of North America Essay Contest",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School Students, Essay that discusses how Jane Austen uses the arts. Students may discuss the use of the arts in one or more novels.",
+                "Award Amount": "$250 to $1000",
+                "Applictaion/Information Link": "http://jasna.org/programs/essay-contest?"
+            },
+            {
+                "Scholarship Name": "OUT to Innovate",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "LGBTQ+ students pursuing a STEM career",
+                "Award Amount": "Vaires",
+                "Applictaion/Information Link": "https://webportalapp.com/sp/login/oti_scholarships_22"
+            },
+            {
+                "Scholarship Name": "Horatio Alger CTE Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Eligibility Criteria:\n\nHave completed high school (or earned a high school equivalency credential)\nWill be enrolled in eligible program in the Fall\nExhibit a strong commitment to pursue and complete a career or technical program (up to 2 years) at an accredited non-profit post-secondary institution in the United States\nDemonstrated critical financial need (must be eligible to receive the Federal Pell grant as determined by completion of the FAFSA)\nDemonstrated perseverance in overcoming adversity\nBe under the age of 30\nBe a United States citizen",
+                "Award Amount": "$2,500",
+                "Applictaion/Information Link": "https://scholars.horatioalger.org/about-our-scholarship-programs/technical/"
+            },
+            {
+                "Scholarship Name": "Endeavor Design Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "The Endeavour Design Scholarship is offered in support of creating racial equity in the fields of Fashion/Footwear, Industrial, and Graphic Design.\n\nRequirements:\n\nScholarship reserved for Black High School students, US residents only.\nMust be a High School Senior/Student or Returning Freshman, 2nd Semester College Student who plans to enroll in a full-time undergraduate study at an accredited two- or four-year college\nPursuing a design-related degree; majors include: Fashion Design, Footwear Design, Industrial Design, Graphic Design, or related fields.\nTo apply, submit 5-7 photos of your portfolio. Write a brief statement about what design means to you and how a career in design would be transformational for you.",
+                "Award Amount": "$1,865",
+                "Applictaion/Information Link": "https://bold.org/scholarships/endeavor-design-scholarship/"
+            },
+            {
+                "Scholarship Name": "Too Cool to Pay for School",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Open to high school, college, and graduate school students of all years. Must be currently enrolled full time (in high school or at an accredited university) or planning on enrolling within 24 months.",
+                "Award Amount": "",
+                "Applictaion/Information Link": ""
+            },
+            {
+                "Scholarship Name": "SP Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School student who plans on attending college next Fall. Legal resident of U.S. or Puerto Rico",
+                "Award Amount": "$10,000",
+                "Applictaion/Information Link": "https://studentscholarships.org/scholarship/17749/sp-scholarship"
+            },
+            {
+                "Scholarship Name": "Do-Over Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "This award is for U.S. students.| Must be a legal U.S. resident.| Must be a resident of one of the 50 United States or the District of Columbia.| Must be 14 years of age or older at time of application.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/do-over-scholarship"
+            },
+            {
+                "Scholarship Name": "Because College is Expensive Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school sophomores, juniors & seniors, current college students and anyone else looking to attend college or graduate school.",
+                "Award Amount": "$500",
+                "Applictaion/Information Link": "https://cedaredlending.com/scholarship/"
+            },
+            {
+                "Scholarship Name": "American Legion: Samsung Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Must attend Boys or Girls State",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.legion.org/scholarships/samsung"
+            },
+            {
+                "Scholarship Name": "Mohamed Magdi Taha Memorial Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Undergraduate student\nBlack/African/ Preference to students from Sudan\nSTEM or the arts",
+                "Award Amount": "$6,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/mohamed-magdi-taha-memorial-scholarship/"
+            },
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "JMJ Phillip Group College Scholarships",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Seniors going into a STEM field, starting Fall 2021, 3.6 GPA, 1 letter of reference, 500-1000 word essay: \"How can STEM graduates in 2022 change the world in 2040?",
+                "Award Amount": "4 awards of $1000",
+                "Applictaion/Information Link": "https://jmjphillip.com/jmj-phillip-stem-scholarship/"
+            },
+            {
+                "Scholarship Name": "Geneva Rock Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "To be eligible, applicants must be currently enrolled in an accredited university, college, trade or vocational school. Scholarship applicants must be in pursuit of construction-related careers including, but not limited to: Construction management, civil engineering, business, and commercial/professional sales. Students involved in trades such as welding, diesel tech, heavy equipment operations and building tech are also welcome to apply. High school seniors are eligible to apply, but must be enrolled in one of the previously mentioned institutions. All applicants must have received, (or be in the process of attaining), their high school diploma or GED. All applicants must be U.S. citizens, or be a legal permanent resident with work eligibility status.",
+                "Award Amount": "$2,000",
+                "Applictaion/Information Link": "https://genevarock.com/company/scholarship/"
+            },
+            {
+                "Scholarship Name": "BE Bold Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Lottery scholarship - All students can enter, no essay required. Be prepared to get spam from entering this scholarship.",
+                "Award Amount": "$25,000",
+                "Applictaion/Information Link": "https://bold.org/scholarships/the-be-bold-no-essay-scholarship/#ref=best-scholarships"
+            },
+            {
+                "Scholarship Name": "American Legion: Baseball Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Attach a copy of his official high school transcript.\n• Have graduated from high school.\n• Be on a current roster (American Legion National\nBaseball Electronic Registration Form) filed with National\nHeadquarters.\n• Be part of a team affiliated with an American Legion post.\n• Have three letters of testimony attached to application.",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.legion.org/scholarships/baseball"
+            },
+            {
+                "Scholarship Name": "Wize USA High School Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Student (of any age) currently enrolled in an American High School\nAll years are eligible to apply (freshmen, sophomores, juniors, and seniors)\nNo GPA requirement",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.wizeprep.com/scholarships/11"
+            },
+            {
+                "Scholarship Name": "Spirit Of Giving Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High school seniors and current college students planning to attend college or another form of post-secondary education for the full school year following the submission period are eligible to apply. Eligible institutions include but are not limited to four-year universities, community colleges, institutes of technology and accredited credential or certificate programs.\n\nApplicants must meet all of the following criteria:\n\nPlanning to attend school in the following school year at an institution within the US.\nNot an employee or family member of Wine Country Gift Baskets or Houdini Inc.\nNot a previous winner of this scholarship.",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://www.winecountrygiftbaskets.com/information/scholarship.asp"
+            },
+            {
+                "Scholarship Name": "Flavor of the Month Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "This award is for U.S. students.| Must be a legal U.S. resident.| Must be a resident of one of the 50 United States or the District of Columbia.| Must be 14 years of age or older at time of application.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/flavor-of-the-month-scholarship"
+            },
+            {
+                "Scholarship Name": "WWGF Foundation Scholarships",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Women's Western Golf Foundation will accept applications from girls who are actively participating in the sport of Golf. 3.5 GPA. Show character, integrity and leadership in Resume.",
+                "Award Amount": "20 awards of $!0,000",
+                "Applictaion/Information Link": "https://wwgf.esfhost.com/info/"
+            },
+            {
+                "Scholarship Name": "Utah Jazz Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "High School senior, person of color, preference given to those with demonstrated financial need - regardless of FAFSA eligibility - Preference given to first generation students, Admissions to one of the six listed Utah Universities: BYU, SUU, Weber, U of U, USU, UVU",
+                "Award Amount": "Award amount varies per Utah Institution. Tuition, books, fees, room and board for full undergraduate degree.",
+                "Applictaion/Information Link": "https://10000degrees.tfaforms.net/4760317"
+            },
+            {
+                "Scholarship Name": "Utah Elks Association Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "This scholarship is also for the Elks Association but is based on special needs. Applicants must be a senior and a US Citizen",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "Paper application available in the CCC"
+            },
+            {
+                "Scholarship Name": "Unigo: Big Things Come In Small Packages",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "14 years or older, Legal US Resident. 250 Words or less essay on \"Not every gift has to be expensive or extravagant. In fact, sometimes it's the sweet and simple things that make a real difference in our lives. Think back and tell us about something you received as a gift and why it meant so much to you.",
+                "Award Amount": "$1,500",
+                "Applictaion/Information Link": "https://www.unigo.com/scholarships/our-scholarships/sweet-and-simple-scholarship"
+            },
+            {
+                "Scholarship Name": "McDonald's HACER National Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Senior, US Legal Resident, DREAMer or DACAmented, 2.8 GPA or higher",
+                "Award Amount": "$5000 to $100,000",
+                "Applictaion/Information Link": "https://www.mcdonalds.com/us/en-us/community/hacer.html"
+            },
+            {
+                "Scholarship Name": "James Beard Foundation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Culinary Arts Students, 250 word personal statement detailing what makes you a great candidate for a JBF scholarship, two letters of recommendation, a copy of your transcript, and an updated resume.",
+                "Award Amount": "up to $4000",
+                "Applictaion/Information Link": "https://www.jamesbeard.org/scholarships"
+            },
+            {
+                "Scholarship Name": "Hispanic Scholarshp Fund",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Senior Students with Hispanic Heritage. 2.5 minimum GPA . Must complete FAFSA or state based financial Aid, US Citizen or legal resident or DACA",
+                "Award Amount": "Dependent on need and available funds",
+                "Applictaion/Information Link": "https://www.hsf.net/"
+            },
+            {
+                "Scholarship Name": "Foot Locker Scholars Program",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "student-athletes who demonstrate exceptional academic abiltity adn strong leadership skills in sports, school, and community",
+                "Award Amount": "20 awards of $20,000",
+                "Applictaion/Information Link": "https://footlockerscholarathletes.squarespace.com/"
+            },
+            {
+                "Scholarship Name": "Dr Eugene Kramer Scholarship for Future Doctors of America",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "In order to apply, be a current undergraduate student at a university in the United States or a High School student that plans to attend university. The scholarship is geared towards students who plan to attend medical school in the future.\n\nThe winner of the scholarship will be selected by an essay competition. A single winner will be chosen based on a creative essay of less than 1000 words answering the following:\n\n“Being a doctor comes with great responsibility. When you become a doctor, name something that you will you do that goes over and above the call of duty to give back to the world.”",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://dreugenekramerscholarship.com/dr-eugene-kramer-scholarship/"
+            },
+            {
+                "Scholarship Name": "Doodle 4 Google",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "K-12 students, bring your creativity to life in a Doodle for Google logo, use any medium",
+                "Award Amount": "$30,000",
+                "Applictaion/Information Link": "https://doodles.google.com/d4g/"
+            },
+            {
+                "Scholarship Name": "DFA Cares Foundation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Dairy Farmers of America Scholarship is for high school seniors planning on attending college Fall 2021 and pursue a career related to the dairy industry or a related field. A list is available on the website.",
+                "Award Amount": "20 awards of $1000",
+                "Applictaion/Information Link": "https://www.dfamilk.com/careers/students-and-graduates"
+            },
+            {
+                "Scholarship Name": "David & Dovetta Wilson Foundation Scholarship",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "HS senior engaged in academic excellence, civic and religious acts of service and able to demonstrate a commitment to use their education to give back to local, state and national communities. US Citizen or legal resident, plan to attend an accredited college or university. Submission requirements are listed on the website.",
+                "Award Amount": "9 awards up to $1000",
+                "Applictaion/Information Link": "http://wilsonfund.org/apply/"
+            },
+            {
+                "Scholarship Name": "AICPA Legacy Scholarships",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "Students Interested in pursuing a career in accounting",
+                "Award Amount": "Varies",
+                "Applictaion/Information Link": "https://www.thiswaytocpa.com/education/aicpa-legacy-scholarships/"
+            },
+            {
+                "Scholarship Name": "Empower Manufacturing Scholarship for 12th Graders by Powerblanket",
+                "DUE DATE": "TBA",
+                "Eligibility/Rules": "REQUIREMENTS\n• Must attend a high school in Utah\n• Must show interest in the manufacturing industry/engineering field\n• Must intend to enroll in a postsecondary institution\n• Must have a minimum GPA of 3.0\n\nAPPLICATION PROJECT\nSubmit a 500-word essay answering these questions:\n• Why are you interested in a manufacturing/engineering career?\n• What specific industry are you interested in and why?\n• How will you make your mark in that field?",
+                "Award Amount": "$1,000",
+                "Applictaion/Information Link": "https://completescholarships.scholarshipuniverse.com/student/scholarship/139511?search=true"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentPage = 1;
+            const rowsPerPage = 20;
+
+            function renderScholarships(data, page) {
+                const tableBody = document.getElementById('scholarshipBody');
+                tableBody.innerHTML = '';
+                const start = (page - 1) * rowsPerPage;
+                const end = start + rowsPerPage;
+                const paginatedData = data.slice(start, end);
+
+                paginatedData.forEach(scholarship => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${scholarship["Scholarship Name"]}</td>
+                        <td>${scholarship["DUE DATE"]}</td>
+                        <td>${scholarship["Eligibility/Rules"]}</td>
+                        <td>${scholarship["Award Amount"]}</td>
+                        <td><a href="${scholarship["Applictaion/Information Link"]}" target="_blank">Apply Here</a></td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+
+                document.getElementById('pageNumber').textContent = page;
+            }
+
+            renderScholarships(scholarships, currentPage);
+
+            document.getElementById('searchBar').addEventListener('input', function () {
+                const searchTerm = this.value.toLowerCase();
+                const filteredScholarships = scholarships.filter(scholarship =>
+                    scholarship["Scholarship Name"].toLowerCase().includes(searchTerm)
+                );
+                currentPage = 1;
+                renderScholarships(filteredScholarships, currentPage);
+            });
+
+            document.getElementById('sortOptions').addEventListener('change', function () {
+                const sortBy = this.value;
+                let sortedScholarships = [...scholarships];
+
+                if (sortBy === 'name') {
+                    sortedScholarships.sort((a, b) => a["Scholarship Name"].localeCompare(b["Scholarship Name"]));
+                } else if (sortBy === 'date') {
+                    sortedScholarships.sort((a, b) => new Date(a["DUE DATE"]) - new Date(b["DUE DATE"]));
+                } else if (sortBy === 'amount') {
+                    const parseAmount = amount => parseFloat(amount.replace(/[^0-9.-]+/g, ""));
+                    sortedScholarships.sort((a, b) => parseAmount(a["Award Amount"]) - parseAmount(b["Award Amount"]));
+                }
+
+                currentPage = 1;
+                renderScholarships(sortedScholarships, currentPage);
+            });
+
+            document.getElementById('prevPage').addEventListener('click', function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderScholarships(scholarships, currentPage);
+                    scrollToTable();
+                }
+            });
+
+            document.getElementById('nextPage').addEventListener('click', function () {
+                if (currentPage * rowsPerPage < scholarships.length) {
+                    currentPage++;
+                    renderScholarships(scholarships, currentPage);
+                    scrollToTable();
+                }
+            });
+
+            function scrollToTable() {
+                document.querySelector('#scholarshipTable').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    </script>
+    <div class="footer">
+        <h4>Contact Info</h4>
+        <p>Phone: 3091212121</p>
+        <p>Coralville, IA</p>
+        <p>EnvisionHelp@gmail.com</p>
+        <h6>© Since 3/8/2024, doing business as Envision</h6>
+    </div>
+</body>
+
+</html>

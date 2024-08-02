@@ -1,0 +1,154 @@
+/* Styling for the container */
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #003366;
+}
+
+.logo {
+    height: 100%;
+    margin: 0;
+    height: 100px;
+    width: auto;
+}
+
+.footer {
+    height: 100%;
+    margin: 0;
+    background-color: #001a33;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.logo-container {
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    background-color: #00264d;
+    text-align: center;
+}
+
+.navbar-container {
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    background-color: #00264d;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for table header */
+th {
+    background-color: #001f3f;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Adjust column widths */
+th:nth-child(2) {
+    width: 20%;
+}
+
+th:nth-child(5) {
+    width: 15%;
+}
+
+/* Styling for table rows */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Styling for table cells */
+td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+/* Styling for the search bar */
+#searchBar {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+/* Styling for the sort dropdown */
+#sortOptions {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Styling for links */
+a {
+    color: #003366;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for pagination */
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prevPage,
+#nextPage {
+    padding: 10px 20px;
+    border: 1px solid #ddd;
+    background-color: #001f3f;
+    color: #fff;
+    cursor: pointer;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+
+#pageNumber {
+    font-size: 18px;
+}
