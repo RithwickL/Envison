@@ -37,11 +37,13 @@
     .navbar-container {
       padding: 10px;
       background-color: #001f3f;
+      position: relative;
     }
 
     .navbar {
       display: flex;
       justify-content: space-around;
+      flex-wrap: wrap;
     }
 
     .navbar a {
@@ -77,6 +79,29 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
+
+    .menu-icon {
+      display: none;
+      cursor: pointer;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        display: none;
+        flex-direction: column;
+      }
+
+      .navbar.show {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+    }
   </style>
 </head>
 
@@ -88,7 +113,8 @@
   </div>
 
   <div class="navbar-container">
-    <div class="navbar">
+    <span class="menu-icon" onclick="toggleNavbar()">&#9776;</span>
+    <div class="navbar" id="navbar">
       <a href="index.html">Home</a>
       <a href="Find.html">Find Institutions</a>
       <a href="scholarships.html">Find Scholarships</a>
@@ -118,7 +144,7 @@
       process while feeling welcomed and giving everyone a fair chance to flourish in a world that often seems
       unfair.
     </p>
-    <h2 style="color:powderblue;">Navigate to Find Scholarships, Find Institutions, or Checklist to Continue!</h2>
+    <h1 style="color:powderblue;">Navigate to Find Scholarships, Find Institutions, or Checklist to Continue!</h1>
   </div>
 
   <div class="footer">
@@ -128,6 +154,13 @@
     <p>EnvisionHelp@gmail.com</p>
     <h6>© Since 8/2/2024, doing business as Envision</h6>
   </div>
+
+  <script>
+    function toggleNavbar() {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('show');
+    }
+  </script>
 </body>
 
 </html>
